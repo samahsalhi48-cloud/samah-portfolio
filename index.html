@@ -7,16 +7,15 @@
 
 <style>
 
-/* FOND BLEU VIOLET PROFOND */
 body{
     margin:0;
     font-family:'Segoe UI',sans-serif;
-    background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+    background:linear-gradient(135deg,#0f0c29,#302b63,#1f1c4f);
     color:white;
     overflow:hidden;
 }
 
-/* ANIMATION LIGNES */
+/* CANVAS ANIMATION */
 canvas{
     position:fixed;
     top:0;
@@ -34,45 +33,50 @@ canvas{
 
 /* NOM */
 .hero h1{
-    font-size:85px;
+    font-size:95px;
     font-weight:800;
-    background:linear-gradient(45deg,#4facfe,#a66cff);
+    background:linear-gradient(45deg,#4facfe,#a66cff,#6c5ce7);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
     margin-bottom:10px;
 }
 
+/* TEXTE */
 .hero p{
     font-size:20px;
-    opacity:0.8;
+    opacity:0.85;
+    margin-bottom:60px;
 }
 
 /* PHOTOS */
 .photos{
-    margin-top:60px;
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:50px;
+    gap:60px;
 }
 
 /* PHOTO CENTRALE */
 .center-photo{
-    width:260px;
-    height:260px;
+    width:280px;
+    height:280px;
     border-radius:50%;
     object-fit:cover;
-    box-shadow:0 0 60px rgba(166,108,255,0.7);
-    z-index:3;
+    box-shadow:0 0 70px rgba(166,108,255,0.8);
+    transition:0.4s;
+}
+
+.center-photo:hover{
+    transform:scale(1.05);
 }
 
 /* PHOTOS LATERALES */
 .side-photo{
-    width:180px;
-    height:180px;
+    width:190px;
+    height:190px;
     border-radius:50%;
     object-fit:cover;
-    opacity:0.85;
+    opacity:0.9;
     transition:0.3s;
 }
 
@@ -99,6 +103,7 @@ canvas{
 </div>
 
 <script>
+
 const canvas = document.getElementById("network");
 const ctx = canvas.getContext("2d");
 
@@ -107,12 +112,12 @@ canvas.height = window.innerHeight;
 
 let particles = [];
 
-for(let i=0;i<80;i++){
+for(let i=0;i<90;i++){
     particles.push({
         x:Math.random()*canvas.width,
         y:Math.random()*canvas.height,
-        dx:(Math.random()-0.5)*1,
-        dy:(Math.random()-0.5)*1
+        dx:(Math.random()-0.5)*0.8,
+        dy:(Math.random()-0.5)*0.8
     });
 }
 
@@ -151,6 +156,7 @@ function animate(){
 }
 
 animate();
+
 </script>
 
 </body>
