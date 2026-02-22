@@ -15,7 +15,34 @@ body{
     overflow:hidden;
 }
 
-/* CANVAS ANIMATION */
+/* NAVBAR */
+.navbar{
+    position:fixed;
+    top:30px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:25px;
+    z-index:5;
+}
+
+.nav-item{
+    padding:12px 25px;
+    border-radius:40px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    color:white;
+    font-size:15px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.nav-item:hover{
+    background:linear-gradient(45deg,#4facfe,#a66cff);
+    transform:translateY(-3px);
+}
+
+/* CANVAS */
 canvas{
     position:fixed;
     top:0;
@@ -28,10 +55,9 @@ canvas{
     position:relative;
     z-index:2;
     text-align:center;
-    padding-top:100px;
+    padding-top:130px;
 }
 
-/* NOM */
 .hero h1{
     font-size:95px;
     font-weight:800;
@@ -41,7 +67,6 @@ canvas{
     margin-bottom:10px;
 }
 
-/* TEXTE */
 .hero p{
     font-size:20px;
     opacity:0.85;
@@ -88,6 +113,14 @@ canvas{
 </head>
 
 <body>
+
+<div class="navbar">
+    <a href="#" class="nav-item">Présentation</a>
+    <a href="#" class="nav-item">Parcours</a>
+    <a href="#" class="nav-item">Compétences</a>
+    <a href="#" class="nav-item">Objectifs</a>
+    <a href="#" class="nav-item">Contact</a>
+</div>
 
 <canvas id="network"></canvas>
 
