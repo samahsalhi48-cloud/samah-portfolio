@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samah - Portfolio</title>
+
+<style>
+
+/* BACKGROUND BLEU VIOLET */
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+    color:white;
+    overflow:hidden;
+}
+
+/* BULLES TRANSPARENTES SANS CADRE */
+.bubble{
+    position:absolute;
+    border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, rgba(255,255,255,0.15), rgba(186,104,255,0.08));
+    animation:float 25s infinite linear;
+}
+
+/* tailles et positions */
+.b1{width:250px;height:250px;left:5%;top:80%;}
+.b2{width:180px;height:180px;left:75%;top:90%;}
+.b3{width:220px;height:220px;left:40%;top:85%;}
+.b4{width:150px;height:150px;left:60%;top:70%;}
+.b5{width:200px;height:200px;left:20%;top:95%;}
+
+@keyframes float{
+    from{transform:translateY(0);}
+    to{transform:translateY(-120vh);}
+}
+
+/* HERO SECTION */
+.hero{
+    text-align:center;
+    padding-top:120px;
+    position:relative;
+    z-index:2;
+}
+
+.hero h1{
+    font-size:90px;
+    font-weight:800;
+    background:linear-gradient(45deg,#4facfe,#a66cff,#6c5ce7);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:20px;
+    opacity:0.85;
+}
+
+/* PHOTOS */
+.photos{
+    display:flex;
+    justify-content:center;
+    gap:50px;
+    margin-top:70px;
+    flex-wrap:wrap;
+}
+
+.photos img{
+    width:220px;
+    height:220px;
+    object-fit:cover;
+    border-radius:50%;
+    box-shadow:0 0 40px rgba(166,108,255,0.6);
+    transition:0.4s;
+}
+
+.photos img:hover{
+    transform:scale(1.08);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- BULLES -->
+<div class="bubble b1"></div>
+<div class="bubble b2"></div>
+<div class="bubble b3"></div>
+<div class="bubble b4"></div>
+<div class="bubble b5"></div>
+
+<div class="hero">
+    <h1>Samah</h1>
+    <p>Portfolio Data • Analyse • Intelligence Artificielle</p>
+
+    <div class="photos">
+        <img src="9B23317C-9A22-4FA4-B79D-1DA08D123F6E.jpg">
+        <img src="DSC_5987.jpg">
+        <img src="DSC_5998.jpg">
+    </div>
+</div>
+
+</body>
+</html>
