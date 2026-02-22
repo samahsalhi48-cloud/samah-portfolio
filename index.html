@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Samah - Portfolio</title>
+<title>Samah Salhi - Portfolio</title>
 
 <style>
 
-/* BACKGROUND BLEU VIOLET */
+/* FOND BLEU VIOLET PROFOND */
 body{
     margin:0;
     font-family:'Segoe UI',sans-serif;
@@ -16,67 +16,67 @@ body{
     overflow:hidden;
 }
 
-/* BULLES TRANSPARENTES SANS CADRE */
-.bubble{
-    position:absolute;
-    border-radius:50%;
-    background:radial-gradient(circle at 30% 30%, rgba(255,255,255,0.15), rgba(186,104,255,0.08));
-    animation:float 25s infinite linear;
+/* ANIMATION LIGNES */
+canvas{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:0;
 }
 
-/* tailles et positions */
-.b1{width:250px;height:250px;left:5%;top:80%;}
-.b2{width:180px;height:180px;left:75%;top:90%;}
-.b3{width:220px;height:220px;left:40%;top:85%;}
-.b4{width:150px;height:150px;left:60%;top:70%;}
-.b5{width:200px;height:200px;left:20%;top:95%;}
-
-@keyframes float{
-    from{transform:translateY(0);}
-    to{transform:translateY(-120vh);}
-}
-
-/* HERO SECTION */
+/* HERO */
 .hero{
-    text-align:center;
-    padding-top:120px;
     position:relative;
     z-index:2;
+    text-align:center;
+    padding-top:100px;
 }
 
+/* NOM */
 .hero h1{
-    font-size:90px;
+    font-size:85px;
     font-weight:800;
-    background:linear-gradient(45deg,#4facfe,#a66cff,#6c5ce7);
+    background:linear-gradient(45deg,#4facfe,#a66cff);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
-    margin-bottom:20px;
+    margin-bottom:10px;
 }
 
 .hero p{
     font-size:20px;
-    opacity:0.85;
+    opacity:0.8;
 }
 
 /* PHOTOS */
 .photos{
+    margin-top:60px;
     display:flex;
+    align-items:center;
     justify-content:center;
     gap:50px;
-    margin-top:70px;
-    flex-wrap:wrap;
 }
 
-.photos img{
-    width:220px;
-    height:220px;
-    object-fit:cover;
+/* PHOTO CENTRALE */
+.center-photo{
+    width:260px;
+    height:260px;
     border-radius:50%;
-    box-shadow:0 0 40px rgba(166,108,255,0.6);
-    transition:0.4s;
+    object-fit:cover;
+    box-shadow:0 0 60px rgba(166,108,255,0.7);
+    z-index:3;
 }
 
-.photos img:hover{
+/* PHOTOS LATERALES */
+.side-photo{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    object-fit:cover;
+    opacity:0.85;
+    transition:0.3s;
+}
+
+.side-photo:hover{
     transform:scale(1.08);
 }
 
@@ -85,23 +85,73 @@ body{
 
 <body>
 
-<!-- BULLES -->
-<div class="bubble b1"></div>
-<div class="bubble b2"></div>
-<div class="bubble b3"></div>
-<div class="bubble b4"></div>
-<div class="bubble b5"></div>
+<canvas id="network"></canvas>
 
 <div class="hero">
-    <h1>Samah</h1>
+    <h1>Samah Salhi</h1>
     <p>Portfolio Data • Analyse • Intelligence Artificielle</p>
 
     <div class="photos">
-        <img src="9B23317C-9A22-4FA4-B79D-1DA08D123F6E.jpg">
-        <img src="DSC_5987.jpg">
-        <img src="DSC_5998.jpg">
+        <img src="DSC_5987.jpg" class="side-photo">
+        <img src="9B23317C-9A22-4FA4-B79D-1DA08D123F6E.jpg" class="center-photo">
+        <img src="DSC_5998.jpg" class="side-photo">
     </div>
 </div>
+
+<script>
+const canvas = document.getElementById("network");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for(let i=0;i<80;i++){
+    particles.push({
+        x:Math.random()*canvas.width,
+        y:Math.random()*canvas.height,
+        dx:(Math.random()-0.5)*1,
+        dy:(Math.random()-0.5)*1
+    });
+}
+
+function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    particles.forEach(p=>{
+        p.x+=p.dx;
+        p.y+=p.dy;
+
+        if(p.x<0||p.x>canvas.width)p.dx*=-1;
+        if(p.y<0||p.y>canvas.height)p.dy*=-1;
+
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,2,0,Math.PI*2);
+        ctx.fillStyle="#a66cff";
+        ctx.fill();
+    });
+
+    for(let i=0;i<particles.length;i++){
+        for(let j=i;j<particles.length;j++){
+            let dx=particles[i].x-particles[j].x;
+            let dy=particles[i].y-particles[j].y;
+            let dist=Math.sqrt(dx*dx+dy*dy);
+            if(dist<120){
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x,particles[i].y);
+                ctx.lineTo(particles[j].x,particles[j].y);
+                ctx.strokeStyle="rgba(166,108,255,0.15)";
+                ctx.stroke();
+            }
+        }
+    }
+
+    requestAnimationFrame(animate);
+}
+
+animate();
+</script>
 
 </body>
 </html>
