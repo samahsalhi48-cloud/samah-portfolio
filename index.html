@@ -2,66 +2,98 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Samah Salhi | Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio - Samah</title>
 
 <style>
 
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background-color: #F8F6F4;
-    color: #2E2E2E;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #1a1a2e);
+    color: white;
+    scroll-behavior: smooth;
 }
 
-header {
-    background-color: #B68674;
-    padding: 20px 50px;
-    color: white;
+/* NAVBAR */
+nav {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 30px;
+    position: fixed;
+    width: 100%;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
 }
 
 nav a {
-    color: white;
     text-decoration: none;
-    margin-left: 20px;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #4facfe, #8e2de2);
     font-weight: 500;
+    transition: 0.3s ease;
 }
 
-.hero {
-    background-color: #EADDD6;
-    padding: 100px 20px;
+nav a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #8e2de2;
+}
+
+/* SECTION */
+section {
+    padding: 140px 15%;
     text-align: center;
 }
 
-.hero h1 {
-    font-size: 42px;
-    margin-bottom: 10px;
+/* TITRE */
+h1 {
+    font-size: 50px;
+    background: linear-gradient(45deg, #4facfe, #8e2de2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-section {
-    padding: 70px 60px;
+/* TEXT */
+p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: auto;
+    margin-top: 20px;
+    line-height: 1.6;
+    opacity: 0.9;
 }
 
-h2 {
-    color: #B68674;
+/* CARDS */
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 50px;
 }
 
 .card {
-    background-color: white;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 6px 25px rgba(0,0,0,0.05);
-    margin-bottom: 30px;
+    background: rgba(255,255,255,0.08);
+    padding: 35px;
+    border-radius: 25px;
+    width: 250px;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
 }
 
+.card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 0 25px #4facfe;
+}
+
+/* FOOTER */
 footer {
-    background-color: #B68674;
-    color: white;
     text-align: center;
-    padding: 25px;
+    padding: 50px;
+    opacity: 0.6;
 }
 
 </style>
@@ -69,57 +101,53 @@ footer {
 
 <body>
 
-<header>
-    <h1>Samah SALHI</h1>
-    <nav>
-        <a href="#about">À propos</a>
-        <a href="#skills">Compétences</a>
-        <a href="#projects">Projets</a>
-        <a href="#objectifs">Objectifs</a>
-    </nav>
-</header>
-
-<section class="hero">
-    <h1>De la peur de coder à l’envie d’analyser</h1>
-    <p>BUT Science des Données – IUT Villetaneuse</p>
-</section>
+<nav>
+    <a href="#about">À propos</a>
+    <a href="#skills">Compétences</a>
+    <a href="#projects">Projets</a>
+    <a href="#goals">Objectifs</a>
+</nav>
 
 <section id="about">
-    <h2>À propos</h2>
-    <div class="card">
-        <p>Je suis actuellement étudiante en deuxième année de BUT Science des Données.</p>
-        <p>Je m’intéresse particulièrement à l’analyse statistique, à la modélisation et à l’intelligence artificielle.</p>
-    </div>
+    <h1>À propos</h1>
+    <p>
+        Je suis étudiante en BUT Science des Données. 
+        Passionnée par l’analyse de données et l’intelligence artificielle, 
+        je développe des compétences en Python, SQL, statistiques et visualisation.
+    </p>
 </section>
 
 <section id="skills">
-    <h2>Compétences</h2>
-    <div class="card">
-        <p><strong>Langages :</strong> Python, SQL, R</p>
-        <p><strong>Outils :</strong> Excel, Tableau, Metabase</p>
-        <p><strong>Analyse :</strong> Nettoyage de données, statistiques descriptives, modélisation</p>
+    <h1>Compétences</h1>
+    <div class="container">
+        <div class="card">Python</div>
+        <div class="card">SQL</div>
+        <div class="card">R</div>
+        <div class="card">Tableau</div>
+        <div class="card">Machine Learning</div>
+        <div class="card">Statistiques</div>
     </div>
 </section>
 
 <section id="projects">
-    <h2>Projets</h2>
-    <div class="card">
-        <h3>SAE 203 – Régression logistique</h3>
-        <p>Modèle prédictif à partir de données médicales.</p>
+    <h1>Projets</h1>
+    <div class="container">
+        <div class="card">Analyse de données ADEME</div>
+        <div class="card">Base de données SQL</div>
+        <div class="card">Dashboard Tableau</div>
     </div>
 </section>
 
-<section id="objectifs">
-    <h2>Objectifs</h2>
-    <div class="card">
-        <p>À court terme : consolider mes compétences techniques.</p>
-        <p>À moyen terme : intégrer une alternance en data.</p>
-        <p>À long terme : évoluer dans l’analyse ou l’IA.</p>
-    </div>
+<section id="goals">
+    <h1>Objectifs</h1>
+    <p>
+        Devenir Data Engineer ou NLP Engineer et travailler sur des projets 
+        innovants en intelligence artificielle et data science.
+    </p>
 </section>
 
 <footer>
-© 2026 Samah Salhi
+    © 2026 - Samah | Portfolio BUT Science des Données
 </footer>
 
 </body>
