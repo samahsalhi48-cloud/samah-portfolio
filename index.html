@@ -10,90 +10,108 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #0f0c29, #302b63, #1a1a2e);
+    background: linear-gradient(135deg, #140f2d, #3b1e68, #1f1147);
     color: white;
-    scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
-/* NAVBAR */
-nav {
+/* 🌌 PARTICULES ANIMÉES */
+.circle {
+    position: fixed;
+    width: 15px;
+    height: 15px;
+    background: radial-gradient(circle, #9d4edd, #4cc9f0);
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: move 12s infinite linear;
+}
+
+@keyframes move {
+    from { transform: translateY(100vh) scale(0); }
+    to { transform: translateY(-10vh) scale(1.5); }
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding-top: 120px;
+}
+
+.hero h1 {
+    font-size: 60px;
+    background: linear-gradient(45deg, #c77dff, #4cc9f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 18px;
+    opacity: 0.8;
+    margin-bottom: 60px;
+}
+
+/* PHOTOS */
+.photos {
     display: flex;
     justify-content: center;
     gap: 40px;
-    padding: 30px;
-    position: fixed;
-    width: 100%;
-    background: rgba(0,0,0,0.3);
-    backdrop-filter: blur(10px);
+    flex-wrap: wrap;
 }
 
-nav a {
-    text-decoration: none;
-    color: white;
-    padding: 12px 25px;
-    border-radius: 50px;
-    background: linear-gradient(45deg, #4facfe, #8e2de2);
-    font-weight: 500;
-    transition: 0.3s ease;
+.photos img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #9d4edd;
+    box-shadow: 0 0 25px #c77dff;
+    transition: 0.4s;
 }
 
-nav a:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px #8e2de2;
+.photos img:hover {
+    transform: scale(1.08);
 }
 
-/* SECTION */
+/* SECTIONS */
 section {
-    padding: 140px 15%;
+    padding: 120px 15%;
     text-align: center;
 }
 
-/* TITRE */
-h1 {
-    font-size: 50px;
-    background: linear-gradient(45deg, #4facfe, #8e2de2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* TEXT */
-p {
-    font-size: 18px;
-    max-width: 700px;
-    margin: auto;
-    margin-top: 20px;
-    line-height: 1.6;
-    opacity: 0.9;
+h2 {
+    font-size: 40px;
+    margin-bottom: 40px;
+    color: #c77dff;
 }
 
 /* CARDS */
 .container {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 30px;
     flex-wrap: wrap;
-    margin-top: 50px;
 }
 
 .card {
     background: rgba(255,255,255,0.08);
-    padding: 35px;
+    padding: 30px;
     border-radius: 25px;
-    width: 250px;
+    width: 240px;
     backdrop-filter: blur(10px);
     transition: 0.3s;
 }
 
 .card:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 0 25px #4facfe;
+    transform: translateY(-12px);
+    box-shadow: 0 0 20px #9d4edd;
 }
 
 /* FOOTER */
 footer {
     text-align: center;
-    padding: 50px;
-    opacity: 0.6;
+    padding: 60px;
+    opacity: 0.5;
 }
 
 </style>
@@ -101,53 +119,49 @@ footer {
 
 <body>
 
-<nav>
-    <a href="#about">À propos</a>
-    <a href="#skills">Compétences</a>
-    <a href="#projects">Projets</a>
-    <a href="#goals">Objectifs</a>
-</nav>
+<!-- PARTICULES -->
+<div class="circle" style="left:10%; animation-delay:0s;"></div>
+<div class="circle" style="left:25%; animation-delay:3s;"></div>
+<div class="circle" style="left:40%; animation-delay:5s;"></div>
+<div class="circle" style="left:60%; animation-delay:2s;"></div>
+<div class="circle" style="left:75%; animation-delay:4s;"></div>
+<div class="circle" style="left:90%; animation-delay:1s;"></div>
 
-<section id="about">
-    <h1>À propos</h1>
-    <p>
-        Je suis étudiante en BUT Science des Données. 
-        Passionnée par l’analyse de données et l’intelligence artificielle, 
-        je développe des compétences en Python, SQL, statistiques et visualisation.
-    </p>
-</section>
+<div class="hero">
+    <h1>Samah</h1>
+    <div class="subtitle">
+        « De la peur de coder… à l’envie d’analyser »
+    </div>
 
-<section id="skills">
-    <h1>Compétences</h1>
+    <div class="photos">
+        <img src="9B23317C-9A22-4FA4-B79D-1DA08D123F6E.jpg">
+        <img src="DSC_5987.jpg">
+        <img src="DSC_5998.jpg">
+    </div>
+</div>
+
+<section>
+    <h2>Compétences</h2>
     <div class="container">
         <div class="card">Python</div>
         <div class="card">SQL</div>
         <div class="card">R</div>
         <div class="card">Tableau</div>
         <div class="card">Machine Learning</div>
-        <div class="card">Statistiques</div>
     </div>
 </section>
 
-<section id="projects">
-    <h1>Projets</h1>
+<section>
+    <h2>Projets</h2>
     <div class="container">
-        <div class="card">Analyse de données ADEME</div>
-        <div class="card">Base de données SQL</div>
-        <div class="card">Dashboard Tableau</div>
+        <div class="card">Analyse ADEME</div>
+        <div class="card">Base SQL</div>
+        <div class="card">Dashboard Data</div>
     </div>
-</section>
-
-<section id="goals">
-    <h1>Objectifs</h1>
-    <p>
-        Devenir Data Engineer ou NLP Engineer et travailler sur des projets 
-        innovants en intelligence artificielle et data science.
-    </p>
 </section>
 
 <footer>
-    © 2026 - Samah | Portfolio BUT Science des Données
+© 2026 - Portfolio Samah
 </footer>
 
 </body>
