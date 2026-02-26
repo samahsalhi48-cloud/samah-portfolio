@@ -10,8 +10,10 @@
 :root{
     --bg-dark: linear-gradient(135deg,#021b1f,#003b44,#012a2f);
     --bg-light: linear-gradient(135deg,#e8fdf5,#d7f5ff,#f0fffb);
+
     --text-dark: white;
     --text-light: #003b44;
+
     --accent: #00c896;
     --accent2: #0096c7;
 }
@@ -53,6 +55,7 @@ body.light{
 
 .nav-item:hover{
     background:linear-gradient(45deg,var(--accent),var(--accent2));
+    transform:translateY(-3px);
 }
 
 /* THEME BUTTON */
@@ -70,11 +73,21 @@ body.light{
     z-index:6;
 }
 
+/* CANVAS */
+canvas{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:0;
+}
+
 /* HERO */
 .hero{
+    position:relative;
+    z-index:2;
     text-align:center;
     padding-top:150px;
-    padding-bottom:80px;
+    padding-bottom:100px;
 }
 
 .hero h1{
@@ -88,7 +101,7 @@ body.light{
 .hero p{
     font-size:20px;
     opacity:0.8;
-    margin-bottom:50px;
+    margin-bottom:60px;
 }
 
 /* PHOTOS */
@@ -117,29 +130,53 @@ body.light{
 
 /* SECTION */
 .section{
-    padding:100px 15%;
+    padding:120px 10%;
+    position:relative;
+    z-index:2;
 }
 
 .section h2{
     text-align:center;
     font-size:40px;
-    margin-bottom:50px;
+    margin-bottom:60px;
     background:linear-gradient(45deg,var(--accent),var(--accent2));
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
 
+.glass-container{
+    display:flex;
+    flex-wrap:wrap;
+    gap:40px;
+    justify-content:center;
+}
+
 .glass-card{
-    padding:40px;
+    width:320px;
+    padding:30px;
     border-radius:20px;
     background:rgba(255,255,255,0.08);
     backdrop-filter:blur(12px);
     box-shadow:0 0 30px rgba(0,150,199,0.2);
-    line-height:1.8;
 }
 
 body.light .glass-card{
     background:rgba(0,0,0,0.05);
+}
+
+.qualities{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.quality-card{
+    padding:18px 35px;
+    border-radius:30px;
+    background:linear-gradient(45deg,var(--accent),var(--accent2));
+    color:white;
+    font-weight:bold;
 }
 
 </style>
@@ -151,7 +188,13 @@ body.light .glass-card{
 
 <div class="navbar">
     <a href="#presentation" class="nav-item">Présentation</a>
+    <a href="#presentation" class="nav-item">Parcours</a>
+    <a href="#presentation" class="nav-item">Compétences</a>
+    <a href="#presentation" class="nav-item">Objectifs</a>
+    <a href="#presentation" class="nav-item">Contact</a>
 </div>
+
+<canvas id="network"></canvas>
 
 <div class="hero">
     <h1>Samah Salhi</h1>
@@ -166,34 +209,37 @@ body.light .glass-card{
 
 <section class="section" id="presentation">
 <h2>Présentation</h2>
+<div class="glass-container">
 
 <div class="glass-card">
-
-<p>
-Je suis étudiante en 2e année de BUT Science des Données à l’IUT de Villetaneuse (Université Sorbonne Paris Nord)...
-</p>
-
-<p>
-Les débuts n’ont pas été simples. Issue d’un bac STI2D...
-</p>
-
-<p>
-Aujourd’hui, ce qui me passionne dans la science des données...
-</p>
-
-<p>
-Mon objectif est de m’orienter vers l’intelligence artificielle...
-</p>
-
-<p>
-Pour atteindre cet objectif, je souhaite poursuivre mes études...
-</p>
-
+<h3>Je suis...</h3>
+<p>Étudiante en BUT Science des Données, déterminée et curieuse, passionnée par l’analyse et l’intelligence artificielle.</p>
 </div>
 
+<div class="glass-card">
+<h3>Je souhaite devenir...</h3>
+<p>Spécialiste en Intelligence Artificielle, avec un intérêt pour le Machine Learning et le NLP.</p>
+</div>
+
+<div class="glass-card">
+<h3>Pour cela...</h3>
+<p>Je souhaite intégrer une école d’ingénieur ou un master en IA afin d’approfondir mes compétences.</p>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+<h2>Qualités</h2>
+<div class="qualities">
+<div class="quality-card">Déterminée</div>
+<div class="quality-card">Esprit d’équipe</div>
+<div class="quality-card">Curieuse</div>
+</div>
 </section>
 
 <script>
+
 function toggleTheme(){
     document.body.classList.toggle("light");
     const btn = document.querySelector(".theme-btn");
@@ -201,6 +247,47 @@ function toggleTheme(){
         ? "Mode Nuit" 
         : "Mode Clair";
 }
+
+/* Animation réseau */
+
+const canvas = document.getElementById("network");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for(let i=0;i<70;i++){
+    particles.push({
+        x:Math.random()*canvas.width,
+        y:Math.random()*canvas.height,
+        dx:(Math.random()-0.5)*0.6,
+        dy:(Math.random()-0.5)*0.6
+    });
+}
+
+function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    particles.forEach(p=>{
+        p.x+=p.dx;
+        p.y+=p.dy;
+
+        if(p.x<0||p.x>canvas.width)p.dx*=-1;
+        if(p.y<0||p.y>canvas.height)p.dy*=-1;
+
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,2,0,Math.PI*2);
+        ctx.fillStyle="#00c896";
+        ctx.fill();
+    });
+
+    requestAnimationFrame(animate);
+}
+
+animate();
+
 </script>
 
 </body>
