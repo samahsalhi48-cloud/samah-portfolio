@@ -7,12 +7,29 @@
 
 <style>
 
+:root{
+    --bg-dark: linear-gradient(135deg,#021b1f,#003b44,#012a2f);
+    --bg-light: linear-gradient(135deg,#e8fdf5,#d7f5ff,#f0fffb);
+
+    --text-dark: white;
+    --text-light: #003b44;
+
+    --accent: #00c896;
+    --accent2: #0096c7;
+}
+
 body{
     margin:0;
     font-family:'Segoe UI',sans-serif;
-    background:linear-gradient(135deg,#0f0c29,#302b63,#1f1c4f);
-    color:white;
+    background:var(--bg-dark);
+    color:var(--text-dark);
     overflow-x:hidden;
+    transition:0.4s;
+}
+
+body.light{
+    background:var(--bg-light);
+    color:var(--text-light);
 }
 
 /* NAVBAR */
@@ -22,24 +39,38 @@ body{
     left:50%;
     transform:translateX(-50%);
     display:flex;
-    gap:25px;
+    gap:20px;
     z-index:5;
 }
 
 .nav-item{
-    padding:12px 25px;
-    border-radius:40px;
+    padding:10px 22px;
+    border-radius:30px;
     background:rgba(255,255,255,0.08);
     backdrop-filter:blur(10px);
-    color:white;
-    font-size:15px;
     text-decoration:none;
+    color:inherit;
     transition:0.3s;
 }
 
 .nav-item:hover{
-    background:linear-gradient(45deg,#4facfe,#a66cff);
+    background:linear-gradient(45deg,var(--accent),var(--accent2));
     transform:translateY(-3px);
+}
+
+/* THEME BUTTON */
+.theme-btn{
+    position:fixed;
+    right:30px;
+    top:30px;
+    padding:10px 20px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    background:linear-gradient(45deg,var(--accent),var(--accent2));
+    color:white;
+    font-weight:bold;
+    z-index:6;
 }
 
 /* CANVAS */
@@ -60,56 +91,44 @@ canvas{
 }
 
 .hero h1{
-    font-size:95px;
+    font-size:90px;
     font-weight:800;
-    background:linear-gradient(45deg,#4facfe,#a66cff,#6c5ce7);
+    background:linear-gradient(45deg,var(--accent),var(--accent2));
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
-    margin-bottom:10px;
 }
 
 .hero p{
     font-size:20px;
-    opacity:0.85;
+    opacity:0.8;
     margin-bottom:60px;
 }
 
 /* PHOTOS */
 .photos{
     display:flex;
-    align-items:center;
     justify-content:center;
     gap:60px;
     flex-wrap:wrap;
 }
 
 .center-photo{
-    width:280px;
-    height:280px;
+    width:260px;
+    height:260px;
     border-radius:50%;
     object-fit:cover;
-    box-shadow:0 0 70px rgba(166,108,255,0.8);
-    transition:0.4s;
-}
-
-.center-photo:hover{
-    transform:scale(1.05);
+    box-shadow:0 0 50px rgba(0,200,150,0.7);
 }
 
 .side-photo{
-    width:190px;
-    height:190px;
+    width:170px;
+    height:170px;
     border-radius:50%;
     object-fit:cover;
     opacity:0.9;
-    transition:0.3s;
 }
 
-.side-photo:hover{
-    transform:scale(1.08);
-}
-
-/* SECTIONS */
+/* SECTION */
 .section{
     padding:120px 10%;
     position:relative;
@@ -117,10 +136,10 @@ canvas{
 }
 
 .section h2{
-    font-size:40px;
     text-align:center;
+    font-size:40px;
     margin-bottom:60px;
-    background:linear-gradient(45deg,#4facfe,#a66cff);
+    background:linear-gradient(45deg,var(--accent),var(--accent2));
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
@@ -135,53 +154,37 @@ canvas{
 .glass-card{
     width:320px;
     padding:30px;
-    border-radius:25px;
-    background:rgba(255,255,255,0.07);
-    backdrop-filter:blur(15px);
-    box-shadow:0 0 40px rgba(166,108,255,0.2);
-    transition:0.4s;
+    border-radius:20px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(12px);
+    box-shadow:0 0 30px rgba(0,150,199,0.2);
 }
 
-.glass-card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 0 60px rgba(166,108,255,0.5);
+body.light .glass-card{
+    background:rgba(0,0,0,0.05);
 }
 
-.glass-card h3{
-    margin-bottom:15px;
-    color:#a66cff;
-}
-
-.glass-card p{
-    font-size:15px;
-    line-height:1.6;
-    opacity:0.9;
-}
-
-/* QUALITES */
 .qualities{
     display:flex;
     justify-content:center;
-    gap:30px;
+    gap:25px;
     flex-wrap:wrap;
 }
 
 .quality-card{
-    padding:20px 40px;
-    border-radius:40px;
-    background:linear-gradient(45deg,#4facfe,#a66cff);
+    padding:18px 35px;
+    border-radius:30px;
+    background:linear-gradient(45deg,var(--accent),var(--accent2));
+    color:white;
     font-weight:bold;
-    transition:0.3s;
-}
-
-.quality-card:hover{
-    transform:scale(1.1);
 }
 
 </style>
 </head>
 
 <body>
+
+<button class="theme-btn" onclick="toggleTheme()">Mode Clair</button>
 
 <div class="navbar">
     <a href="#presentation" class="nav-item">Présentation</a>
@@ -205,55 +208,47 @@ canvas{
 </div>
 
 <section class="section" id="presentation">
-
 <h2>Présentation</h2>
-
 <div class="glass-container">
 
 <div class="glass-card">
 <h3>Je suis...</h3>
-<p>
-Étudiante en BUT Science des Données à l’IUT de Villetaneuse.
-Je développe des compétences en analyse de données, statistiques,
-programmation et intelligence artificielle.
-</p>
+<p>Étudiante en BUT Science des Données, déterminée et curieuse, passionnée par l’analyse et l’intelligence artificielle.</p>
 </div>
 
 <div class="glass-card">
 <h3>Je souhaite devenir...</h3>
-<p>
-Data Analyst ou évoluer vers l’Intelligence Artificielle.
-Mon objectif est de travailler dans un environnement stimulant
-où je peux analyser des données réelles.
-</p>
+<p>Spécialiste en Intelligence Artificielle, avec un intérêt pour le Machine Learning et le NLP.</p>
 </div>
 
 <div class="glass-card">
 <h3>Pour cela...</h3>
-<p>
-Je développe mes compétences en Python, SQL, statistiques et modélisation.
-Je m'investis dans mes projets et je construis activement mon portfolio.
-</p>
+<p>Je souhaite intégrer une école d’ingénieur ou un master en IA afin d’approfondir mes compétences.</p>
 </div>
 
 </div>
-
 </section>
 
 <section class="section">
-
 <h2>Qualités</h2>
-
 <div class="qualities">
-<div class="quality-card">Rigueur</div>
-<div class="quality-card">Esprit analytique</div>
-<div class="quality-card">Curiosité</div>
-<div class="quality-card">Persévérance</div>
+<div class="quality-card">Déterminée</div>
+<div class="quality-card">Esprit d’équipe</div>
+<div class="quality-card">Curieuse</div>
 </div>
-
 </section>
 
 <script>
+
+function toggleTheme(){
+    document.body.classList.toggle("light");
+    const btn = document.querySelector(".theme-btn");
+    btn.textContent = document.body.classList.contains("light") 
+        ? "Mode Nuit" 
+        : "Mode Clair";
+}
+
+/* Animation réseau */
 
 const canvas = document.getElementById("network");
 const ctx = canvas.getContext("2d");
@@ -263,12 +258,12 @@ canvas.height = window.innerHeight;
 
 let particles = [];
 
-for(let i=0;i<90;i++){
+for(let i=0;i<70;i++){
     particles.push({
         x:Math.random()*canvas.width,
         y:Math.random()*canvas.height,
-        dx:(Math.random()-0.5)*0.8,
-        dy:(Math.random()-0.5)*0.8
+        dx:(Math.random()-0.5)*0.6,
+        dy:(Math.random()-0.5)*0.6
     });
 }
 
@@ -284,24 +279,9 @@ function animate(){
 
         ctx.beginPath();
         ctx.arc(p.x,p.y,2,0,Math.PI*2);
-        ctx.fillStyle="#a66cff";
+        ctx.fillStyle="#00c896";
         ctx.fill();
     });
-
-    for(let i=0;i<particles.length;i++){
-        for(let j=i;j<particles.length;j++){
-            let dx=particles[i].x-particles[j].x;
-            let dy=particles[i].y-particles[j].y;
-            let dist=Math.sqrt(dx*dx+dy*dy);
-            if(dist<120){
-                ctx.beginPath();
-                ctx.moveTo(particles[i].x,particles[i].y);
-                ctx.lineTo(particles[j].x,particles[j].y);
-                ctx.strokeStyle="rgba(166,108,255,0.15)";
-                ctx.stroke();
-            }
-        }
-    }
 
     requestAnimationFrame(animate);
 }
