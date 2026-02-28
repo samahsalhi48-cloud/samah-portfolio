@@ -52,7 +52,6 @@ body.light{
 
 .nav-item:hover{
     background:linear-gradient(45deg,var(--accent),var(--accent2));
-    transform:translateY(-3px);
 }
 
 .theme-btn{
@@ -157,11 +156,6 @@ body.light .glass-card{
     background:rgba(0,0,0,0.05);
 }
 
-.glass-card h3{
-    margin-top:0;
-    color:var(--accent);
-}
-
 .subsection-title{
     text-align:center;
     font-size:28px;
@@ -179,21 +173,6 @@ ul{
     opacity:0.8;
 }
 
-.qualities{
-    display:flex;
-    justify-content:center;
-    gap:25px;
-    flex-wrap:wrap;
-}
-
-.quality-card{
-    padding:18px 35px;
-    border-radius:30px;
-    background:linear-gradient(45deg,var(--accent),var(--accent2));
-    color:white;
-    font-weight:bold;
-}
-
 </style>
 </head>
 
@@ -205,7 +184,6 @@ ul{
     <a href="#presentation" class="nav-item">Présentation</a>
     <a href="#parcours" class="nav-item">Parcours</a>
     <a href="#competences" class="nav-item">Compétences</a>
-    <a href="#qualites" class="nav-item">Qualités</a>
 </div>
 
 <canvas id="network"></canvas>
@@ -227,25 +205,25 @@ ul{
 
 <div class="glass-card">
 <p>
-Je suis étudiante en 2ème BUT Science des Données à l’IUT de Villetaneuse (Université Sorbonne Paris Nord). À l’origine, je pensais m’orienter vers un parcours en management logistique des transports. C’est mon professeur au lycée qui m’a conseillé le BUT Science des Données, estimant que cette formation correspondait davantage à mon profil. En arrivant en BUT, j’ai dû m’adapter, notamment en mathématiques, car venant d’un bac STI2D, j’avais moins de bases théoriques que certains étudiants issus de filières générales. Les débuts ont demandé beaucoup de travail personnel, mais cette période m’a permis de développer mon autonomie et ma capacité d’adaptation.
+Je suis étudiante en 2ème BUT Science des Données à l’IUT de Villetaneuse (Université Sorbonne Paris Nord). À l’origine, je pensais m’orienter vers un parcours en management logistique des transports. C’est mon professeur au lycée qui m’a conseillé le BUT Science des Données, estimant que cette formation correspondait davantage à mon profil.
 </p>
 </div>
 
 <div class="glass-card">
 <p>
-J’aime particulièrement le travail d’analyse des données. J’apprécie le fait de partir de données brutes, de les nettoyer, de les structurer, puis de construire des graphiques pour en tirer des conclusions pertinentes. Comprendre un problème, interpréter les résultats et proposer des solutions concrètes est un aspect qui me motive beaucoup. Le travail en groupe est également important pour moi : j’aime échanger des idées, confronter les points de vue et expliquer les résultats obtenus.
+En arrivant en BUT, j’ai dû m’adapter, notamment en mathématiques, car venant d’un bac STI2D, j’avais moins de bases théoriques que certains étudiants issus de filières générales. Les débuts ont demandé beaucoup de travail personnel, mais cette période m’a permis de développer mon autonomie et ma capacité d’adaptation.
 </p>
 </div>
 
 <div class="glass-card">
 <p>
-Je souhaite devenir ingénieure ou spécialiste en intelligence artificielle, avec un intérêt particulier pour le machine learning et le traitement automatique du langage naturel (NLP). Ce qui m’attire dans ces domaines, ce sont les algorithmes et la capacité des modèles à apprendre à partir des données. J’apprécie également le fait que ce soit un domaine en constante évolution, où l’on doit continuellement se former et s’adapter.
+J’aime particulièrement le travail d’analyse des données. J’apprécie le fait de partir de données brutes, de les nettoyer, de les structurer, puis de construire des graphiques pour en tirer des conclusions pertinentes.
 </p>
 </div>
 
 <div class="glass-card">
 <p>
-Pour cela, je compte poursuivre mes études après le BUT, en intégrant une école d’ingénieur spécialisée en data ou en machine learning, ou bien un master en intelligence artificielle. Je travaille également à renforcer mes compétences en programmation, en analyse de données et en modélisation statistique. Je m’investis dans mes projets universitaires et je cherche à progresser régulièrement afin de construire un parcours solide et cohérent.
+Je souhaite devenir ingénieure ou spécialiste en intelligence artificielle, avec un intérêt particulier pour le machine learning et le traitement automatique du langage naturel (NLP).
 </p>
 </div>
 
@@ -261,21 +239,16 @@ Pour cela, je compte poursuivre mes études après le BUT, en intégrant une éc
 <h3>BUT Science des Données – IUT de Villetaneuse</h3>
 <p>Université Sorbonne Paris Nord</p>
 <div class="date">Depuis 2024</div>
-<p>
-Formation orientée vers l’analyse statistique, la programmation (Python, R, SQL), la visualisation de données et les bases du machine learning.
-</p>
 </div>
 
 <div class="glass-card">
 <h3>Baccalauréat STI2D – Spécialité SIN</h3>
 <p>Lycée Raspail – Paris</p>
-<p>
-Spécialité Systèmes d’Information et Numérique, qui m’a permis d’acquérir des bases en logique, algorithmique et compréhension des systèmes informatiques.
-</p>
 </div>
 
 </div>
 </section>
+<section class="section" id="competences">
 <h2>Compétences</h2>
 
 <div class="subsection-title">Programmation</div>
@@ -385,3 +358,44 @@ Spécialité Systèmes d’Information et Numérique, qui m’a permis d’acqu�
 
 </div>
 </section>
+<script>
+function toggleTheme(){
+    document.body.classList.toggle("light");
+    const btn = document.querySelector(".theme-btn");
+    btn.textContent = document.body.classList.contains("light") ? "Mode Nuit" : "Mode Clair";
+}
+
+const canvas = document.getElementById("network");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+for(let i=0;i<70;i++){
+    particles.push({
+        x:Math.random()*canvas.width,
+        y:Math.random()*canvas.height,
+        dx:(Math.random()-0.5)*0.6,
+        dy:(Math.random()-0.5)*0.6
+    });
+}
+
+function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particles.forEach(p=>{
+        p.x+=p.dx;
+        p.y+=p.dy;
+        if(p.x<0||p.x>canvas.width)p.dx*=-1;
+        if(p.y<0||p.y>canvas.height)p.dy*=-1;
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,2,0,Math.PI*2);
+        ctx.fillStyle="#00c896";
+        ctx.fill();
+    });
+    requestAnimationFrame(animate);
+}
+animate();
+</script>
+
+</body>
+</html>
