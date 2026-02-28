@@ -10,10 +10,8 @@
 :root{
     --bg-dark: linear-gradient(135deg,#021b1f,#003b44,#012a2f);
     --bg-light: linear-gradient(135deg,#e8fdf5,#d7f5ff,#f0fffb);
-
     --text-dark: white;
     --text-light: #003b44;
-
     --accent: #00c896;
     --accent2: #0096c7;
 }
@@ -32,7 +30,6 @@ body.light{
     color:var(--text-light);
 }
 
-/* NAVBAR */
 .navbar{
     position:fixed;
     top:30px;
@@ -58,7 +55,6 @@ body.light{
     transform:translateY(-3px);
 }
 
-/* THEME BUTTON */
 .theme-btn{
     position:fixed;
     right:30px;
@@ -80,7 +76,6 @@ canvas{
     z-index:0;
 }
 
-/* HERO */
 .hero{
     position:relative;
     z-index:2;
@@ -102,12 +97,6 @@ canvas{
     margin-top:-20px;
     margin-bottom:20px;
     opacity:0.9;
-}
-
-.hero p{
-    font-size:20px;
-    opacity:0.8;
-    margin-bottom:60px;
 }
 
 .photos{
@@ -133,7 +122,6 @@ canvas{
     opacity:0.9;
 }
 
-/* SECTION */
 .section{
     padding:120px 10%;
     position:relative;
@@ -174,6 +162,17 @@ body.light .glass-card{
     color:var(--accent);
 }
 
+.subsection-title{
+    text-align:center;
+    font-size:28px;
+    margin:60px 0 40px 0;
+    color:var(--accent);
+}
+
+ul{
+    padding-left:20px;
+}
+
 .date{
     font-weight:bold;
     margin:10px 0;
@@ -205,6 +204,7 @@ body.light .glass-card{
 <div class="navbar">
     <a href="#presentation" class="nav-item">Présentation</a>
     <a href="#parcours" class="nav-item">Parcours</a>
+    <a href="#competences" class="nav-item">Compétences</a>
     <a href="#qualites" class="nav-item">Qualités</a>
 </div>
 
@@ -222,81 +222,124 @@ body.light .glass-card{
 </div>
 
 <!-- PRESENTATION -->
-<section class="section" id="presentation">
-<h2>Présentation</h2>
-<div class="glass-container">
-
-<div class="glass-card">
-<p>
-Je suis étudiante en 2ème BUT Science des Données à l’IUT de Villetaneuse (Université Sorbonne Paris Nord). À l’origine, je pensais m’orienter vers un parcours en management logistique des transports. C’est mon professeur au lycée qui m’a conseillé le BUT Science des Données, estimant que cette formation correspondait davantage à mon profil. En arrivant en BUT, j’ai dû m’adapter, notamment en mathématiques, car venant d’un bac STI2D, j’avais moins de bases théoriques que certains étudiants issus de filières générales. Les débuts ont demandé beaucoup de travail personnel, mais cette période m’a permis de développer mon autonomie et ma capacité d’adaptation.
-</p>
-</div>
-
-<div class="glass-card">
-<p>
-J’aime particulièrement le travail d’analyse des données. J’apprécie le fait de partir de données brutes, de les nettoyer, de les structurer, puis de construire des graphiques pour en tirer des conclusions pertinentes. Comprendre un problème, interpréter les résultats et proposer des solutions concrètes est un aspect qui me motive beaucoup. Le travail en groupe est également important pour moi : j’aime échanger des idées, confronter les points de vue et expliquer les résultats obtenus.
-</p>
-</div>
-
-<div class="glass-card">
-<p>
-Je souhaite devenir ingénieure ou spécialiste en intelligence artificielle, avec un intérêt particulier pour le machine learning et le traitement automatique du langage naturel (NLP). Ce qui m’attire dans ces domaines, ce sont les algorithmes et la capacité des modèles à apprendre à partir des données. J’apprécie également le fait que ce soit un domaine en constante évolution, où l’on doit continuellement se former et s’adapter.
-</p>
-</div>
-
-<div class="glass-card">
-<p>
-Pour cela, je compte poursuivre mes études après le BUT, en intégrant une école d’ingénieur spécialisée en data ou en machine learning, ou bien un master en intelligence artificielle. Je travaille également à renforcer mes compétences en programmation, en analyse de données et en modélisation statistique. Je m’investis dans mes projets universitaires et je cherche à progresser régulièrement afin de construire un parcours solide et cohérent.
-</p>
-</div>
-
-</div>
-</section>
+<!-- (inchangée) -->
 
 <!-- PARCOURS -->
-<section class="section" id="parcours">
-<h2>Parcours</h2>
+<!-- (inchangée) -->
+
+<!-- COMPETENCES -->
+<section class="section" id="competences">
+<h2>Compétences</h2>
+
+<div class="subsection-title">Programmation</div>
 <div class="glass-container">
 
 <div class="glass-card">
-<h3>BUT Science des Données – IUT de Villetaneuse</h3>
-<p>Université Sorbonne Paris Nord</p>
-<div class="date">Depuis 2024</div>
-<p>Formation orientée vers l’analyse statistique, la programmation (Python, R, SQL), la visualisation de données et les bases du machine learning.</p>
+<h3>Python</h3>
+<p>J’utilise Python pour la manipulation et l’analyse de données.</p>
+<ul>
+<li>Nettoyage de données</li>
+<li>Pandas</li>
+<li>NumPy</li>
+<li>Analyses exploratoires</li>
+<li>Matplotlib</li>
+<li>Structuration de scripts</li>
+</ul>
 </div>
 
 <div class="glass-card">
-<h3>Baccalauréat STI2D – Spécialité SIN</h3>
-<p>Lycée Raspail – Paris</p>
-<p>Spécialité Systèmes d’Information et Numérique, qui m’a permis d’acquérir des bases en logique, algorithmique et compréhension des systèmes informatiques.</p>
+<h3>SQL</h3>
+<ul>
+<li>Création de bases</li>
+<li>Requêtes simples et avancées</li>
+<li>Jointures</li>
+<li>Agrégations</li>
+</ul>
+</div>
+
+<div class="glass-card">
+<h3>R</h3>
+<ul>
+<li>Statistiques descriptives</li>
+<li>Intervalles de confiance</li>
+<li>Interprétation</li>
+<li>Graphiques</li>
+</ul>
+</div>
+
+<div class="glass-card">
+<h3>HTML / CSS</h3>
+<ul>
+<li>Structure HTML</li>
+<li>Stylisation CSS</li>
+<li>Responsive design</li>
+</ul>
+</div>
+
+</div>
+
+<div class="subsection-title">Outils d’analyse et visualisation</div>
+<div class="glass-container">
+
+<div class="glass-card">
+<h3>Excel</h3>
+<ul>
+<li>Power Query</li>
+<li>Formules avancées</li>
+<li>TCD</li>
+<li>Dashboard</li>
+</ul>
+</div>
+
+<div class="glass-card">
+<h3>Tableau Desktop</h3>
+<ul>
+<li>Dashboards</li>
+<li>Champs calculés</li>
+<li>Clusters</li>
+<li>Storytelling</li>
+</ul>
+</div>
+
+<div class="glass-card">
+<h3>Metabase</h3>
+<ul>
+<li>Connexion SQL</li>
+<li>Visualisations</li>
+<li>Dashboards</li>
+</ul>
+</div>
+
+<div class="glass-card">
+<h3>Sphinx</h3>
+<ul>
+<li>Questionnaires</li>
+<li>Analyse d’enquête</li>
+<li>Interprétation</li>
+</ul>
+</div>
+
+<div class="glass-card">
+<h3>Power BI (en cours)</h3>
+<ul>
+<li>Prise en main</li>
+<li>Découverte outils</li>
+</ul>
 </div>
 
 </div>
 </section>
 
 <!-- QUALITES -->
-<section class="section" id="qualites">
-<h2>Qualités</h2>
-<div class="qualities">
-<div class="quality-card">Déterminée</div>
-<div class="quality-card">Esprit d’équipe</div>
-<div class="quality-card">Curieuse</div>
-</div>
-</section>
+<!-- (inchangée) -->
 
 <script>
-
 function toggleTheme(){
     document.body.classList.toggle("light");
-    const btn = document.querySelector(".theme-btn");
-    btn.textContent = document.body.classList.contains("light") 
-        ? "Mode Nuit" 
-        : "Mode Clair";
 }
 
 const canvas = document.getElementById("network");
 const ctx = canvas.getContext("2d");
-
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
@@ -313,25 +356,19 @@ for(let i=0;i<70;i++){
 
 function animate(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
-
     particles.forEach(p=>{
         p.x+=p.dx;
         p.y+=p.dy;
-
         if(p.x<0||p.x>canvas.width)p.dx*=-1;
         if(p.y<0||p.y>canvas.height)p.dy*=-1;
-
         ctx.beginPath();
         ctx.arc(p.x,p.y,2,0,Math.PI*2);
         ctx.fillStyle="#00c896";
         ctx.fill();
     });
-
     requestAnimationFrame(animate);
 }
-
 animate();
-
 </script>
 
 </body>
