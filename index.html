@@ -359,42 +359,33 @@ Je souhaite devenir ingénieure ou spécialiste en intelligence artificielle, av
 </div>
 </section>
 <script>
-function toggleTheme(){
-    const body = document.body;
+function updateButton(){
     const btn = document.querySelector(".theme-btn");
 
-    body.classList.toggle("light");
-
-    if(body.classList.contains("light")){
-        btn.textContent = "Mode Nuit";
-    } else {
+    if(document.body.classList.contains("light")){
         btn.textContent = "Mode Clair";
+    } else {
+        btn.textContent = "Mode Nuit";
     }
 }
 
-<script>
-
-document.body.classList.remove("light"); // Force le mode sombre au chargement
-
 function toggleTheme(){
-    const body = document.body;
-    const btn = document.querySelector(".theme-btn");
-
-    body.classList.toggle("light");
-
-    if(body.classList.contains("light")){
-        btn.textContent = "Mode Nuit";
-    } else {
-        btn.textContent = "Mode Clair";
-    }
+    document.body.classList.toggle("light");
+    updateButton();
 }
+
+updateButton();
+
+/* Animation réseau */
 
 const canvas = document.getElementById("network");
 const ctx = canvas.getContext("2d");
+
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let particles = [];
+
 for(let i=0;i<70;i++){
     particles.push({
         x:Math.random()*canvas.width,
@@ -406,20 +397,24 @@ for(let i=0;i<70;i++){
 
 function animate(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
+
     particles.forEach(p=>{
         p.x+=p.dx;
         p.y+=p.dy;
+
         if(p.x<0||p.x>canvas.width)p.dx*=-1;
         if(p.y<0||p.y>canvas.height)p.dy*=-1;
+
         ctx.beginPath();
         ctx.arc(p.x,p.y,2,0,Math.PI*2);
         ctx.fillStyle="#00c896";
         ctx.fill();
     });
+
     requestAnimationFrame(animate);
 }
-animate();
 
+animate();
 </script>
 
 </body>
