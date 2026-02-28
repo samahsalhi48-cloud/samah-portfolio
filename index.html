@@ -372,6 +372,23 @@ function toggleTheme(){
     }
 }
 
+<script>
+
+document.body.classList.remove("light"); // Force le mode sombre au chargement
+
+function toggleTheme(){
+    const body = document.body;
+    const btn = document.querySelector(".theme-btn");
+
+    body.classList.toggle("light");
+
+    if(body.classList.contains("light")){
+        btn.textContent = "Mode Nuit";
+    } else {
+        btn.textContent = "Mode Clair";
+    }
+}
+
 const canvas = document.getElementById("network");
 const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
@@ -402,6 +419,7 @@ function animate(){
     requestAnimationFrame(animate);
 }
 animate();
+
 </script>
 
 </body>
