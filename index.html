@@ -360,9 +360,16 @@ Je souhaite devenir ingénieure ou spécialiste en intelligence artificielle, av
 </section>
 <script>
 function toggleTheme(){
-    document.body.classList.toggle("light");
+    const body = document.body;
     const btn = document.querySelector(".theme-btn");
-    btn.textContent = document.body.classList.contains("light") ? "Mode Nuit" : "Mode Clair";
+
+    body.classList.toggle("light");
+
+    if(body.classList.contains("light")){
+        btn.textContent = "Mode Nuit";
+    } else {
+        btn.textContent = "Mode Clair";
+    }
 }
 
 const canvas = document.getElementById("network");
