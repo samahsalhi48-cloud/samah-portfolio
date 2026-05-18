@@ -8,8 +8,8 @@
 <style>
 
 :root{
-    --bg-dark: linear-gradient(135deg,#021b1f,#003b44,#012a2f);
-    --bg-light: linear-gradient(135deg,#e8fdf5,#d7f5ff,#f0fffb);
+    --bg-dark: #021b1f;
+    --bg-light: #e8fdf5;
     --text-dark: white;
     --text-light: #003b44;
     --accent: #00c896;
@@ -29,6 +29,151 @@ body.light{
     background:var(--bg-light);
     color:var(--text-light);
 }
+
+/* ========== BACKGROUND ANIMÉ ORIGINAL ========== */
+
+.background-container{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+    overflow:hidden;
+}
+
+/* Gradient de base avec animation */
+.gradient-base{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background: linear-gradient(135deg, #021b1f 0%, #003b44 25%, #012a2f 50%, #001f24 75%, #021b1f 100%);
+    animation: gradientShift 15s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+}
+
+/* Orbes flottantes floues */
+.orb{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(80px);
+    opacity:0.3;
+    mix-blend-mode:screen;
+}
+
+.orb-1{
+    width:400px;
+    height:400px;
+    background:radial-gradient(circle, #00c896, transparent);
+    top:10%;
+    left:5%;
+    animation:float1 20s ease-in-out infinite;
+}
+
+.orb-2{
+    width:350px;
+    height:350px;
+    background:radial-gradient(circle, #0096c7, transparent);
+    top:50%;
+    right:10%;
+    animation:float2 25s ease-in-out infinite;
+}
+
+.orb-3{
+    width:300px;
+    height:300px;
+    background:radial-gradient(circle, #00c896, transparent);
+    bottom:5%;
+    left:50%;
+    animation:float3 22s ease-in-out infinite;
+}
+
+.orb-4{
+    width:280px;
+    height:280px;
+    background:radial-gradient(circle, #0096c7, transparent);
+    top:30%;
+    right:30%;
+    animation:float1 18s ease-in-out infinite reverse;
+}
+
+@keyframes float1{
+    0%, 100%{
+        transform: translate(0, 0);
+    }
+    25%{
+        transform: translate(30px, -50px);
+    }
+    50%{
+        transform: translate(-20px, 40px);
+    }
+    75%{
+        transform: translate(50px, 20px);
+    }
+}
+
+@keyframes float2{
+    0%, 100%{
+        transform: translate(0, 0);
+    }
+    25%{
+        transform: translate(-40px, 60px);
+    }
+    50%{
+        transform: translate(30px, -30px);
+    }
+    75%{
+        transform: translate(-50px, -40px);
+    }
+}
+
+@keyframes float3{
+    0%, 100%{
+        transform: translate(0, 0);
+    }
+    33%{
+        transform: translate(40px, 40px);
+    }
+    66%{
+        transform: translate(-40px, -40px);
+    }
+}
+
+/* Particules subtiles */
+.particle-field{
+    position:absolute;
+    width:100%;
+    height:100%;
+}
+
+/* Grille subtle d'arrière-plan */
+.grid-overlay{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-image: 
+        linear-gradient(0deg, transparent 24%, rgba(0, 200, 150, 0.03) 25%, rgba(0, 200, 150, 0.03) 26%, transparent 27%, transparent 74%, rgba(0, 200, 150, 0.03) 75%, rgba(0, 200, 150, 0.03) 76%, transparent 77%, transparent),
+        linear-gradient(90deg, transparent 24%, rgba(0, 150, 199, 0.03) 25%, rgba(0, 150, 199, 0.03) 26%, transparent 27%, transparent 74%, rgba(0, 150, 199, 0.03) 75%, rgba(0, 150, 199, 0.03) 76%, transparent 77%, transparent);
+    background-size: 80px 80px;
+    opacity:0.5;
+}
+
+/* Canvas pour les particules */
+canvas{
+    position:absolute;
+    top:0;
+    left:0;
+}
+
+/* ========== CONTENU ========== */
 
 .navbar{
     position:fixed;
@@ -66,13 +211,6 @@ body.light{
     color:white;
     font-weight:bold;
     z-index:6;
-}
-
-canvas{
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:0;
 }
 
 .hero{
@@ -186,7 +324,16 @@ ul{
     <a href="#competences" class="nav-item">Compétences</a>
 </div>
 
-<canvas id="network"></canvas>
+<!-- BACKGROUND CONTAINER -->
+<div class="background-container">
+    <div class="gradient-base"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+    <div class="grid-overlay"></div>
+    <canvas id="network"></canvas>
+</div>
 
 <div class="hero">
     <h1>Samah Salhi</h1>
@@ -197,6 +344,7 @@ ul{
         <img src="DSC_5998.jpg" class="side-photo">
     </div>
 </div>
+
 <!-- PRESENTATION -->
 <section class="section" id="presentation">
     <h2>Présentation</h2>
@@ -204,25 +352,25 @@ ul{
 
         <div class="glass-card">
             <p>
-            Je suis étudiante en 2ème BUT Science des Données à l’IUT de Villetaneuse (Université Sorbonne Paris Nord). À l’origine, je pensais m’orienter vers un parcours en management logistique des transports. C’est mon professeur au lycée qui m’a conseillé le BUT Science des Données, estimant que cette formation correspondait davantage à mon profil. En arrivant en BUT, j’ai dû m’adapter, notamment en mathématiques, car venant d’un bac STI2D, j’avais moins de bases théoriques que certains étudiants issus de filières générales. Les débuts ont demandé beaucoup de travail personnel, mais cette période m’a permis de développer mon autonomie et ma capacité d’adaptation.
+            Je suis étudiante en 2ème BUT Science des Données à l'IUT de Villetaneuse (Université Sorbonne Paris Nord). À l'origine, je pensais m'orienter vers un parcours en management logistique des transports. C'est mon professeur au lycée qui m'a conseillé le BUT Science des Données, estimant que cette formation correspondait davantage à mon profil. En arrivant en BUT, j'ai dû m'adapter, notamment en mathématiques, car venant d'un bac STI2D, j'avais moins de bases théoriques que certains étudiants issus de filières générales. Les débuts ont demandé beaucoup de travail personnel, mais cette période m'a permis de développer mon autonomie et ma capacité d'adaptation.
             </p>
         </div>
 
         <div class="glass-card">
             <p>
-            J’aime particulièrement le travail d’analyse des données. J’apprécie le fait de partir de données brutes, de les nettoyer, de les structurer, puis de construire des graphiques pour en tirer des conclusions pertinentes. Comprendre un problème, interpréter les résultats et proposer des solutions concrètes est un aspect qui me motive beaucoup. Le travail en groupe est également important pour moi : j’aime échanger des idées, confronter les points de vue et expliquer les résultats obtenus.
+            J'aime particulièrement le travail d'analyse des données. J'apprécie le fait de partir de données brutes, de les nettoyer, de les structurer, puis de construire des graphiques pour en tirer des conclusions pertinentes. Comprendre un problème, interpréter les résultats et proposer des solutions concrètes est un aspect qui me motive beaucoup. Le travail en groupe est également important pour moi : j'aime échanger des idées, confronter les points de vue et expliquer les résultats obtenus.
             </p>
         </div>
 
         <div class="glass-card">
             <p>
-            Je souhaite devenir ingénieure ou spécialiste en intelligence artificielle, avec un intérêt particulier pour le machine learning et le traitement automatique du langage naturel (NLP). Ce qui m’attire dans ces domaines, ce sont les algorithmes et la capacité des modèles à apprendre à partir des données. J’apprécie également le fait que ce soit un domaine en constante évolution, où l’on doit continuellement se former et s’adapter.
+            Je souhaite devenir ingénieure ou spécialiste en intelligence artificielle, avec un intérêt particulier pour le machine learning et le traitement automatique du langage naturel (NLP). Ce qui m'attire dans ces domaines, ce sont les algorithmes et la capacité des modèles à apprendre à partir des données. J'apprécie également le fait que ce soit un domaine en constante évolution, où l'on doit continuellement se former et s'adapter.
             </p>
         </div>
 
         <div class="glass-card">
             <p>
-            Pour cela, je compte poursuivre mes études après le BUT, en intégrant une école d’ingénieur spécialisée en data ou en machine learning, ou bien un master en intelligence artificielle. Je travaille également à renforcer mes compétences en programmation, en analyse de données et en modélisation statistique. Je m’investis dans mes projets universitaires et je cherche à progresser régulièrement afin de construire un parcours solide et cohérent.
+            Pour cela, je compte poursuivre mes études après le BUT, en intégrant une école d'ingénieur spécialisée en data ou en machine learning, ou bien un master en intelligence artificielle. Je travaille également à renforcer mes compétences en programmation, en analyse de données et en modélisation statistique. Je m'investis dans mes projets universitaires et je cherche à progresser régulièrement afin de construire un parcours solide et cohérent.
             </p>
         </div>
 
@@ -247,6 +395,8 @@ ul{
 
 </div>
 </section>
+
+<!-- COMPETENCES -->
 <section class="section" id="competences">
 <h2>Compétences</h2>
 
@@ -255,7 +405,7 @@ ul{
 
 <div class="glass-card">
 <h3>Python</h3>
-<p>J’utilise Python pour la manipulation et l’analyse de données.</p>
+<p>J'utilise Python pour la manipulation et l'analyse de données.</p>
 <p><strong>Je sais :</strong></p>
 <ul>
 <li>Nettoyer un jeu de données (valeurs manquantes, doublons, formats)</li>
@@ -263,7 +413,7 @@ ul{
 <li>Utiliser NumPy pour les calculs numériques</li>
 <li>Réaliser des analyses exploratoires</li>
 <li>Créer des visualisations avec Matplotlib</li>
-<li>Structurer un script d’analyse de manière claire</li>
+<li>Structurer un script d'analyse de manière claire</li>
 </ul>
 </div>
 
@@ -282,7 +432,7 @@ ul{
 
 <div class="glass-card">
 <h3>R</h3>
-<p>J’utilise R pour l’analyse statistique.</p>
+<p>J'utilise R pour l'analyse statistique.</p>
 <p><strong>Je sais :</strong></p>
 <ul>
 <li>Réaliser des statistiques descriptives</li>
@@ -305,7 +455,7 @@ ul{
 
 </div>
 
-<div class="subsection-title">Outils d’analyse et visualisation</div>
+<div class="subsection-title">Outils d'analyse et visualisation</div>
 <div class="glass-container">
 
 <div class="glass-card">
@@ -342,21 +492,22 @@ ul{
 <h3>Sphinx</h3>
 <ul>
 <li>Création de questionnaires</li>
-<li>Analyse de données d’enquête</li>
+<li>Analyse de données d'enquête</li>
 <li>Interprétation des résultats</li>
 </ul>
 </div>
 
 <div class="glass-card">
-<h3>Power BI (en cours d’apprentissage)</h3>
+<h3>Power BI (en cours d'apprentissage)</h3>
 <ul>
-<li>Prise en main de l’interface</li>
+<li>Prise en main de l'interface</li>
 <li>Découverte des outils de visualisation</li>
 </ul>
 </div>
 
 </div>
 </section>
+
 <script>
 function updateButton(){
     const btn = document.querySelector(".theme-btn");
@@ -375,7 +526,7 @@ function toggleTheme(){
 
 updateButton();
 
-/* Animation réseau */
+/* ========== ANIMATION RÉSEAU + PARTICULES ========== */
 
 const canvas = document.getElementById("network");
 const ctx = canvas.getContext("2d");
@@ -385,35 +536,61 @@ canvas.height = window.innerHeight;
 
 let particles = [];
 
-for(let i=0;i<70;i++){
+for(let i=0;i<50;i++){
     particles.push({
         x:Math.random()*canvas.width,
         y:Math.random()*canvas.height,
-        dx:(Math.random()-0.5)*0.6,
-        dy:(Math.random()-0.5)*0.6
+        dx:(Math.random()-0.5)*0.4,
+        dy:(Math.random()-0.5)*0.4,
+        radius: Math.random() * 1.5 + 0.5
     });
 }
 
 function animate(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
 
-    particles.forEach(p=>{
+    particles.forEach((p, i) => {
         p.x+=p.dx;
         p.y+=p.dy;
 
         if(p.x<0||p.x>canvas.width)p.dx*=-1;
         if(p.y<0||p.y>canvas.height)p.dy*=-1;
 
+        // Dessiner la particule
         ctx.beginPath();
-        ctx.arc(p.x,p.y,2,0,Math.PI*2);
-        ctx.fillStyle="#00c896";
+        ctx.arc(p.x,p.y,p.radius,0,Math.PI*2);
+        ctx.fillStyle="rgba(0,200,150,0.6)";
         ctx.fill();
+
+        // Connecter les particules proches
+        particles.forEach((p2, j) => {
+            if(i < j){
+                const dx = p2.x - p.x;
+                const dy = p2.y - p.y;
+                const distance = Math.sqrt(dx*dx + dy*dy);
+                
+                if(distance < 150){
+                    ctx.strokeStyle = `rgba(0,200,150,${0.2 * (1 - distance/150)})`;
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(p2.x, p2.y);
+                    ctx.stroke();
+                }
+            }
+        });
     });
 
     requestAnimationFrame(animate);
 }
 
 animate();
+
+// Responsive canvas
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
 </script>
 
 </body>
