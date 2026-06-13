@@ -4,172 +4,188 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Samah Salhi – Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #021b1f;
-  --bg2: #012a2f;
-  --surface: rgba(0,200,150,0.05);
-  --surface-hover: rgba(0,200,150,0.1);
-  --border: rgba(0,200,150,0.12);
-  --border-bright: rgba(0,200,150,0.4);
-  --text: #e8fdf9;
-  --text-muted: rgba(232,253,249,0.55);
-  --green: #00c896;
-  --green2: #0096c7;
-  --green-glow: rgba(0,200,150,0.25);
-  --tag-bg: rgba(0,200,150,0.1);
-  --tag-border: rgba(0,200,150,0.3);
-  --card-radius: 18px;
-  --tr: 0.35s cubic-bezier(0.4,0,0.2,1);
+:root{
+  --bg:#021b1f;--surface:rgba(0,200,150,0.05);--surface-h:rgba(0,200,150,0.1);
+  --border:rgba(0,200,150,0.12);--border-b:rgba(0,200,150,0.4);
+  --text:#e8fdf9;--muted:rgba(232,253,249,0.55);
+  --g:#00c896;--g2:#0096c7;--glow:rgba(0,200,150,0.25);
+  --tb:rgba(0,200,150,0.1);--tbr:rgba(0,200,150,0.3);--r:18px;
+  --tr:0.35s cubic-bezier(0.4,0,0.2,1);
 }
-body.light {
-  --bg: #e8fdf5;
-  --bg2: #d0f5ea;
-  --surface: rgba(0,120,90,0.06);
-  --surface-hover: rgba(0,120,90,0.12);
-  --border: rgba(0,120,90,0.12);
-  --border-bright: rgba(0,150,100,0.45);
-  --text: #002a1f;
-  --text-muted: rgba(0,42,31,0.55);
-  --green: #00845f;
-  --green2: #006fa8;
-  --green-glow: rgba(0,150,100,0.2);
-  --tag-bg: rgba(0,120,90,0.1);
-  --tag-border: rgba(0,120,90,0.3);
+body.light{
+  --bg:#e8fdf5;--surface:rgba(0,120,90,0.06);--surface-h:rgba(0,120,90,0.12);
+  --border:rgba(0,120,90,0.12);--border-b:rgba(0,150,100,0.45);
+  --text:#002a1f;--muted:rgba(0,42,31,0.55);
+  --g:#00845f;--g2:#006fa8;--glow:rgba(0,150,100,0.2);
+  --tb:rgba(0,120,90,0.1);--tbr:rgba(0,120,90,0.3);
 }
-
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;transition:background var(--tr),color var(--tr);}
 
+/* CANVAS */
 #bg-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 5%;background:rgba(2,27,31,0.7);backdrop-filter:blur(20px);border-bottom:0.5px solid var(--border);transition:background var(--tr);}
-body.light nav{background:rgba(232,253,245,0.75);}
-.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:18px;background:linear-gradient(135deg,var(--green),var(--green2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.nav-links{display:flex;gap:4px;}
-.nav-link{padding:7px 15px;border-radius:50px;font-size:13px;font-weight:500;color:var(--text-muted);text-decoration:none;transition:all .25s;}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:15px 5%;background:rgba(2,27,31,0.75);backdrop-filter:blur(20px);border-bottom:0.5px solid var(--border);}
+body.light nav{background:rgba(232,253,245,0.8);}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:17px;background:linear-gradient(135deg,var(--g),var(--g2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.nav-links{display:flex;gap:3px;}
+.nav-link{padding:7px 14px;border-radius:50px;font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;transition:all .25s;}
 .nav-link:hover{color:var(--text);background:var(--surface);}
-.theme-btn{padding:7px 18px;border-radius:50px;border:0.5px solid var(--border-bright);background:var(--tag-bg);color:var(--green);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .25s;}
-.theme-btn:hover{background:var(--green-glow);}
+.theme-btn{padding:7px 16px;border-radius:50px;border:0.5px solid var(--border-b);background:var(--tb);color:var(--g);font-family:'DM Sans',sans-serif;font-size:13px;cursor:pointer;transition:all .25s;}
 
+/* HERO */
 .hero{position:relative;z-index:2;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 5% 80px;}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 18px;border-radius:50px;background:var(--tag-bg);border:0.5px solid var(--tag-border);font-size:13px;color:var(--green);margin-bottom:28px;animation:fadeUp .8s ease both;}
-.badge-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 18px;border-radius:50px;background:var(--tb);border:0.5px solid var(--tbr);font-size:13px;color:var(--g);margin-bottom:28px;animation:up .8s ease both;}
+.bdot{width:7px;height:7px;border-radius:50%;background:var(--g);animation:pulse 2s infinite;}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.5)}}
-.hero h1{font-family:'Syne',sans-serif;font-size:clamp(56px,9vw,110px);font-weight:800;line-height:1;letter-spacing:-2px;background:linear-gradient(135deg,#fff 0%,var(--green) 50%,var(--green2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:fadeUp .9s .1s ease both;}
-body.light .hero h1{background:linear-gradient(135deg,#002a1f 0%,#00845f 60%,#006fa8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.hero-sub{font-size:clamp(14px,1.8vw,18px);color:var(--text-muted);margin-top:16px;max-width:520px;animation:fadeUp 1s .2s ease both;}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(54px,9vw,108px);font-weight:800;line-height:1;letter-spacing:-2px;background:linear-gradient(135deg,#fff 0%,var(--g) 50%,var(--g2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:up .9s .1s ease both;}
+body.light .hero h1{background:linear-gradient(135deg,#002a1f,#00845f,#006fa8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero-photos{display:flex;align-items:center;justify-content:center;gap:28px;margin-top:48px;flex-wrap:wrap;animation:up 1s .2s ease both;}
+.ph-side{width:155px;height:155px;border-radius:50%;object-fit:cover;border:2px solid var(--border-b);opacity:.85;transition:all .3s;box-shadow:0 0 28px var(--glow);}
+.ph-side:hover{opacity:1;transform:scale(1.06);}
+.ph-center{width:220px;height:220px;border-radius:50%;object-fit:cover;border:3px solid var(--g);box-shadow:0 0 60px var(--glow);transition:all .3s;}
+.ph-center:hover{transform:scale(1.03);box-shadow:0 0 80px var(--glow);}
+.hero-cta{display:flex;gap:14px;margin-top:40px;flex-wrap:wrap;justify-content:center;animation:up 1s .3s ease both;}
+.btn-p{padding:13px 30px;border-radius:50px;background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;font-weight:500;font-size:15px;text-decoration:none;border:none;cursor:pointer;transition:all .25s;box-shadow:0 0 30px var(--glow);}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 0 50px var(--glow);}
+.btn-g{padding:13px 30px;border-radius:50px;border:0.5px solid var(--border-b);color:var(--text);font-size:15px;font-weight:500;text-decoration:none;background:transparent;transition:all .25s;}
+.btn-g:hover{background:var(--surface);}
+@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 
-.hero-photos{display:flex;align-items:center;justify-content:center;gap:30px;margin-top:48px;flex-wrap:wrap;animation:fadeUp 1s .3s ease both;}
-.photo-side{width:160px;height:160px;border-radius:50%;object-fit:cover;border:2px solid var(--border-bright);opacity:.85;transition:all .3s;box-shadow:0 0 30px var(--green-glow);}
-.photo-side:hover{opacity:1;transform:scale(1.06);}
-.photo-center{width:230px;height:230px;border-radius:50%;object-fit:cover;border:3px solid var(--green);box-shadow:0 0 60px var(--green-glow),0 0 120px rgba(0,200,150,.1);transition:all .3s;}
-.photo-center:hover{box-shadow:0 0 80px var(--green-glow);transform:scale(1.03);}
-
-.hero-cta{display:flex;gap:14px;margin-top:40px;flex-wrap:wrap;justify-content:center;animation:fadeUp 1s .4s ease both;}
-.btn-primary{padding:13px 30px;border-radius:50px;background:linear-gradient(135deg,var(--green),var(--green2));color:#fff;font-weight:500;font-size:15px;text-decoration:none;border:none;cursor:pointer;transition:all .25s;box-shadow:0 0 30px var(--green-glow);}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 50px var(--green-glow);}
-.btn-ghost{padding:13px 30px;border-radius:50px;border:0.5px solid var(--border-bright);color:var(--text);font-size:15px;font-weight:500;text-decoration:none;background:transparent;transition:all .25s;}
-.btn-ghost:hover{background:var(--surface);}
-
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-
+/* SECTIONS */
 section{position:relative;z-index:2;padding:100px 7%;}
-.section-label{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:10px;}
-.section-title{font-family:'Syne',sans-serif;font-size:clamp(30px,4.5vw,52px);font-weight:800;line-height:1.1;margin-bottom:56px;}
-.divider{height:.5px;background:linear-gradient(90deg,transparent,var(--border-bright),transparent);margin:0 7%;opacity:.5;}
+.slabel{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--g);margin-bottom:10px;}
+.stitle{font-family:'Syne',sans-serif;font-size:clamp(28px,4vw,50px);font-weight:800;line-height:1.1;margin-bottom:50px;}
+.divider{height:.5px;background:linear-gradient(90deg,transparent,var(--border-b),transparent);margin:0 7%;opacity:.5;}
 
-.pres-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1100px;margin:0 auto;}
-@media(max-width:768px){.pres-grid,.obj-grid{grid-template-columns:1fr;}}
-.pres-card{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--card-radius);padding:30px;transition:all var(--tr);}
-.pres-card:hover{border-color:var(--border-bright);background:var(--surface-hover);transform:translateY(-3px);}
-.pres-icon{width:40px;height:40px;border-radius:12px;background:var(--tag-bg);border:0.5px solid var(--tag-border);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:16px;}
-.pres-card h3{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:12px;}
-.pres-card p{font-size:15px;line-height:1.78;color:var(--text-muted);}
+/* ACCORDEON PRÉSENTATION */
+.accord-wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:10px;}
+.ac-item{border-radius:14px;border:0.5px solid var(--border);overflow:hidden;cursor:pointer;transition:border-color .3s,box-shadow .3s;}
+.ac-item:hover{border-color:var(--ac,var(--g));}
+.ac-item.open{border-color:var(--ac,var(--g));box-shadow:0 0 35px rgba(0,0,0,.18);}
+.ac-head{display:flex;align-items:center;gap:14px;padding:17px 22px;background:var(--surface);transition:background .3s;}
+.ac-item.open .ac-head{background:linear-gradient(135deg,color-mix(in srgb,var(--ac) 14%,transparent),transparent);}
+.ac-ico{width:38px;height:38px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--ac,var(--g));background:rgba(0,0,0,.18);border:0.5px solid rgba(255,255,255,.07);transition:all .3s;}
+.ac-item.open .ac-ico{background:var(--ac,var(--g));color:#fff;}
+.ac-title{flex:1;font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--text);transition:color .3s;}
+.ac-item.open .ac-title{color:var(--ac,var(--g));}
+.ac-arr{color:var(--muted);transition:transform .35s,color .3s;flex-shrink:0;}
+.ac-item.open .ac-arr{transform:rotate(180deg);color:var(--ac,var(--g));}
+.ac-body{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.4,0,.2,1);}
+.ac-item.open .ac-body{max-height:500px;}
+.ac-body p{padding:0 22px 22px 74px;font-size:15px;line-height:1.8;color:var(--muted);}
 
-.qualite-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;max-width:1000px;margin:40px auto 0;}
-.qualite-item{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--card-radius);padding:22px;text-align:center;transition:all var(--tr);}
-.qualite-item:hover{border-color:var(--border-bright);transform:translateY(-3px);}
-.qualite-item .qi{font-size:26px;margin-bottom:10px;}
-.qualite-item h4{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--green);margin-bottom:7px;}
-.qualite-item p{font-size:13px;color:var(--text-muted);line-height:1.6;}
+/* QUALITÉS BOULES */
+.bubbles-wrap{max-width:1000px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:center;gap:32px;padding:20px 0;}
+.bub{position:relative;width:160px;height:160px;cursor:pointer;}
+.bub-ring{position:absolute;inset:0;border-radius:50%;border:1.5px solid var(--bc);opacity:.35;animation:bpulse 3s ease-in-out infinite;}
+.bub:nth-child(2) .bub-ring{animation-delay:.5s;}
+.bub:nth-child(3) .bub-ring{animation-delay:1s;}
+.bub:nth-child(4) .bub-ring{animation-delay:1.5s;}
+.bub:nth-child(5) .bub-ring{animation-delay:2s;}
+@keyframes bpulse{0%,100%{transform:scale(1);opacity:.35}50%{transform:scale(1.07);opacity:.65}}
+.bub-inner{position:relative;z-index:2;width:140px;height:140px;border-radius:50%;background:var(--bbg);border:1.5px solid var(--bc);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;color:var(--bc);transition:all .35s;box-shadow:0 0 22px color-mix(in srgb,var(--bc) 18%,transparent);}
+.bub-inner svg{transition:transform .3s;}
+.bub-inner span{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--bc);text-align:center;line-height:1.2;padding:0 10px;}
+.bub:hover .bub-inner{transform:scale(1.09);box-shadow:0 0 45px color-mix(in srgb,var(--bc) 32%,transparent);background:color-mix(in srgb,var(--bc) 16%,transparent);}
+.bub:hover .bub-ring{opacity:.85;transform:scale(1.14);}
+/* PANEL QUI SE DÉPLOIE */
+.bub-panel{position:absolute;bottom:calc(100% + 16px);left:50%;transform:translateX(-50%) translateY(8px);width:260px;background:#021b1f;border:1px solid var(--bc);border-radius:16px;padding:16px 18px;font-size:13.5px;color:var(--muted);line-height:1.7;opacity:0;pointer-events:none;transition:all .3s;z-index:20;text-align:left;}
+body.light .bub-panel{background:#fff;}
+.bub-panel::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:7px solid transparent;border-top-color:var(--bc);}
+.bub-panel strong{display:block;font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--bc);margin-bottom:7px;}
+.bub:hover .bub-panel{opacity:1;transform:translateX(-50%) translateY(0);}
 
-.pourquoi-box{max-width:820px;margin:0 auto;background:var(--surface);border:0.5px solid var(--border-bright);border-radius:var(--card-radius);padding:48px;position:relative;overflow:hidden;}
-.pourquoi-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--green2),var(--green));}
-.pourquoi-box p{font-size:16px;line-height:1.85;color:var(--text-muted);margin-bottom:20px;}
-.pourquoi-box p:last-child{margin-bottom:0;}
-.pourquoi-box strong{color:var(--green);font-weight:500;}
+/* COMPÉTENCES */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;max-width:1100px;margin:0 auto;}
+.sk-card{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--r);padding:22px;transition:all var(--tr);}
+.sk-card:hover{border-color:var(--border-b);background:var(--surface-h);transform:translateY(-3px);}
+.sk-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+.sk-ico{width:34px;height:34px;border-radius:10px;background:var(--tb);border:0.5px solid var(--tbr);display:flex;align-items:center;justify-content:center;color:var(--g);}
+.sk-card h3{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--g);}
+.sk-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.sk-tag{padding:3px 10px;border-radius:50px;background:var(--tb);border:0.5px solid var(--tbr);font-size:12px;color:var(--g);font-weight:500;}
 
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;max-width:1100px;margin:0 auto;}
-.skill-card{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--card-radius);padding:24px;transition:all var(--tr);}
-.skill-card:hover{border-color:var(--border-bright);background:var(--surface-hover);transform:translateY(-3px);}
-.skill-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
-.skill-ico{width:34px;height:34px;border-radius:10px;background:var(--tag-bg);border:0.5px solid var(--tag-border);display:flex;align-items:center;justify-content:center;font-size:16px;}
-.skill-card h3{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--green);}
-.skill-tags{display:flex;flex-wrap:wrap;gap:6px;}
-.skill-tag{padding:3px 10px;border-radius:50px;background:var(--tag-bg);border:0.5px solid var(--tag-border);font-size:12px;color:var(--green);font-weight:500;}
+/* PROJETS - CAROUSEL HORIZONTAL */
+.sae-yr{font-family:'Syne',sans-serif;font-size:19px;font-weight:700;color:var(--text);margin-bottom:20px;display:flex;align-items:center;gap:14px;}
+.yr-b{padding:4px 14px;border-radius:50px;background:linear-gradient(135deg,var(--g),var(--g2));font-size:12px;font-weight:600;color:#fff;}
+.comp-b{padding:3px 9px;border-radius:50px;font-size:11px;font-weight:600;border:0.5px solid;}
+.ct{background:rgba(59,130,246,.12);border-color:rgba(59,130,246,.35);color:#60a5fa;}
+.ca{background:rgba(234,179,8,.12);border-color:rgba(234,179,8,.35);color:#fbbf24;}
+.cv{background:rgba(34,197,94,.12);border-color:rgba(34,197,94,.35);color:#4ade80;}
+.cm{background:rgba(239,68,68,.12);border-color:rgba(239,68,68,.35);color:#f87171;}
+body.light .ct{color:#1d4ed8;}body.light .ca{color:#a16207;}body.light .cv{color:#15803d;}body.light .cm{color:#dc2626;}
 
-.sae-yr-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--text);margin-bottom:22px;display:flex;align-items:center;gap:14px;}
-.yr-badge{padding:4px 14px;border-radius:50px;background:linear-gradient(135deg,var(--green),var(--green2));font-size:12px;font-weight:600;color:#fff;}
-.comp-badge{padding:3px 9px;border-radius:50px;font-size:11px;font-weight:600;border:0.5px solid;}
-.comp-t{background:rgba(59,130,246,.12);border-color:rgba(59,130,246,.35);color:#60a5fa;}
-.comp-a{background:rgba(234,179,8,.12);border-color:rgba(234,179,8,.35);color:#fbbf24;}
-.comp-v{background:rgba(34,197,94,.12);border-color:rgba(34,197,94,.35);color:#4ade80;}
-.comp-m{background:rgba(239,68,68,.12);border-color:rgba(239,68,68,.35);color:#f87171;}
-body.light .comp-t{color:#1d4ed8;}body.light .comp-a{color:#a16207;}body.light .comp-v{color:#15803d;}body.light .comp-m{color:#dc2626;}
-
-.sae-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px;margin-bottom:50px;}
-.sae-card{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--card-radius);overflow:hidden;cursor:pointer;transition:all var(--tr);}
-.sae-card:hover{border-color:var(--border-bright);transform:translateY(-4px);box-shadow:0 20px 60px var(--green-glow);}
-.sae-card.open{border-color:var(--border-bright);}
+.sae-scroll{display:flex;gap:16px;overflow-x:auto;padding:8px 4px 20px;scrollbar-width:thin;scrollbar-color:var(--border-b) transparent;margin-bottom:50px;scroll-snap-type:x mandatory;}
+.sae-scroll::-webkit-scrollbar{height:4px;}
+.sae-scroll::-webkit-scrollbar-track{background:transparent;}
+.sae-scroll::-webkit-scrollbar-thumb{background:var(--border-b);border-radius:4px;}
+.sae-card{min-width:300px;max-width:300px;background:var(--surface);border:0.5px solid var(--border);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:all var(--tr);scroll-snap-align:start;flex-shrink:0;}
+.sae-card:hover{border-color:var(--border-b);transform:translateY(-4px);box-shadow:0 20px 50px var(--glow);}
+.sae-card.open{border-color:var(--border-b);}
 .sae-head{padding:20px 22px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
 .sae-left{flex:1;}
-.sae-num{font-size:10px;font-weight:600;letter-spacing:2px;color:var(--green);text-transform:uppercase;margin-bottom:5px;}
+.sae-num{font-size:10px;font-weight:600;letter-spacing:2px;color:var(--g);text-transform:uppercase;margin-bottom:5px;}
 .sae-title{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--text);line-height:1.4;margin-bottom:11px;}
-.sae-comp-row{display:flex;flex-wrap:wrap;gap:5px;}
-.sae-chev{width:26px;height:26px;border-radius:50%;background:var(--tag-bg);border:0.5px solid var(--tag-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s;font-size:12px;color:var(--green);}
+.sae-cr{display:flex;flex-wrap:wrap;gap:5px;}
+.sae-chev{width:26px;height:26px;border-radius:50%;background:var(--tb);border:0.5px solid var(--tbr);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s;color:var(--g);}
 .sae-card.open .sae-chev{transform:rotate(180deg);}
 .sae-body{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1);}
-.sae-card.open .sae-body{max-height:1400px;border-top:0.5px solid var(--border);}
-.sae-inner{padding:22px;}
-.sae-blk{margin-bottom:18px;}
+.sae-card.open .sae-body{max-height:800px;border-top:0.5px solid var(--border);}
+.sae-inner{padding:20px;}
+.sae-blk{margin-bottom:16px;}
 .sae-blk:last-child{margin-bottom:0;}
-.sae-blk-title{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:9px;}
-.sae-blk p{font-size:14px;line-height:1.7;color:var(--text-muted);}
+.sae-blt{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--g);margin-bottom:8px;}
+.sae-blk p{font-size:13px;line-height:1.7;color:var(--muted);}
 .sae-blk ul{list-style:none;padding:0;}
-.sae-blk ul li{font-size:14px;color:var(--text-muted);line-height:1.6;padding:3px 0 3px 16px;position:relative;}
-.sae-blk ul li::before{content:'▸';position:absolute;left:0;color:var(--green);font-size:10px;top:6px;}
-.img-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;}
-.img-ph{flex:1;min-width:110px;height:85px;border-radius:10px;background:var(--surface);border:1px dashed var(--border-bright);display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:20px;color:var(--text-muted);gap:5px;}
-.img-ph span{font-size:11px;}
+.sae-blk ul li{font-size:13px;color:var(--muted);padding:3px 0 3px 14px;position:relative;}
+.sae-blk ul li::before{content:'▸';position:absolute;left:0;color:var(--g);font-size:10px;top:5px;}
+.img-row{display:flex;gap:8px;margin-top:10px;}
+.img-ph{flex:1;min-width:80px;height:70px;border-radius:8px;background:var(--surface);border:1px dashed var(--border-b);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--muted);gap:4px;}
+.img-ph svg{opacity:.5;}
+.img-ph span{font-size:10px;}
 
-.obj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1000px;margin:0 auto;}
-.obj-card{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--card-radius);padding:30px;position:relative;overflow:hidden;transition:all var(--tr);}
-.obj-card:hover{border-color:var(--border-bright);transform:translateY(-3px);}
-.obj-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--green),var(--green2));opacity:0;transition:opacity .3s;}
+/* OBJECTIFS */
+.obj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:0 auto;}
+@media(max-width:768px){.obj-grid{grid-template-columns:1fr;}}
+.obj-card{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--r);padding:28px;position:relative;overflow:hidden;transition:all var(--tr);}
+.obj-card:hover{border-color:var(--border-b);transform:translateY(-3px);}
+.obj-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--g),var(--g2));opacity:0;transition:opacity .3s;}
 .obj-card:hover::after{opacity:1;}
-.obj-hor{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:10px;}
-.obj-card h3{font-family:'Syne',sans-serif;font-size:19px;font-weight:700;color:var(--text);margin-bottom:12px;}
-.obj-card p{font-size:14px;line-height:1.75;color:var(--text-muted);}
+.obj-hor{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--g);margin-bottom:10px;}
+.obj-card h3{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--text);margin-bottom:12px;}
+.obj-card p{font-size:14px;line-height:1.75;color:var(--muted);}
 
-.parcours-list{max-width:680px;margin:0 auto;position:relative;}
-.p-line{position:absolute;left:19px;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--border-bright),transparent);}
-.p-item{display:flex;gap:26px;margin-bottom:32px;position:relative;}
-.p-dot{width:38px;height:38px;border-radius:50%;flex-shrink:0;background:var(--tag-bg);border:0.5px solid var(--border-bright);display:flex;align-items:center;justify-content:center;font-size:15px;z-index:1;}
-.p-content{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--card-radius);padding:18px 22px;flex:1;transition:all var(--tr);}
-.p-content:hover{border-color:var(--border-bright);}
-.p-date{font-size:10px;font-weight:600;letter-spacing:2px;color:var(--green);text-transform:uppercase;margin-bottom:5px;}
-.p-content h3{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--text);margin-bottom:3px;}
-.p-content p{font-size:13px;color:var(--text-muted);}
+/* PARCOURS */
+.parc-list{max-width:680px;margin:0 auto;position:relative;}
+.parc-line{position:absolute;left:19px;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--border-b),transparent);}
+.parc-item{display:flex;gap:24px;margin-bottom:28px;position:relative;}
+.parc-dot{width:38px;height:38px;border-radius:50%;flex-shrink:0;background:var(--tb);border:0.5px solid var(--border-b);display:flex;align-items:center;justify-content:center;color:var(--g);z-index:1;}
+.parc-cnt{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--r);padding:18px 22px;flex:1;transition:all var(--tr);}
+.parc-cnt:hover{border-color:var(--border-b);}
+.parc-date{font-size:10px;font-weight:600;letter-spacing:2px;color:var(--g);text-transform:uppercase;margin-bottom:5px;}
+.parc-cnt h3{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--text);margin-bottom:3px;}
+.parc-cnt p{font-size:13px;color:var(--muted);}
 
-footer{position:relative;z-index:2;text-align:center;padding:50px 5%;border-top:0.5px solid var(--border);color:var(--text-muted);font-size:13px;}
-footer strong{color:var(--green);}
+/* FOOTER */
+footer{position:relative;z-index:2;text-align:center;padding:50px 5%;border-top:0.5px solid var(--border);color:var(--muted);font-size:13px;}
+footer strong{color:var(--g);}
+
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .ac-body p{padding:0 16px 18px 16px;}
+  .bubbles-wrap{gap:20px;}
+  .bub{width:130px;height:130px;}
+  .bub-inner{width:112px;height:112px;}
+  .bub-panel{width:200px;font-size:12px;}
+}
 </style>
 </head>
 <body>
-
 <canvas id="bg-canvas"></canvas>
 
 <nav>
@@ -184,23 +200,18 @@ footer strong{color:var(--green);}
   <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">☀ Mode clair</button>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">
-    <span class="badge-dot"></span>
-    Étudiante BUT Science des Données · IUT Villetaneuse
-  </div>
+  <div class="hero-badge"><span class="bdot"></span>Étudiante BUT Science des Données · IUT Villetaneuse</div>
   <h1>Samah Salhi</h1>
-  <p class="hero-sub">Passionnée par la data, le machine learning et le NLP — en route vers l'IA.</p>
-
   <div class="hero-photos">
-    <img src="DSC_5987.jpg" class="photo-side" alt="Photo Samah" onerror="this.style.display='none'">
-    <img src="9B23317C-9A22-4FA4-B79D-1DA08D123F6E.jpg" class="photo-center" alt="Samah Salhi" onerror="this.outerHTML='<div class=\'photo-center\' style=\'display:flex;align-items:center;justify-content:center;font-size:40px;background:rgba(0,200,150,0.1);border:3px solid #00c896;box-shadow:0 0 60px rgba(0,200,150,0.25);\'>📷</div>'">
-    <img src="DSC_5998.jpg" class="photo-side" alt="Photo Samah" onerror="this.style.display='none'">
+    <img src="DSC_5987.jpg" class="ph-side" alt="" onerror="this.style.display='none'">
+    <img src="9B23317C-9A22-4FA4-B79D-1DA08D123F6E.jpg" class="ph-center" alt="Samah Salhi" onerror="this.style.display='none'">
+    <img src="DSC_5998.jpg" class="ph-side" alt="" onerror="this.style.display='none'">
   </div>
-
   <div class="hero-cta">
-    <a href="#sae" class="btn-primary">Voir mes projets</a>
-    <a href="#presentation" class="btn-ghost">Me découvrir</a>
+    <a href="#sae" class="btn-p">Voir mes projets</a>
+    <a href="#presentation" class="btn-g">Me découvrir</a>
   </div>
 </section>
 
@@ -208,60 +219,113 @@ footer strong{color:var(--green);}
 
 <!-- PRÉSENTATION -->
 <section id="presentation">
-  <div class="section-label">À propos</div>
-  <div class="section-title">Présentation</div>
-  <div class="pres-grid">
-    <div class="pres-card">
-      <div class="pres-icon">🎓</div>
-      <h3>Mon parcours</h3>
-      <p>Je suis étudiante en 2ème année de BUT Science des Données à l'IUT de Villetaneuse. C'est sur les conseils d'un professeur que je me suis orientée vers cette formation — un choix qui m'a demandé de l'adaptation, mais qui s'est révélé être le bon.</p>
+  <div class="slabel">À propos</div>
+  <div class="stitle">Présentation</div>
+  <div class="accord-wrap">
+
+    <div class="ac-item" style="--ac:#00c896" onclick="toggleAc(this)">
+      <div class="ac-head">
+        <div class="ac-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+        <span class="ac-title">Mon parcours</span>
+        <div class="ac-arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </div>
+      <div class="ac-body"><p>Je suis étudiante en 2ème année de BUT Science des Données à l'IUT de Villetaneuse (Université Sorbonne Paris Nord). À l'origine, je pensais m'orienter vers un parcours en management logistique des transports. C'est mon professeur au lycée qui m'a conseillé le BUT Science des Données, estimant que cette formation correspondait davantage à mon profil. En arrivant en BUT, j'ai dû m'adapter, notamment en mathématiques, car venant d'un bac STI2D, j'avais moins de bases théoriques que certains étudiants issus de filières générales. Les débuts ont demandé beaucoup de travail personnel, mais cette période m'a permis de développer mon autonomie et ma capacité d'adaptation.</p></div>
     </div>
-    <div class="pres-card">
-      <div class="pres-icon">📊</div>
-      <h3>Ce qui me passionne</h3>
-      <p>Partir d'un jeu de données brut, le nettoyer, l'explorer, puis construire des visualisations qui racontent quelque chose — ce processus m'a immédiatement parlé. Travailler en équipe, confronter les idées et expliquer les résultats font aussi partie de ce qui me motive.</p>
+
+    <div class="ac-item" style="--ac:#0096c7" onclick="toggleAc(this)">
+      <div class="ac-head">
+        <div class="ac-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        <span class="ac-title">Ce qui me passionne</span>
+        <div class="ac-arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </div>
+      <div class="ac-body"><p>J'aime particulièrement le travail d'analyse des données. J'apprécie le fait de partir de données brutes, de les nettoyer, de les structurer, puis de construire des graphiques pour en tirer des conclusions pertinentes. Comprendre un problème, interpréter les résultats et proposer des solutions concrètes est un aspect qui me motive beaucoup. Le travail en groupe est également important pour moi : j'aime échanger des idées, confronter les points de vue et expliquer les résultats obtenus.</p></div>
     </div>
-    <div class="pres-card">
-      <div class="pres-icon">🤖</div>
-      <h3>Mon projet pro</h3>
-      <p>Mon projet s'oriente vers l'intelligence artificielle, avec un intérêt marqué pour le machine learning et le NLP. Ce qui m'attire, c'est la capacité des modèles à apprendre — et le fait que ce domaine évolue constamment, ce qui pousse à se former en permanence.</p>
+
+    <div class="ac-item" style="--ac:#7c3aed" onclick="toggleAc(this)">
+      <div class="ac-head">
+        <div class="ac-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+        <span class="ac-title">Mon projet professionnel</span>
+        <div class="ac-arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </div>
+      <div class="ac-body"><p>Je souhaite devenir ingénieure ou spécialiste en intelligence artificielle, avec un intérêt particulier pour le machine learning et le traitement automatique du langage naturel (NLP). Ce qui m'attire dans ces domaines, ce sont les algorithmes et la capacité des modèles à apprendre à partir des données. J'apprécie également le fait que ce soit un domaine en constante évolution, où l'on doit continuellement se former et s'adapter.</p></div>
     </div>
-    <div class="pres-card">
-      <div class="pres-icon">🎯</div>
-      <h3>Mes ambitions</h3>
-      <p>Je vise une école d'ingénieur spécialisée en data ou un master en IA après le BUT. En parallèle, je renforce mes compétences en programmation, en statistiques et en modélisation à travers mes projets universitaires.</p>
+
+    <div class="ac-item" style="--ac:#f59e0b" onclick="toggleAc(this)">
+      <div class="ac-head">
+        <div class="ac-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <span class="ac-title">Mes ambitions</span>
+        <div class="ac-arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </div>
+      <div class="ac-body"><p>Je compte poursuivre mes études après le BUT, en intégrant une école d'ingénieur spécialisée en data ou en machine learning, ou bien un master en intelligence artificielle. Je travaille également à renforcer mes compétences en programmation, en analyse de données et en modélisation statistique. Je m'investis dans mes projets universitaires et je cherche à progresser régulièrement afin de construire un parcours solide et cohérent.</p></div>
     </div>
+
   </div>
 
   <!-- QUALITÉS -->
-  <div style="max-width:1100px;margin:60px auto 0;">
-    <div class="section-label" style="text-align:center;margin-bottom:16px;">Mes qualités</div>
-    <div class="qualite-grid">
-      <div class="qualite-item">
-        <div class="qualite-icon">💪</div>
-        <h4>Résiliente</h4>
-        <p>Face aux difficultés, je n'abandonne pas — j'essaie, j'ajuste, je recommence.</p>
+  <div style="max-width:1000px;margin:70px auto 0;">
+    <div class="slabel" style="text-align:center;margin-bottom:30px;">Mes qualités</div>
+    <div class="bubbles-wrap">
+
+      <div class="bub" style="--bc:#00c896;--bbg:rgba(0,200,150,0.08);">
+        <div class="bub-ring"></div>
+        <div class="bub-inner">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Résiliente</span>
+        </div>
+        <div class="bub-panel">
+          <strong>Résiliente</strong>
+          Arrivée en France sans maîtriser parfaitement la langue, j'ai dû redoubler — voire tripler — d'efforts pour m'intégrer, me faire des amis et réussir mes années. Aujourd'hui je parle couramment et je suis pleinement intégrée. Cette expérience m'a appris à ne jamais abandonner.
+        </div>
       </div>
-      <div class="qualite-item">
-        <div class="qualite-icon">🔍</div>
-        <h4>Curieuse</h4>
-        <p>J'aime apprendre de nouvelles choses et rester à jour dans ce domaine en constante évolution.</p>
+
+      <div class="bub" style="--bc:#0096c7;--bbg:rgba(0,150,199,0.08);">
+        <div class="bub-ring"></div>
+        <div class="bub-inner">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Curieuse</span>
+        </div>
+        <div class="bub-panel">
+          <strong>Curieuse</strong>
+          J'adore apprendre — en cours, mais aussi en dehors. Avec ma meilleure amie, on fait des projets ensemble sur des sujets qui nous passionnent, surtout tout ce qui touche à l'IA. Je me forme en permanence sur les outils les plus demandés du marché.
+        </div>
       </div>
-      <div class="qualite-item">
-        <div class="qualite-icon">📐</div>
-        <h4>Rigoureuse</h4>
-        <p>Motivée et méthodique, j'aborde chaque projet avec soin et précision.</p>
+
+      <div class="bub" style="--bc:#7c3aed;--bbg:rgba(124,58,237,0.08);">
+        <div class="bub-ring"></div>
+        <div class="bub-inner">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <span>Rigoureuse</span>
+        </div>
+        <div class="bub-panel">
+          <strong>Rigoureuse</strong>
+          Je suis quelqu'un de motivé qui aime apprendre et qui cherche toujours à améliorer son travail. Chaque projet est une occasion de mieux faire qu'avant — je reviens dessus, je peaufine, je m'assure que le résultat est vraiment propre.
+        </div>
       </div>
-      <div class="qualite-item">
-        <div class="qualite-icon">🤝</div>
-        <h4>Esprit d'équipe</h4>
-        <p>J'aime collaborer, partager les idées et trouver des solutions ensemble.</p>
+
+      <div class="bub" style="--bc:#f59e0b;--bbg:rgba(245,158,11,0.08);">
+        <div class="bub-ring"></div>
+        <div class="bub-inner">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>Esprit d'équipe</span>
+        </div>
+        <div class="bub-panel">
+          <strong>Esprit d'équipe</strong>
+          J'adore travailler en groupe, s'entraider et chercher des solutions ensemble. À l'IUT, on travaille beaucoup en projets collectifs — et c'est vraiment ce que je préfère : la dynamique, l'intelligence collective, le fait d'avancer ensemble.
+        </div>
       </div>
-      <div class="qualite-item">
-        <div class="qualite-icon">🧠</div>
-        <h4>Analytique</h4>
-        <p>Comprendre ce que les données disent, c'est ce qui me donne envie d'aller plus loin.</p>
+
+      <div class="bub" style="--bc:#ec4899;--bbg:rgba(236,72,153,0.08);">
+        <div class="bub-ring"></div>
+        <div class="bub-inner">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          <span>Autonome</span>
+        </div>
+        <div class="bub-panel">
+          <strong>Autonome</strong>
+          Durant mon stage en entreprise individuelle, j'étais seule — pas de collègue pour m'aider. J'ai dû apprendre, chercher, m'organiser et mener le projet jusqu'au bout par mes propres moyens. J'ai réussi, et j'en suis fière.
+        </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -270,13 +334,14 @@ footer strong{color:var(--green);}
 
 <!-- POURQUOI SD -->
 <section id="pourquoi">
-  <div class="section-label">Motivation</div>
-  <div class="section-title">Pourquoi la<br>science des données ?</div>
-  <div class="pourquoi-box">
-    <p>Honnêtement, ce n'était pas un coup de foudre immédiat. Après mon bac STI2D, j'avais une idée floue de ce que je voulais faire — et la science des données n'était pas dans mon radar. C'est mon professeur principal qui m'a poussée vers cette voie, convaincu que ça me correspondait. J'ai fait confiance à ce conseil, sans vraiment savoir où ça allait me mener.</p>
-    <p>En intégrant la formation, j'ai découvert quelque chose que je n'anticipais pas : c'est une formation vraiment <strong>pluridisciplinaire</strong>. Programmation, mathématiques, statistiques, économie, anglais… On ne fait pas que manipuler des données — on apprend à les comprendre sous des angles très différents. Cette diversité m'a surprise, et finalement, c'est ce qui m'a accrochée.</p>
-    <p>Ce que je n'attendais pas non plus, c'est à quel point j'allais accrocher au côté analytique. Partir de rien, manipuler des données, les faire « parler » et arriver à un résultat concret — ce processus m'a immédiatement parlé.</p>
-    <p>La science des données m'a aussi donné quelque chose de précieux : une vraie base en data, qui m'a permis de comprendre ce qui m'attire vraiment, à savoir <strong>l'intelligence artificielle</strong>. C'est grâce à ce parcours que j'ai su ce que je voulais faire, et dans quelle direction construire mon avenir.</p>
+  <div class="slabel">Motivation</div>
+  <div class="stitle">Pourquoi la science des données ?</div>
+  <div style="max-width:820px;margin:0 auto;background:var(--surface);border:0.5px solid var(--border-b);border-radius:var(--r);padding:48px;position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--g),var(--g2),var(--g));"></div>
+    <p style="font-size:16px;line-height:1.85;color:var(--muted);margin-bottom:20px;">Honnêtement, ce n'était pas un coup de foudre immédiat. Après mon bac STI2D, j'avais une idée floue de ce que je voulais faire — et la science des données n'était pas dans mon radar. C'est mon professeur principal qui m'a poussée vers cette voie. J'ai fait confiance à ce conseil, sans vraiment savoir où ça allait me mener.</p>
+    <p style="font-size:16px;line-height:1.85;color:var(--muted);margin-bottom:20px;">En intégrant la formation, j'ai découvert quelque chose que je n'anticipais pas : c'est une formation vraiment <strong style="color:var(--g);font-weight:500;">pluridisciplinaire</strong>. Programmation, mathématiques, statistiques, économie, anglais… On ne fait pas que manipuler des données — on apprend à les comprendre sous des angles très différents. Cette diversité m'a surprise, et finalement, c'est ce qui m'a accrochée.</p>
+    <p style="font-size:16px;line-height:1.85;color:var(--muted);margin-bottom:20px;">Partir de rien, manipuler des données, les faire parler et arriver à un résultat concret — ce processus m'a immédiatement parlé.</p>
+    <p style="font-size:16px;line-height:1.85;color:var(--muted);">La science des données m'a aussi donné quelque chose de précieux : une vraie base en data, qui m'a permis de comprendre ce qui m'attire vraiment, à savoir <strong style="color:var(--g);font-weight:500;">l'intelligence artificielle</strong>. C'est grâce à ce parcours que j'ai su ce que je voulais faire.</p>
   </div>
 </section>
 
@@ -284,554 +349,181 @@ footer strong{color:var(--green);}
 
 <!-- COMPÉTENCES -->
 <section id="competences">
-  <div class="section-label">Savoir-faire</div>
-  <div class="section-title">Compétences</div>
+  <div class="slabel">Savoir-faire</div>
+  <div class="stitle">Compétences</div>
   <div class="skills-grid">
-    <div class="skill-card">
-      <div class="skill-head">
-        <div class="skill-ico">🐍</div>
+
+    <div class="sk-card">
+      <div class="sk-head">
+        <div class="sk-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
         <h3>Python</h3>
       </div>
-      <div class="skill-tags">
-        <span class="skill-tag">Pandas</span><span class="skill-tag">NumPy</span>
-        <span class="skill-tag">Matplotlib</span><span class="skill-tag">BeautifulSoup</span>
-        <span class="skill-tag">Requests</span><span class="skill-tag">Web Scraping</span>
-        <span class="skill-tag">Nettoyage de données</span>
-      </div>
+      <div class="sk-tags"><span class="sk-tag">Pandas</span><span class="sk-tag">NumPy</span><span class="sk-tag">Matplotlib</span><span class="sk-tag">BeautifulSoup</span><span class="sk-tag">Requests</span><span class="sk-tag">Web Scraping</span><span class="sk-tag">Nettoyage de données</span></div>
     </div>
-    <div class="skill-card">
-      <div class="skill-head">
-        <div class="skill-ico">📈</div>
+
+    <div class="sk-card">
+      <div class="sk-head">
+        <div class="sk-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
         <h3>R</h3>
       </div>
-      <div class="skill-tags">
-        <span class="skill-tag">ggplot2</span><span class="skill-tag">Analyse stat</span>
-        <span class="skill-tag">Régression</span><span class="skill-tag">Séries temporelles</span>
-      </div>
+      <div class="sk-tags"><span class="sk-tag">ggplot2</span><span class="sk-tag">Analyse statistique</span><span class="sk-tag">Régression</span><span class="sk-tag">Séries temporelles</span></div>
     </div>
-    <div class="skill-card">
-      <div class="skill-head">
-        <div class="skill-ico">🗄️</div>
+
+    <div class="sk-card">
+      <div class="sk-head">
+        <div class="sk-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
         <h3>SQL</h3>
       </div>
-      <div class="skill-tags">
-        <span class="skill-tag">PostgreSQL</span><span class="skill-tag">Modélisation relationnelle</span>
-        <span class="skill-tag">Jointures</span><span class="skill-tag">Agrégats</span><span class="skill-tag">Vues</span>
-      </div>
+      <div class="sk-tags"><span class="sk-tag">PostgreSQL</span><span class="sk-tag">Modélisation relationnelle</span><span class="sk-tag">Jointures</span><span class="sk-tag">Agrégats</span><span class="sk-tag">Vues</span></div>
     </div>
-    <div class="skill-card">
-      <div class="skill-head">
-        <div class="skill-ico">📊</div>
+
+    <div class="sk-card">
+      <div class="sk-head">
+        <div class="sk-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
         <h3>Excel</h3>
       </div>
-      <div class="skill-tags">
-        <span class="skill-tag">Power Query</span><span class="skill-tag">Power Pivot</span>
-        <span class="skill-tag">TCD</span><span class="skill-tag">Dashboards</span>
-      </div>
+      <div class="sk-tags"><span class="sk-tag">Power Query</span><span class="sk-tag">Power Pivot</span><span class="sk-tag">TCD</span><span class="sk-tag">Dashboards</span></div>
     </div>
-    <div class="skill-card">
-      <div class="skill-head">
-        <div class="skill-ico">⚡</div>
+
+    <div class="sk-card">
+      <div class="sk-head">
+        <div class="sk-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
         <h3>Power BI</h3>
       </div>
-      <div class="skill-tags">
-        <span class="skill-tag">Dashboards interactifs</span><span class="skill-tag">DAX</span>
-        <span class="skill-tag">Power Query</span><span class="skill-tag">Séries temporelles</span><span class="skill-tag">Reporting</span>
-      </div>
+      <div class="sk-tags"><span class="sk-tag">Dashboards interactifs</span><span class="sk-tag">DAX</span><span class="sk-tag">Power Query</span><span class="sk-tag">Séries temporelles</span><span class="sk-tag">Reporting</span></div>
     </div>
-    <div class="skill-card">
-      <div class="skill-head">
-        <div class="skill-ico">📉</div>
+
+    <div class="sk-card">
+      <div class="sk-head">
+        <div class="sk-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
         <h3>Data Visualisation</h3>
       </div>
-      <div class="skill-tags">
-        <span class="skill-tag">Tableau Desktop</span><span class="skill-tag">Metabase</span>
-        <span class="skill-tag">Matplotlib</span><span class="skill-tag">Reporting</span>
-      </div>
+      <div class="sk-tags"><span class="sk-tag">Tableau Desktop</span><span class="sk-tag">Metabase</span><span class="sk-tag">Matplotlib</span><span class="sk-tag">Reporting</span></div>
     </div>
-    <div class="skill-card">
-      <div class="skill-head">
-        <div class="skill-ico">💻</div>
+
+    <div class="sk-card">
+      <div class="sk-head">
+        <div class="sk-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
         <h3>Développement</h3>
       </div>
-      <div class="skill-tags">
-        <span class="skill-tag">Flask</span><span class="skill-tag">HTML/CSS/JS</span>
-        <span class="skill-tag">API REST</span><span class="skill-tag">Web Scraping</span><span class="skill-tag">ETL</span>
-      </div>
+      <div class="sk-tags"><span class="sk-tag">Flask</span><span class="sk-tag">HTML/CSS/JS</span><span class="sk-tag">API REST</span><span class="sk-tag">Web Scraping</span><span class="sk-tag">ETL</span></div>
     </div>
-    <div class="skill-card">
-      <div class="skill-head">
-        <div class="skill-ico">🤖</div>
+
+    <div class="sk-card">
+      <div class="sk-head">
+        <div class="sk-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7H3a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/><path d="M5 14v7h14v-7"/></svg></div>
         <h3>Machine Learning</h3>
       </div>
-      <div class="skill-tags">
-        <span class="skill-tag">Clustering K-means</span><span class="skill-tag">CAH</span>
-        <span class="skill-tag">ACP</span><span class="skill-tag">Régression</span><span class="skill-tag">Séries temporelles</span>
-      </div>
+      <div class="sk-tags"><span class="sk-tag">K-means</span><span class="sk-tag">CAH</span><span class="sk-tag">ACP</span><span class="sk-tag">Régression</span><span class="sk-tag">Séries temporelles</span></div>
     </div>
+
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- SAÉ -->
+<!-- PROJETS -->
 <section id="sae">
-  <div class="section-label">Apprentissage par la pratique</div>
-  <div class="section-title">Mes projets universitaires</div>
+  <div class="slabel">Apprentissage par la pratique</div>
+  <div class="stitle">Mes projets universitaires</div>
 
-  <!-- BUT 1 -->
-  <div class="sae-yr-title">
-    <span class="yr-badge">BUT 1</span>
-    Première année
+  <div class="sae-yr"><span class="yr-b">BUT 1</span> Première année</div>
+  <div class="sae-scroll">
+
+    <div class="sae-card" onclick="toggleSae(this)">
+      <div class="sae-head"><div class="sae-left"><div class="sae-num">SAÉ 1.03</div><div class="sae-title">Tableau de bord interactif sur Excel</div><div class="sae-cr"><span class="comp-b ct">Traiter</span><span class="comp-b cv">Valoriser</span></div></div><div class="sae-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+      <div class="sae-body"><div class="sae-inner">
+        <div class="sae-blk"><div class="sae-blt">Objectif</div><p>Créer un tableau de bord pour le service communication de l'IUT afin d'analyser la typologie des étudiants (formation, lycée d'origine, mentions, bourse…).</p></div>
+        <div class="sae-blk"><div class="sae-blt">Ma contribution</div><ul><li>Analyse des besoins, nettoyage et structuration des données</li><li>Création de tableaux croisés dynamiques avec segments de filtrage</li><li>Graphiques dynamiques et mise en forme professionnelle</li></ul></div>
+        <div class="sae-blk"><div class="sae-blt">Ce que j'ai appris</div><ul><li>Construire un fichier Excel réutilisable et compréhensible</li><li>Répondre à une commande concrète avec autonomie</li></ul></div>
+        <div class="sae-blk"><div class="sae-blt">Captures</div><div class="img-row"><div class="img-ph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>À ajouter</span></div><div class="img-ph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>À ajouter</span></div></div></div>
+      </div></div>
+    </div>
+
+    <div class="sae-card" onclick="toggleSae(this)">
+      <div class="sae-head"><div class="sae-left"><div class="sae-num">SAÉ — Enquête</div><div class="sae-title">Enquête alimentaire à l'université</div><div class="sae-cr"><span class="comp-b ct">Traiter</span><span class="comp-b ca">Analyser</span></div></div><div class="sae-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+      <div class="sae-body"><div class="sae-inner">
+        <div class="sae-blk"><div class="sae-blt">Objectif</div><p>Concevoir une enquête sur les habitudes alimentaires des étudiants, récolter et analyser les résultats pour dégager des tendances.</p></div>
+        <div class="sae-blk"><div class="sae-blt">Ma contribution</div><ul><li>Questionnaire sur Sphinx, collecte sur le terrain</li><li>Statistiques descriptives : tris à plat et croisés</li><li>Interprétation : lien alimentation, origine, niveau d'étude</li></ul></div>
+        <div class="sae-blk"><div class="sae-blt">Ce que j'ai appris</div><ul><li>Travailler sur des données concrètes, non simulées</li><li>Visualiser des résultats pour un lecteur non-data</li></ul></div>
+        <div class="sae-blk"><div class="sae-blt">Captures</div><div class="img-row"><div class="img-ph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>À ajouter</span></div></div></div>
+      </div></div>
+    </div>
+
+    <div class="sae-card" onclick="toggleSae(this)">
+      <div class="sae-head"><div class="sae-left"><div class="sae-num">SAÉ — Python</div><div class="sae-title">Traitement de fiches clients en Python</div><div class="sae-cr"><span class="comp-b ct">Traiter</span></div></div><div class="sae-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+      <div class="sae-body"><div class="sae-inner">
+        <div class="sae-blk"><div class="sae-blt">Objectif</div><p>Traiter des données clients extraites de fichiers bruts, identifier les incomplets et produire un rapport sur la répartition géographique.</p></div>
+        <div class="sae-blk"><div class="sae-blt">Ma contribution</div><ul><li>Lecture automatique, nettoyage et export CSV structuré</li><li>Identification des clients sans téléphone</li><li>Rapport de synthèse par région</li></ul></div>
+        <div class="sae-blk"><div class="sae-blt">Ce que j'ai appris</div><ul><li>Automatiser un traitement de données en Python</li><li>Gérer fichiers incomplets et formats variés</li></ul></div>
+        <div class="sae-blk"><div class="sae-blt">Captures</div><div class="img-row"><div class="img-ph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>À ajouter</span></div></div></div>
+      </div></div>
+    </div>
+
+    <div class="sae-card" onclick="toggleSae(this)">
+      <div class="sae-head"><div class="sae-left"><div class="sae-num">SAÉ 2.03</div><div class="sae-title">Prédiction de tumeur — Régression logistique (R)</div><div class="sae-cr"><span class="comp-b ca">Analyser</span><span class="comp-b cm">Modéliser</span></div></div><div class="sae-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+      <div class="sae-body"><div class="sae-inner">
+        <div class="sae-blk"><div class="sae-blt">Objectif</div><p>Construire un modèle de régression logistique pour prédire si une tumeur est bénigne ou maligne à partir de variables cliniques.</p></div>
+        <div class="sae-blk"><div class="sae-blt">Ma contribution</div><ul><li>Nettoyage, graphiques descriptifs (boxplots, histogrammes)</li><li>Analyse des corrélations et mise en place du modèle</li><li>Interprétation des coefficients et validation</li></ul></div>
+        <div class="sae-blk"><div class="sae-blt">Ce que j'ai appris</div><ul><li>Utiliser la régression comme aide à la décision</li><li>Produire une interprétation lisible pour un non-spécialiste</li></ul></div>
+        <div class="sae-blk"><div class="sae-blt">Captures</div><div class="img-row"><div class="img-ph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>À ajouter</span></div></div></div>
+      </div></div>
+    </div>
+
+    <div class="sae-card" onclick="toggleSae(this)">
+      <div class="sae-head"><div class="sae-left"><div class="sae-num">SAÉ 202</div><div class="sae-title">Estimation par échantillonnage</div><div class="sae-cr"><span class="comp-b ca">Analyser</span><span class="comp-b cm">Modéliser</span></div></div><div class="sae-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+      <div class="sae-body"><div class="sae-inner">
+        <div class="sae-blk"><div class="sae-blt">Objectif</div><p>Tirer des échantillons aléatoires sur 500 000 individus, estimer moyennes et proportions, construire des intervalles de confiance.</p></div>
+        <div class="sae-blk"><div class="sae-blt">Ma contribution</div><ul><li>IC à 90%, 95%, 99% avec lois de Student et Khi²</li><li>Rapport clair avec commentaires et interprétations</li></ul></div>
+        <div class="sae-blk"><div class="sae-blt">Ce que j'ai appris</div><ul><li>Comprendre l'influence de la taille d'échantillon sur la précision</li></ul></div>
+        <div class="sae-blk"><div class="sae-blt">Captures</div><div class="img-row"><div class="img-ph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>À ajouter</span></div></div></div>
+      </div></div>
+    </div>
+
+    <div class="sae-card" onclick="toggleSae(this)">
+      <div class="sae-head"><div class="sae-left"><div class="sae-num">SAÉ 1.01</div><div class="sae-title">Catastrophes climatiques — SQL & Metabase</div><div class="sae-cr"><span class="comp-b ct">Traiter</span><span class="comp-b cv">Valoriser</span></div></div><div class="sae-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+      <div class="sae-body"><div class="sae-inner">
+        <div class="sae-blk"><div class="sae-blt">Objectif</div><p>Installer PostgreSQL + Metabase, intégrer un fichier mondial sur les catastrophes climatiques et produire des visualisations via SQL.</p></div>
+        <div class="sae-blk"><div class="sae-blt">Ma contribution</div><ul><li>Configuration PostgreSQL, import du jeu de données</li><li>Requêtes SQL : évolution annuelle, répartition, fréquences</li><li>Dashboards dynamiques Metabase</li></ul></div>
+        <div class="sae-blk"><div class="sae-blt">Ce que j'ai appris</div><ul><li>Mettre en place un environnement data complet</li><li>Relier des données à des enjeux climatiques mondiaux</li></ul></div>
+        <div class="sae-blk"><div class="sae-blt">Captures</div><div class="img-row"><div class="img-ph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>À ajouter</span></div></div></div>
+      </div></div>
+    </div>
+
+    <div class="sae-card" onclick="toggleSae(this)">
+      <div class="sae-head"><div class="sae-left"><div class="sae-num">SAÉ 2.05</div><div class="sae-title">Performance d'une entreprise bio — Ferme de l'Envol</div><div class="sae-cr"><span class="comp-b ca">Analyser</span><span class="comp-b cv">Valoriser</span></div></div><div class="sae-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+      <div class="sae-body"><div class="sae-inner">
+        <div class="sae-blk"><div class="sae-blt">Objectif</div><p>Étudier la performance économique d'une entreprise maraîchère bio en circuit court à partir de ses documents comptables.</p></div>
+        <div class="sae-blk"><div class="sae-blt">Ma contribution</div><ul><li>Ratios financiers, tableau des SIG, valeur ajoutée</li><li>Analyse PESTEL complète</li><li>Synthèse avec axes d'amélioration</li></ul></div>
+        <div class="sae-blk"><div class="sae-blt">Ce que j'ai appris</div><ul><li>Relier des chiffres à une situation réelle d'entreprise</li><li>Interpréter marge nette et autonomie financière</li></ul></div>
+        <div class="sae-blk"><div class="sae-blt">Captures</div><div class="img-row"><div class="img-ph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>À ajouter</span></div></div></div>
+      </div></div>
+    </div>
+
+    <div class="sae-card" onclick="toggleSae(this)">
+      <div class="sae-head"><div class="sae-left"><div class="sae-num">SAÉ 2.06</div><div class="sae-title">Analyse CO₂ — Datavisualisation & transition écologique</div><div class="sae-cr"><span class="comp-b ca">Analyser</span><span class="comp-b cv">Valoriser</span></div></div><div class="sae-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+      <div class="sae-body"><div class="sae-inner">
+        <div class="sae-blk"><div class="sae-blt">Objectif</div><p>Étudier des données réelles sur les émissions de CO₂ par type de véhicule et produire une analyse statistique complète avec visualisations.</p></div>
+        <div class="sae-blk"><div class="sae-blt">Ma contribution</div><ul><li>Nettoyage, boxplots, diagrammes, histogrammes</li><li>Gestion de projet : matrice RACI, feuille de temps</li><li>Rapport synthétique et professionnel</li></ul></div>
+        <div class="sae-blk"><div class="sae-blt">Ce que j'ai appris</div><ul><li>Structurer un projet data de A à Z</li><li>Des visuels utiles, pas juste beaux</li></ul></div>
+        <div class="sae-blk"><div class="sae-blt">Captures</div><div class="img-row"><div class="img-ph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>À ajouter</span></div></div></div>
+      </div></div>
+    </div>
+
+    <div class="sae-card" onclick="toggleSae(this)">
+      <div class="sae-head"><div class="sae-left"><div class="sae-num">SAÉ 2.01</div><div class="sae-title">BDD Commerce international — Technologies vertes</div><div class="sae-cr"><span class="comp-b ct">Traiter</span><span class="comp-b cm">Modéliser</span></div></div><div class="sae-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+      <div class="sae-body"><div class="sae-inner">
+        <div class="sae-blk"><div class="sae-blt">Objectif</div><p>Modéliser et interroger une base de données relationnelle (données FMI) pour analyser le commerce international des technologies à faible empreinte carbone.</p></div>
+        <div class="sae-blk"><div class="sae-blt">Ma contribution</div><ul><li>Modèle EA, schéma relationnel, nettoyage approfondi</li><li>CROSS JOIN LATERAL, requêtes SQL complexes</li><li>Dashboards Metabase + rapport et présentation orale</li></ul></div>
+        <div class="sae-blk"><div class="sae-blt">Ce que j'ai appris</div><ul><li>Transformer un fichier complexe en BDD exploitable</li><li>Écrire des requêtes professionnelles et réutilisables</li></ul></div>
+        <div class="sae-blk"><div class="sae-blt">Captures</div><div class="img-row"><div class="img-ph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>À ajouter</span></div></div></div>
+      </div></div>
+    </div>
+
   </div>
-  <div class="sae-grid">
 
-    <!-- SAÉ 1.03 -->
-    <div class="sae-card" onclick="toggleSae(this)">
-      <div class="sae-head">
-        <div class="sae-left">
-          <div class="sae-num">SAÉ 1.03</div>
-          <div class="sae-title">Tableau de bord interactif sur Excel</div>
-          <div class="sae-comp-row">
-            <span class="comp-badge comp-traiter">Traiter</span>
-            <span class="comp-badge comp-valoriser">Valoriser</span>
-          </div>
-        </div>
-        <div class="sae-chev">▾</div>
-      </div>
-      <div class="sae-body">
-        <div class="sae-inner">
-          <div class="sae-blk">
-            <div class="sae-blk-title">Objectif</div>
-            <p>Créer un tableau de bord pour le service communication de l'IUT afin d'analyser la typologie des étudiants à partir d'un fichier Excel (formation, lycée d'origine, mentions, bourse…).</p>
-          </div>
-          <div class="sae-blk">
-            <div class="sae-blk-title">Ma contribution</div>
-            <ul>
-              <li>Analyse des besoins de l'utilisatrice</li>
-              <li>Nettoyage des données pour les rendre lisibles</li>
-              <li>Création de plusieurs tableaux croisés dynamiques</li>
-              <li>Ajout de segments pour filtrer par ville, formation, type de bac…</li>
-              <li>Construction de graphiques dynamiques</li>
-              <li>Mise en forme professionnelle : codes supprimés, noms clairs et lisibles</li>
-            </ul>
-          </div>
-          <div class="sae-blk">
-            <div class="sae-blk-title">Ce que j'ai appris</div>
-            <ul>
-              <li>Construire un fichier Excel professionnel, clair et réutilisable</li>
-              <li>Filtrer et structurer des données de manière automatique</li>
-              <li>Rendre un tableau compréhensible pour quelqu'un qui ne fait pas de data</li>
-              <li>Répondre à une commande concrète avec autonomie</li>
-            </ul>
-          </div>
-          <div class="sae-blk">
-            <div class="sae-blk-title">Captures d'écran</div>
-            <div class="img-row">
-              <div class="img-ph">🖼️<span>Capture à ajouter</span></div>
-              <div class="img-ph">🖼️<span>Capture à ajouter</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SAÉ Enquête -->
-    <div class="sae-card" onclick="toggleSae(this)">
-      <div class="sae-head">
-        <div class="sae-left">
-          <div class="sae-num">SAÉ — Enquête</div>
-          <div class="sae-title">Enquête alimentaire à l'université</div>
-          <div class="sae-comp-row">
-            <span class="comp-badge comp-traiter">Traiter</span>
-            <span class="comp-badge comp-analyser">Analyser</span>
-          </div>
-        </div>
-        <div class="sae-chev">▾</div>
-      </div>
-      <div class="sae-body">
-        <div class="sae-inner">
-          <div class="sae-blk">
-            <div class="sae-blk-title">Objectif</div>
-            <p>Concevoir une enquête sur les habitudes alimentaires des étudiants de l'université Sorbonne Paris Nord, récolter les réponses, puis analyser les résultats pour en dégager des tendances claires.</p>
-          </div>
-          <div class="sae-blk">
-            <div class="sae-blk-title">Ma contribution</div>
-            <ul>
-              <li>Création d'un questionnaire complet sur Sphinx</li>
-              <li>Collecte des réponses sur le terrain</li>
-              <li>Nettoyage et traitement des données recueillies</li>
-              <li>Réalisation de statistiques descriptives (tris à plat, tris croisés)</li>
-              <li>Création de graphiques lisibles et parlants</li>
-              <li>Interprétation : lien entre alimentation, origine, niveau d'étude</li>
-            </ul>
-          </div>
-          <div class="sae-blk">
-            <div class="sae-blk-title">Ce que j'ai appris</div>
-            <ul>
-              <li>Structurer un questionnaire logique et efficace</li>
-              <li>Travailler sur des données concrètes et non simulées</li>
-              <li>Visualiser les résultats de façon parlante pour un lecteur extérieur</li>
-            </ul>
-          </div>
-          <div class="sae-blk">
-            <div class="sae-blk-title">Captures d'écran</div>
-            <div class="img-row">
-              <div class="img-ph">🖼️<span>Capture à ajouter</span></div>
-              <div class="img-ph">🖼️<span>Capture à ajouter</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SAÉ Python -->
-    <div class="sae-card" onclick="toggleSae(this)">
-      <div class="sae-head">
-        <div class="sae-left">
-          <div class="sae-num">SAÉ — Python</div>
-          <div class="sae-title">Traitement de fiches clients en Python</div>
-          <div class="sae-comp-row">
-            <span class="comp-badge comp-traiter">Traiter</span>
-          </div>
-        </div>
-        <div class="sae-chev">▾</div>
-      </div>
-      <div class="sae-body">
-        <div class="sae-inner">
-          <div class="sae-blk">
-            <div class="sae-blk-title">Objectif</div>
-            <p>Traiter et structurer des données clients extraites de plusieurs fichiers bruts, identifier les clients incomplets et produire un rapport statistique sur leur répartition géographique.</p>
-          </div>
-          <div class="sae-blk">
-            <div class="sae-blk-title">Ma contribution</div>
-            <ul>
-              <li>Lecture automatique de plusieurs fichiers clients avec Python</li>
-              <li>Extraction et regroupement des données (noms, mails, téléphones, adresses)</li>
-              <li>Nettoyage : valeurs manquantes, doublons, standardisation</li>
-              <li>Création d'un fichier CSV structuré</li>
-              <li>Identification des clients sans numéro de téléphone</li>
-              <li>Production d'un rapport de synthèse sur la répartition par région</li>
-            </ul>
-          </div>
-          <div class="sae-blk">
-            <div class="sae-blk-title">Ce que j'ai appris</div>
-            <ul>
-              <li>Automatiser le traitement de données avec du code</li>
-              <li>Gérer des cas réels : fichiers incomplets, formats variés, erreurs courantes</li>
-              <li>Produire un résultat clair et réutilisable</li>
-            </ul>
-          </div>
-          <div class="sae-blk">
-            <div class="sae-blk-title">Captures d'écran</div>
-            <div class="img-row">
-              <div class="img-ph">🖼️<span>Capture à ajouter</span></div>
-              <div class="img-ph">🖼️<span>Capture à ajouter</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SAÉ 2.03 R -->
-    <div class="sae-card" onclick="toggleSae(this)">
-      <div class="sae-head">
-        <div class="sae-left">
-          <div class="sae-num">SAÉ 2.03</div>
-          <div class="sae-title">Prédiction de tumeur — Régression logistique (R)</div>
-          <div class="sae-comp-row">
-            <span class="comp-badge comp-analyser">Analyser</span>
-            <span class="comp-badge comp-modeliser">Modéliser</span>
-          </div>
-        </div>
-        <div class="sae-chev">▾</div>
-      </div>
-      <div class="sae-body">
-        <div class="sae-inner">
-          <div class="sae-blk">
-            <div class="sae-blk-title">Objectif</div>
-            <p>Utiliser un jeu de données médicales pour construire un modèle de régression logistique capable de prédire si une tumeur est bénigne ou maligne à partir de variables cliniques.</p>
-          </div>
-          <div class="sae-blk">
-            <div class="sae-blk-title">Ma contribution</div>
-            <ul>
-              <li>Nettoyage et compréhension du jeu de données</li>
-              <li>Création de graphiques descriptifs : histogrammes, boxplots, nuages de points</li>
-              <li>Analyse des corrélations entre variables</li>
-              <li>Mise en place d'un modèle de régression logistique simple</li>
-              <li>Interprétation des coefficients et validation du modèle</li>
-            </ul>
-          </div>
-          <div class="sae-blk">
-            <div class="sae-blk-title">Ce que j'ai appris</div>
-            <ul>
-              <li>Utiliser la régression comme outil d'aide à la décision</li>
-              <li>Justifier le choix de certaines variables dans une modélisation</li>
-              <li>Produire une interprétation lisible même pour un non-spécialiste</li>
-            </ul>
-          </div>
-          <div class="sae-blk">
-            <div class="sae-blk-title">Captures d'écran</div>
-            <div class="img-row">
-              <div class="img-ph">🖼️<span>Capture à ajouter</span></div>
-              <div class="img-ph">🖼️<span>Capture à ajouter</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SAÉ 202 -->
-    <div class="sae-card" onclick="toggleSae(this)">
-      <div class="sae-head">
-        <div class="sae-left">
-          <div class="sae-num">SAÉ 202</div>
-          <div class="sae-title">Estimation par échantillonnage</div>
-          <div class="sae-comp-row">
-            <span class="comp-badge comp-analyser">Analyser</span>
-            <span class="comp-badge comp-modeliser">Modéliser</span>
-          </div>
-        </div>
-        <div class="sae-chev">▾</div>
-      </div>
-      <div class="sae-body">
-        <div class="sae-inner">
-          <div class="sae-blk">
-            <div class="sae-blk-title">Objectif</div>
-            <p>Tirer des échantillons aléatoires à partir d'une base de données simulée, estimer des moyennes et des proportions, puis construire des intervalles de confiance pour évaluer la qualité des estimations.</p>
-          </div>
-          <div class="sae-blk">
-            <div class="sae-blk-title">Ma contribution</div>
-            <ul>
-              <li>Génération de plusieurs échantillons à partir d'une population de 500 000 individus</li>
-              <li>Estimation de moyennes, proportions, variances</li>
-              <li>Construction d'intervalles de confiance à 90%, 95% et 99%</li>
-              <li>Utilisation des lois de Student et Khi² selon les cas</li>
-              <li>Rédaction d'un rapport clair avec commentaires</li>
-            </ul>
-          </div>
-          <div class="sae-blk">
-            <div class="sae-blk-title">Ce que j'ai appris</div>
-            <ul>
-              <li>Estimer un paramètre à partir d'un échantillon</li>
-              <li>Construire et interpréter des intervalles de confiance fiables</li>
-              <li>Comprendre l'influence de la taille de l'échantillon sur la précision</li>
-            </ul>
-          </div>
-          <div class="sae-blk">
-            <div class="sae-blk-title">Captures d'écran</div>
-            <div class="img-row">
-              <div class="img-ph">🖼️<span>Capture à ajouter</span></div>
-              <div class="img-ph">🖼️<span>Capture à ajouter</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SAÉ 1.01 SQL -->
-    <div class="sae-card" onclick="toggleSae(this)">
-      <div class="sae-head">
-        <div class="sae-left">
-          <div class="sae-num">SAÉ 1.01</div>
-          <div class="sae-title">Reporting catastrophes climatiques — SQL & Metabase</div>
-          <div class="sae-comp-row">
-            <span class="comp-badge comp-traiter">Traiter</span>
-            <span class="comp-badge comp-valoriser">Valoriser</span>
-          </div>
-        </div>
-        <div class="sae-chev">▾</div>
-      </div>
-      <div class="sae-body">
-        <div class="sae-inner">
-          <div class="sae-blk">
-            <div class="sae-blk-title">Objectif</div>
-            <p>Installer un environnement complet de base de données (PostgreSQL + Metabase), intégrer un fichier mondial sur les catastrophes climatiques, et produire des visualisations utiles à partir de requêtes SQL.</p>
-          </div>
-          <div class="sae-blk">
-            <div class="sae-blk-title">Ma contribution</div>
-            <ul>
-              <li>Installation et configuration de PostgreSQL</li>
-              <li>Import du jeu de données mondial sur les catastrophes climatiques</li>
-              <li>Rédaction de requêtes SQL : évolution annuelle, répartition par type et année, fréquence globale</li>
-              <li>Connexion de Metabase à PostgreSQL</li>
-              <li>Visualisation des résultats sous forme de graphiques dynamiques</li>
-              <li>Interprétation claire des résultats (pics, tendances, types dominants)</li>
-            </ul>
-          </div>
-          <div class="sae-blk">
-            <div class="sae-blk-title">Ce que j'ai appris</div>
-            <ul>
-              <li>Mettre en place un environnement de données complet (SGBD + Metabase)</li>
-              <li>Rédiger des requêtes SQL propres et efficaces</li>
-              <li>Relier des données à des enjeux mondiaux comme le réchauffement climatique</li>
-            </ul>
-          </div>
-          <div class="sae-blk">
-            <div class="sae-blk-title">Captures d'écran</div>
-            <div class="img-row">
-              <div class="img-ph">🖼️<span>Capture à ajouter</span></div>
-              <div class="img-ph">🖼️<span>Capture à ajouter</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SAÉ 2.05 Ferme -->
-    <div class="sae-card" onclick="toggleSae(this)">
-      <div class="sae-head">
-        <div class="sae-left">
-          <div class="sae-num">SAÉ 2.05</div>
-          <div class="sae-title">Performance d'une entreprise bio — Ferme de l'Envol</div>
-          <div class="sae-comp-row">
-            <span class="comp-badge comp-analyser">Analyser</span>
-            <span class="comp-badge comp-valoriser">Valoriser</span>
-          </div>
-        </div>
-        <div class="sae-chev">▾</div>
-      </div>
-      <div class="sae-body">
-        <div class="sae-inner">
-          <div class="sae-blk">
-            <div class="sae-blk-title">Objectif</div>
-            <p>Étudier la performance économique, sociale et environnementale d'une entreprise maraîchère bio en circuit court, à partir de ses documents comptables et de son environnement.</p>
-          </div>
-          <div class="sae-blk">
-            <div class="sae-blk-title">Ma contribution</div>
-            <ul>
-              <li>Lecture et analyse du compte de résultat et du bilan</li>
-              <li>Construction du tableau des SIG et calcul de la valeur ajoutée</li>
-              <li>Calcul et interprétation de ratios financiers (rentabilité, autonomie, liquidité)</li>
-              <li>Élaboration d'une analyse PESTEL complète</li>
-              <li>Rédaction d'une synthèse argumentée avec propositions d'amélioration</li>
-            </ul>
-          </div>
-          <div class="sae-blk">
-            <div class="sae-blk-title">Ce que j'ai appris</div>
-            <ul>
-              <li>Relier des chiffres à une situation réelle d'entreprise</li>
-              <li>Identifier des forces, faiblesses et leviers d'action concrets</li>
-              <li>Interpréter des ratios clés comme la marge nette ou l'autonomie financière</li>
-            </ul>
-          </div>
-          <div class="sae-blk">
-            <div class="sae-blk-title">Captures d'écran</div>
-            <div class="img-row">
-              <div class="img-ph">🖼️<span>Capture à ajouter</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SAÉ 2.06 CO2 -->
-    <div class="sae-card" onclick="toggleSae(this)">
-      <div class="sae-head">
-        <div class="sae-left">
-          <div class="sae-num">SAÉ 2.06</div>
-          <div class="sae-title">Analyse CO₂ — Datavisualisation & transition écologique</div>
-          <div class="sae-comp-row">
-            <span class="comp-badge comp-analyser">Analyser</span>
-            <span class="comp-badge comp-valoriser">Valoriser</span>
-          </div>
-        </div>
-        <div class="sae-chev">▾</div>
-      </div>
-      <div class="sae-body">
-        <div class="sae-inner">
-          <div class="sae-blk">
-            <div class="sae-blk-title">Objectif</div>
-            <p>Étudier des données réelles sur les émissions de CO₂ (types de véhicules, carburants…) et produire une analyse statistique complète accompagnée de visualisations claires, dans un cadre de gestion de projet structuré.</p>
-          </div>
-          <div class="sae-blk">
-            <div class="sae-blk-title">Ma contribution</div>
-            <ul>
-              <li>Sélection et nettoyage d'un jeu de données sur les émissions CO₂</li>
-              <li>Analyse descriptive avec comparaisons par catégories</li>
-              <li>Création de graphiques : boxplots, diagrammes, histogrammes</li>
-              <li>Participation à la gestion de projet : matrice RACI, feuille de temps, comptes rendus</li>
-              <li>Rédaction d'un rapport synthétique et professionnel</li>
-            </ul>
-          </div>
-          <div class="sae-blk">
-            <div class="sae-blk-title">Ce que j'ai appris</div>
-            <ul>
-              <li>Interpréter des données environnementales concrètes</li>
-              <li>Structurer un projet data de A à Z</li>
-              <li>Produire des visualisations qui ont du sens, pas juste « jolies »</li>
-            </ul>
-          </div>
-          <div class="sae-blk">
-            <div class="sae-blk-title">Captures d'écran</div>
-            <div class="img-row">
-              <div class="img-ph">🖼️<span>Capture à ajouter</span></div>
-              <div class="img-ph">🖼️<span>Capture à ajouter</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SAÉ 2.01 BDD -->
-    <div class="sae-card" onclick="toggleSae(this)">
-      <div class="sae-head">
-        <div class="sae-left">
-          <div class="sae-num">SAÉ 2.01</div>
-          <div class="sae-title">Base de données — Commerce international technologies vertes</div>
-          <div class="sae-comp-row">
-            <span class="comp-badge comp-traiter">Traiter</span>
-            <span class="comp-badge comp-modeliser">Modéliser</span>
-          </div>
-        </div>
-        <div class="sae-chev">▾</div>
-      </div>
-      <div class="sae-body">
-        <div class="sae-inner">
-          <div class="sae-blk">
-            <div class="sae-blk-title">Objectif</div>
-            <p>Modéliser, peupler et interroger une base de données relationnelle à partir de jeux de données du FMI, afin d'analyser le commerce international des technologies à faible empreinte carbone.</p>
-          </div>
-          <div class="sae-blk">
-            <div class="sae-blk-title">Ma contribution</div>
-            <ul>
-              <li>Création du modèle entité-association et transformation en schéma relationnel</li>
-              <li>Nettoyage approfondi : TRIM(), LOWER(), gestion des nulls</li>
-              <li>Utilisation de CROSS JOIN LATERAL pour automatiser l'insertion</li>
-              <li>Écriture de requêtes SQL complexes : exportations, flux entre pays, produits échangés</li>
-              <li>Réalisation de dashboards interactifs avec Metabase</li>
-              <li>Rapport d'analyse structuré et présentation orale</li>
-            </ul>
-          </div>
-          <div class="sae-blk">
-            <div class="sae-blk-title">Ce que j'ai appris</div>
-            <ul>
-              <li>Transformer un fichier complexe en base de données exploitable</li>
-              <li>Écrire des requêtes réutilisables et professionnelles</li>
-              <li>Extraire des indicateurs utiles pour comprendre des flux commerciaux</li>
-            </ul>
-          </div>
-          <div class="sae-blk">
-            <div class="sae-blk-title">Captures d'écran</div>
-            <div class="img-row">
-              <div class="img-ph">🖼️<span>Capture à ajouter</span></div>
-              <div class="img-ph">🖼️<span>Capture à ajouter</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div><!-- fin sae-grid BUT1 -->
-
-  <!-- BUT 2 placeholder -->
-  <div class="sae-yr-title" style="margin-top:20px;">
-    <span class="yr-badge">BUT 2</span>
-    Deuxième année
-  </div>
-  <div style="background:var(--surface);border:1px dashed var(--border-bright);border-radius:var(--card-radius);padding:40px;text-align:center;color:var(--text-muted);font-size:15px;max-width:500px;">
-    🚧 Projets BUT 2 à venir — en cours de réalisation
-  </div>
+  <div class="sae-yr" style="margin-top:10px;"><span class="yr-b">BUT 2</span> Deuxième année</div>
+  <div style="background:var(--surface);border:1px dashed var(--border-b);border-radius:var(--r);padding:36px;text-align:center;color:var(--muted);font-size:14px;max-width:440px;">En cours de réalisation — à venir</div>
 
 </section>
 
@@ -839,25 +531,17 @@ footer strong{color:var(--green);}
 
 <!-- PARCOURS -->
 <section id="parcours">
-  <div class="section-label">Formation</div>
-  <div class="section-title">Parcours</div>
-  <div class="parcours-list">
-    <div class="p-line"></div>
-    <div class="p-item">
-      <div class="p-dot">🎓</div>
-      <div class="p-content">
-        <div class="p-date">Depuis 2023</div>
-        <h3>BUT Science des Données</h3>
-        <p>IUT de Villetaneuse — Université Sorbonne Paris Nord</p>
-      </div>
+  <div class="slabel">Formation</div>
+  <div class="stitle">Parcours</div>
+  <div class="parc-list">
+    <div class="parc-line"></div>
+    <div class="parc-item">
+      <div class="parc-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+      <div class="parc-cnt"><div class="parc-date">Depuis 2023</div><h3>BUT Science des Données</h3><p>IUT de Villetaneuse — Université Sorbonne Paris Nord</p></div>
     </div>
-    <div class="p-item">
-      <div class="p-dot">🏫</div>
-      <div class="p-content">
-        <div class="p-date">2023</div>
-        <h3>Baccalauréat STI2D — Spécialité SIN</h3>
-        <p>Lycée Raspail — Paris</p>
-      </div>
+    <div class="parc-item">
+      <div class="parc-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+      <div class="parc-cnt"><div class="parc-date">2023</div><h3>Baccalauréat STI2D — Spécialité SIN</h3><p>Lycée Raspail — Paris</p></div>
     </div>
   </div>
 </section>
@@ -866,76 +550,121 @@ footer strong{color:var(--green);}
 
 <!-- OBJECTIFS -->
 <section id="objectifs">
-  <div class="section-label">Vision</div>
-  <div class="section-title">Mes objectifs</div>
+  <div class="slabel">Vision</div>
+  <div class="stitle">Mes objectifs</div>
   <div class="obj-grid">
-    <div class="obj-card">
-      <div class="obj-hor">Court terme</div>
-      <h3>Stage &amp; BUT 2</h3>
-      <p>Décrocher un stage en data ou IA pour mettre en pratique mes compétences dans un environnement professionnel réel. Renforcer mes bases en machine learning et en programmation avancée.</p>
-    </div>
-    <div class="obj-card">
-      <div class="obj-hor">Moyen terme</div>
-      <h3>Post-BUT</h3>
-      <p>Intégrer une école d'ingénieur spécialisée en data science ou un master en intelligence artificielle, pour approfondir le machine learning et le NLP.</p>
-    </div>
-    <div class="obj-card">
-      <div class="obj-hor">Long terme</div>
-      <h3>Ingénieure IA</h3>
-      <p>Devenir ingénieure ou spécialiste en intelligence artificielle — contribuer à des projets qui ont un impact réel, dans un domaine en constante évolution.</p>
-    </div>
+    <div class="obj-card"><div class="obj-hor">Court terme</div><h3>Stage & BUT 2</h3><p>Décrocher un stage en data ou IA pour mettre en pratique mes compétences dans un environnement professionnel réel. Renforcer mes bases en machine learning et programmation avancée.</p></div>
+    <div class="obj-card"><div class="obj-hor">Moyen terme</div><h3>Post-BUT</h3><p>Intégrer une école d'ingénieur spécialisée en data science ou un master en intelligence artificielle, pour approfondir le machine learning et le NLP.</p></div>
+    <div class="obj-card"><div class="obj-hor">Long terme</div><h3>Ingénieure IA</h3><p>Devenir ingénieure ou spécialiste en intelligence artificielle — contribuer à des projets à fort impact dans un domaine en constante évolution.</p></div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  Conçu et développé par <strong>Samah Salhi</strong> · BUT Science des Données · IUT Villetaneuse · 2025
-</footer>
+<footer>Conçu et développé par <strong>Samah Salhi</strong> · BUT Science des Données · IUT Villetaneuse · 2025</footer>
 
 <script>
+// CANVAS : particules + étoiles + souris
 const canvas = document.getElementById('bg-canvas');
 const ctx = canvas.getContext('2d');
-let W, H, particles = [], mouse = {x:-9999,y:-9999};
-function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
-resize(); window.addEventListener('resize',resize);
+let W,H,particles=[],stars=[],mouse={x:-9999,y:-9999};
+
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;initStars();}
+window.addEventListener('resize',resize);
 window.addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY;});
 window.addEventListener('mouseleave',()=>{mouse.x=-9999;mouse.y=-9999;});
-function mkP(){return{x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.5,vy:(Math.random()-.5)*.5,r:Math.random()*1.8+.4,ox:0,oy:0};}
-for(let i=0;i<80;i++)particles.push(mkP());
+
+function initStars(){
+  stars=[];
+  for(let i=0;i<180;i++){
+    stars.push({
+      x:Math.random()*W, y:Math.random()*H,
+      r:Math.random()*1.2+0.2,
+      twinkle:Math.random()*Math.PI*2,
+      speed:Math.random()*0.02+0.005,
+      rot:Math.random()*Math.PI*2
+    });
+  }
+}
+
+function mkP(){return{x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.45,vy:(Math.random()-.5)*.45,r:Math.random()*1.5+.3,ox:0,oy:0};}
+for(let i=0;i<70;i++)particles.push(mkP());
+
 function drawFrame(){
   ctx.clearRect(0,0,W,H);
   const t=Date.now()/1000;
-  [{x:W*.1+Math.sin(t*.3)*60,y:H*.15+Math.cos(t*.2)*50,r:320,c:'rgba(0,200,150,0.13)'},{x:W*.85+Math.sin(t*.25)*70,y:H*.55+Math.cos(t*.3)*60,r:280,c:'rgba(0,150,199,0.12)'},{x:W*.5+Math.sin(t*.35)*50,y:H*.85+Math.cos(t*.4)*40,r:240,c:'rgba(0,200,150,0.09)'}].forEach(o=>{
+
+  // Orbes
+  [{x:W*.1+Math.sin(t*.3)*55,y:H*.12+Math.cos(t*.2)*45,r:300,c:'rgba(0,200,150,0.12)'},{x:W*.88+Math.sin(t*.22)*65,y:H*.6+Math.cos(t*.28)*55,r:260,c:'rgba(0,150,199,0.11)'},{x:W*.5+Math.sin(t*.32)*45,y:H*.9+Math.cos(t*.38)*35,r:220,c:'rgba(0,200,150,0.08)'}].forEach(o=>{
     const g=ctx.createRadialGradient(o.x,o.y,0,o.x,o.y,o.r);
     g.addColorStop(0,o.c);g.addColorStop(1,'transparent');
     ctx.fillStyle=g;ctx.beginPath();ctx.arc(o.x,o.y,o.r,0,Math.PI*2);ctx.fill();
   });
+
+  // Étoiles scintillantes en forme d'étoile
+  stars.forEach(s=>{
+    s.twinkle+=s.speed;
+    const alpha=0.25+Math.sin(s.twinkle)*0.55;
+    const sz=s.r*(0.8+Math.sin(s.twinkle+1)*0.4);
+    if(Math.max(0,alpha)<0.02) return;
+    ctx.save();
+    ctx.translate(s.x,s.y);
+    ctx.rotate(s.rot||0);
+    // Forme étoile à 4 branches
+    const outer=sz*2.5, inner=sz*1;
+    ctx.beginPath();
+    for(let k=0;k<8;k++){
+      const angle=k*Math.PI/4;
+      const r2=k%2===0?outer:inner;
+      k===0?ctx.moveTo(Math.cos(angle)*r2,Math.sin(angle)*r2):ctx.lineTo(Math.cos(angle)*r2,Math.sin(angle)*r2);
+    }
+    ctx.closePath();
+    ctx.fillStyle=`rgba(255,255,255,${Math.max(0,alpha)})`;
+    ctx.fill();
+    // Halo vert sur les grosses étoiles
+    if(s.r>0.9){
+      ctx.restore();ctx.save();ctx.translate(s.x,s.y);
+      const glow=ctx.createRadialGradient(0,0,0,0,0,s.r*12);
+      glow.addColorStop(0,`rgba(0,200,150,${alpha*.25})`);glow.addColorStop(1,'transparent');
+      ctx.fillStyle=glow;ctx.beginPath();ctx.arc(0,0,s.r*12,0,Math.PI*2);ctx.fill();
+    }
+    ctx.restore();
+  });
+
+  // Particules réseau
   particles.forEach((p,i)=>{
     const dx=p.x-mouse.x,dy=p.y-mouse.y,dist=Math.sqrt(dx*dx+dy*dy);
-    if(dist<120){const f=(120-dist)/120;p.ox+=dx/dist*f*2;p.oy+=dy/dist*f*2;}
+    if(dist<120){const f=(120-dist)/120;p.ox+=dx/dist*f*1.8;p.oy+=dy/dist*f*1.8;}
     p.ox*=.9;p.oy*=.9;
     p.x+=p.vx+p.ox;p.y+=p.vy+p.oy;
     if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
-    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(0,200,150,0.7)';ctx.fill();
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(0,200,150,0.65)';ctx.fill();
     for(let j=i+1;j<particles.length;j++){
-      const p2=particles[j],ddx=p2.x-p.x,ddy=p2.y-p.y,d=Math.sqrt(ddx*ddx+ddy*ddy);
-      if(d<130){ctx.strokeStyle=`rgba(0,200,150,${.18*(1-d/130)})`;ctx.lineWidth=.8;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(p2.x,p2.y);ctx.stroke();}
+      const q=particles[j],ddx=q.x-p.x,ddy=q.y-p.y,d=Math.sqrt(ddx*ddx+ddy*ddy);
+      if(d<130){ctx.strokeStyle=`rgba(0,200,150,${.15*(1-d/130)})`;ctx.lineWidth=.7;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();}
     }
     const md=Math.sqrt((p.x-mouse.x)**2+(p.y-mouse.y)**2);
-    if(md<160){ctx.strokeStyle=`rgba(0,200,150,${.35*(1-md/160)})`;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(mouse.x,mouse.y);ctx.stroke();}
+    if(md<150){ctx.strokeStyle=`rgba(0,200,150,${.3*(1-md/150)})`;ctx.lineWidth=.9;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(mouse.x,mouse.y);ctx.stroke();}
   });
+
   requestAnimationFrame(drawFrame);
 }
+resize();
 drawFrame();
+
+// ACCORDION
+function toggleAc(item){item.classList.toggle('open');}
 function toggleSae(card){card.classList.toggle('open');}
 function toggleTheme(){
   document.body.classList.toggle('light');
   document.getElementById('themeBtn').textContent=document.body.classList.contains('light')?'🌙 Mode sombre':'☀ Mode clair';
 }
-const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}}),{threshold:.08});
-document.querySelectorAll('.pres-card,.skill-card,.sae-card,.obj-card,.qualite-item,.p-item').forEach(el=>{
-  el.style.opacity='0';el.style.transform='translateY(20px)';
-  el.style.transition='opacity 0.5s ease,transform 0.5s ease,border-color 0.35s,background 0.35s';
+
+// SCROLL REVEAL
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}
+}),{threshold:.07});
+document.querySelectorAll('.sk-card,.sae-card,.obj-card,.parc-item,.ac-item').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(18px)';
+  el.style.transition='opacity 0.5s ease,transform 0.5s ease,border-color .35s,background .35s';
   obs.observe(el);
 });
 </script>
