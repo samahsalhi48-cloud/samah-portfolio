@@ -120,18 +120,15 @@ body.light .bub-panel{background:#fff;}
 .cm{background:rgba(239,68,68,.12);border-color:rgba(239,68,68,.35);color:#f87171;}
 body.light .ct{color:#1d4ed8;}body.light .ca{color:#a16207;}body.light .cv{color:#15803d;}body.light .cm{color:#dc2626;}
 
-.sae-scroll{display:flex;gap:16px;overflow-x:auto;padding:8px 4px 20px;scrollbar-width:thin;scrollbar-color:var(--border-b) transparent;margin-bottom:50px;scroll-snap-type:x mandatory;}
-.sae-scroll::-webkit-scrollbar{height:4px;}
-.sae-scroll::-webkit-scrollbar-track{background:transparent;}
-.sae-scroll::-webkit-scrollbar-thumb{background:var(--border-b);border-radius:4px;}
-.sae-card{min-width:300px;max-width:300px;background:var(--surface);border:0.5px solid var(--border);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:border-color var(--tr),box-shadow var(--tr);scroll-snap-align:start;flex-shrink:0;}
+.sae-scroll{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-bottom:50px;}
+.sae-card{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--r);overflow:hidden;cursor:default;transition:border-color var(--tr),box-shadow var(--tr);}
 .sae-card:hover{border-color:var(--border-b);box-shadow:0 20px 50px var(--glow);}
-.sae-card.open{min-width:min(700px,88vw);max-width:min(700px,88vw);}
-.sae-body{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1);}
+.sae-card.open{border-color:var(--border-b);grid-column:1/-1;}
+.sae-body{max-height:0;overflow:hidden;transition:max-height .6s cubic-bezier(.4,0,.2,1);}
 .sae-card.open .sae-body{max-height:9000px;border-top:0.5px solid var(--border);}
 .sae-card:hover{border-color:var(--border-b);transform:translateY(-4px);box-shadow:0 20px 50px var(--glow);}
 .sae-card.open{border-color:var(--border-b);}
-.sae-head{padding:20px 22px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+.sae-head{padding:20px 22px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px;cursor:pointer;user-select:none;}
 .sae-left{flex:1;}
 .sae-num{font-size:10px;font-weight:600;letter-spacing:2px;color:var(--g);text-transform:uppercase;margin-bottom:5px;}
 .sae-title{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--text);line-height:1.4;margin-bottom:11px;}
@@ -176,8 +173,8 @@ body.light .ct{color:#1d4ed8;}body.light .ca{color:#a16207;}body.light .cv{color
 .parc-cnt p{font-size:13px;color:var(--muted);}
 
 /* IMAGE GRID SAÉ */
-.sae-img-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-top:14px;}
-.sae-img{width:100%;height:200px;object-fit:cover;border-radius:12px;border:1px solid var(--border-b);cursor:zoom-in;transition:all .3s;display:block;}
+.sae-img-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:14px;}
+.sae-img{width:100%;height:220px;object-fit:cover;border-radius:12px;border:1px solid var(--border-b);cursor:zoom-in;transition:all .3s;display:block;}
 .sae-img:hover{transform:scale(1.02);border-color:var(--g);box-shadow:0 8px 30px var(--glow);}
 
 /* LIGHTBOX */
@@ -537,21 +534,21 @@ footer strong{color:var(--g);}
         <div class="sae-blk">
           <div class="sae-blt">Traitement & construction de la base de données</div>
           <div class="sae-img-grid">
-            <img src="bdd1.png" class="sae-img" alt="Modèle entité-association" onclick="openLightbox(this)">
-            <img src="bdd2.png" class="sae-img" alt="Schéma relationnel" onclick="openLightbox(this)">
-            <img src="bdd3.png" class="sae-img" alt="Nettoyage des données" onclick="openLightbox(this)">
-            <img src="bdd4.png" class="sae-img" alt="Requêtes SQL" onclick="openLightbox(this)">
-            <img src="bdd5.png" class="sae-img" alt="Peuplement de la BDD" onclick="openLightbox(this)">
+            <img src="bdd_1.png" class="sae-img" alt="Modèle entité-association" onclick="openLightbox(this)">
+            <img src="bdd_2.png" class="sae-img" alt="Schéma relationnel" onclick="openLightbox(this)">
+            <img src="bdd_3.png" class="sae-img" alt="Nettoyage des données" onclick="openLightbox(this)">
+            <img src="bdd_4.png" class="sae-img" alt="Requêtes SQL" onclick="openLightbox(this)">
+            <img src="bdd_5.png" class="sae-img" alt="Peuplement de la BDD" onclick="openLightbox(this)">
           </div>
         </div>
 
         <div class="sae-blk">
           <div class="sae-blt">Visualisations & dashboards</div>
           <div class="sae-img-grid">
-            <img src="bdd6.png" class="sae-img" alt="Dashboard Metabase 1" onclick="openLightbox(this)">
-            <img src="bdd7.png" class="sae-img" alt="Dashboard Metabase 2" onclick="openLightbox(this)">
-            <img src="bdd8.png" class="sae-img" alt="Dashboard Metabase 3" onclick="openLightbox(this)">
-            <img src="bdd9.png" class="sae-img" alt="Dashboard Metabase 4" onclick="openLightbox(this)">
+            <img src="bdd_6.png" class="sae-img" alt="Dashboard Metabase 1" onclick="openLightbox(this)">
+            <img src="bdd_7.png" class="sae-img" alt="Dashboard Metabase 2" onclick="openLightbox(this)">
+            <img src="bdd_8.png" class="sae-img" alt="Dashboard Metabase 3" onclick="openLightbox(this)">
+            <img src="bdd_9.png" class="sae-img" alt="Dashboard Metabase 4" onclick="openLightbox(this)">
           </div>
         </div>
 
