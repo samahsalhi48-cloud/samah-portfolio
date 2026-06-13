@@ -124,8 +124,11 @@ body.light .ct{color:#1d4ed8;}body.light .ca{color:#a16207;}body.light .cv{color
 .sae-scroll::-webkit-scrollbar{height:4px;}
 .sae-scroll::-webkit-scrollbar-track{background:transparent;}
 .sae-scroll::-webkit-scrollbar-thumb{background:var(--border-b);border-radius:4px;}
-.sae-card{min-width:300px;max-width:300px;background:var(--surface);border:0.5px solid var(--border);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:all var(--tr);scroll-snap-align:start;flex-shrink:0;}
-.sae-card.open{min-width:520px;max-width:520px;}
+.sae-card{min-width:300px;max-width:300px;background:var(--surface);border:0.5px solid var(--border);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:border-color var(--tr),box-shadow var(--tr);scroll-snap-align:start;flex-shrink:0;}
+.sae-card:hover{border-color:var(--border-b);box-shadow:0 20px 50px var(--glow);}
+.sae-card.open{min-width:min(700px,88vw);max-width:min(700px,88vw);}
+.sae-body{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1);}
+.sae-card.open .sae-body{max-height:9000px;border-top:0.5px solid var(--border);}
 .sae-card:hover{border-color:var(--border-b);transform:translateY(-4px);box-shadow:0 20px 50px var(--glow);}
 .sae-card.open{border-color:var(--border-b);}
 .sae-head{padding:20px 22px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
@@ -137,14 +140,14 @@ body.light .ct{color:#1d4ed8;}body.light .ca{color:#a16207;}body.light .cv{color
 .sae-card.open .sae-chev{transform:rotate(180deg);}
 .sae-body{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1);}
 .sae-card.open .sae-body{max-height:800px;border-top:0.5px solid var(--border);}
-.sae-inner{padding:20px;}
-.sae-blk{margin-bottom:16px;}
+.sae-inner{padding:26px;}
+.sae-blk{margin-bottom:22px;}
 .sae-blk:last-child{margin-bottom:0;}
-.sae-blt{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--g);margin-bottom:8px;}
-.sae-blk p{font-size:13px;line-height:1.7;color:var(--muted);}
+.sae-blt{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--g);margin-bottom:10px;}
+.sae-blk p{font-size:14px;line-height:1.75;color:var(--muted);}
 .sae-blk ul{list-style:none;padding:0;}
-.sae-blk ul li{font-size:13px;color:var(--muted);padding:3px 0 3px 14px;position:relative;}
-.sae-blk ul li::before{content:'▸';position:absolute;left:0;color:var(--g);font-size:10px;top:5px;}
+.sae-blk ul li{font-size:14px;color:var(--muted);padding:4px 0 4px 16px;position:relative;line-height:1.6;}
+.sae-blk ul li::before{content:'▸';position:absolute;left:0;color:var(--g);font-size:10px;top:6px;}
 .img-row{display:flex;gap:8px;margin-top:10px;}
 .img-ph{flex:1;min-width:80px;height:70px;border-radius:8px;background:var(--surface);border:1px dashed var(--border-b);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--muted);gap:4px;}
 .img-ph svg{opacity:.5;}
@@ -173,9 +176,9 @@ body.light .ct{color:#1d4ed8;}body.light .ca{color:#a16207;}body.light .cv{color
 .parc-cnt p{font-size:13px;color:var(--muted);}
 
 /* IMAGE GRID SAÉ */
-.sae-img-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin-top:12px;}
-.sae-img{width:100%;height:155px;object-fit:cover;border-radius:10px;border:1px solid var(--border-b);cursor:zoom-in;transition:all .3s;}
-.sae-img:hover{transform:scale(1.03);border-color:var(--g);box-shadow:0 8px 30px var(--glow);}
+.sae-img-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-top:14px;}
+.sae-img{width:100%;height:200px;object-fit:cover;border-radius:12px;border:1px solid var(--border-b);cursor:zoom-in;transition:all .3s;display:block;}
+.sae-img:hover{transform:scale(1.02);border-color:var(--g);box-shadow:0 8px 30px var(--glow);}
 
 /* LIGHTBOX */
 #lightbox{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.93);display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(10px);}
@@ -444,8 +447,8 @@ footer strong{color:var(--g);}
   <div class="sae-yr"><span class="yr-b">BUT 1</span> Première année</div>
   <div class="sae-scroll">
 
-    <div class="sae-card" onclick="toggleSae(this)">
-      <div class="sae-head"><div class="sae-left"><div class="sae-num">SAÉ 1.03</div><div class="sae-title">Tableau de bord interactif sur Excel</div><div class="sae-cr"><span class="comp-b ct">Traiter</span><span class="comp-b cv">Valoriser</span></div></div><div class="sae-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+    <div class="sae-card">
+      <div class="sae-head" onclick="toggleSae(this.closest('.sae-card'))"><div class="sae-left"><div class="sae-num">SAÉ 1.03</div><div class="sae-title">Tableau de bord interactif sur Excel</div><div class="sae-cr"><span class="comp-b ct">Traiter</span><span class="comp-b cv">Valoriser</span></div></div><div class="sae-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
       <div class="sae-body"><div class="sae-inner">
         <div class="sae-blk"><div class="sae-blt">Objectif</div><p>Créer un tableau de bord pour le service communication de l'IUT afin d'analyser la typologie des étudiants (formation, lycée d'origine, mentions, bourse…).</p></div>
         <div class="sae-blk"><div class="sae-blt">Ma contribution</div><ul><li>Analyse des besoins, nettoyage et structuration des données</li><li>Création de tableaux croisés dynamiques avec segments de filtrage</li><li>Graphiques dynamiques et mise en forme professionnelle</li></ul></div>
@@ -454,8 +457,8 @@ footer strong{color:var(--g);}
       </div></div>
     </div>
 
-    <div class="sae-card" onclick="toggleSae(this)">
-      <div class="sae-head"><div class="sae-left"><div class="sae-num">SAÉ — Enquête</div><div class="sae-title">Enquête alimentaire à l'université</div><div class="sae-cr"><span class="comp-b ct">Traiter</span><span class="comp-b ca">Analyser</span></div></div><div class="sae-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+    <div class="sae-card">
+      <div class="sae-head" onclick="toggleSae(this.closest('.sae-card'))"><div class="sae-left"><div class="sae-num">SAÉ — Enquête</div><div class="sae-title">Enquête alimentaire à l'université</div><div class="sae-cr"><span class="comp-b ct">Traiter</span><span class="comp-b ca">Analyser</span></div></div><div class="sae-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
       <div class="sae-body"><div class="sae-inner">
         <div class="sae-blk"><div class="sae-blt">Objectif</div><p>Concevoir une enquête sur les habitudes alimentaires des étudiants, récolter et analyser les résultats pour dégager des tendances.</p></div>
         <div class="sae-blk"><div class="sae-blt">Ma contribution</div><ul><li>Questionnaire sur Sphinx, collecte sur le terrain</li><li>Statistiques descriptives : tris à plat et croisés</li><li>Interprétation : lien alimentation, origine, niveau d'étude</li></ul></div>
@@ -464,8 +467,8 @@ footer strong{color:var(--g);}
       </div></div>
     </div>
 
-    <div class="sae-card" onclick="toggleSae(this)">
-      <div class="sae-head"><div class="sae-left"><div class="sae-num">SAÉ — Python</div><div class="sae-title">Traitement de fiches clients en Python</div><div class="sae-cr"><span class="comp-b ct">Traiter</span></div></div><div class="sae-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+    <div class="sae-card">
+      <div class="sae-head" onclick="toggleSae(this.closest('.sae-card'))"><div class="sae-left"><div class="sae-num">SAÉ — Python</div><div class="sae-title">Traitement de fiches clients en Python</div><div class="sae-cr"><span class="comp-b ct">Traiter</span></div></div><div class="sae-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
       <div class="sae-body"><div class="sae-inner">
         <div class="sae-blk"><div class="sae-blt">Objectif</div><p>Traiter des données clients extraites de fichiers bruts, identifier les incomplets et produire un rapport sur la répartition géographique.</p></div>
         <div class="sae-blk"><div class="sae-blt">Ma contribution</div><ul><li>Lecture automatique, nettoyage et export CSV structuré</li><li>Identification des clients sans téléphone</li><li>Rapport de synthèse par région</li></ul></div>
@@ -474,8 +477,8 @@ footer strong{color:var(--g);}
       </div></div>
     </div>
 
-    <div class="sae-card" onclick="toggleSae(this)">
-      <div class="sae-head"><div class="sae-left"><div class="sae-num">SAÉ 2.03</div><div class="sae-title">Prédiction de tumeur — Régression logistique (R)</div><div class="sae-cr"><span class="comp-b ca">Analyser</span><span class="comp-b cm">Modéliser</span></div></div><div class="sae-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+    <div class="sae-card">
+      <div class="sae-head" onclick="toggleSae(this.closest('.sae-card'))"><div class="sae-left"><div class="sae-num">SAÉ 2.03</div><div class="sae-title">Prédiction de tumeur — Régression logistique (R)</div><div class="sae-cr"><span class="comp-b ca">Analyser</span><span class="comp-b cm">Modéliser</span></div></div><div class="sae-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
       <div class="sae-body"><div class="sae-inner">
         <div class="sae-blk"><div class="sae-blt">Objectif</div><p>Construire un modèle de régression logistique pour prédire si une tumeur est bénigne ou maligne à partir de variables cliniques.</p></div>
         <div class="sae-blk"><div class="sae-blt">Ma contribution</div><ul><li>Nettoyage, graphiques descriptifs (boxplots, histogrammes)</li><li>Analyse des corrélations et mise en place du modèle</li><li>Interprétation des coefficients et validation</li></ul></div>
@@ -484,8 +487,8 @@ footer strong{color:var(--g);}
       </div></div>
     </div>
 
-    <div class="sae-card" onclick="toggleSae(this)">
-      <div class="sae-head"><div class="sae-left"><div class="sae-num">SAÉ 202</div><div class="sae-title">Estimation par échantillonnage</div><div class="sae-cr"><span class="comp-b ca">Analyser</span><span class="comp-b cm">Modéliser</span></div></div><div class="sae-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+    <div class="sae-card">
+      <div class="sae-head" onclick="toggleSae(this.closest('.sae-card'))"><div class="sae-left"><div class="sae-num">SAÉ 202</div><div class="sae-title">Estimation par échantillonnage</div><div class="sae-cr"><span class="comp-b ca">Analyser</span><span class="comp-b cm">Modéliser</span></div></div><div class="sae-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
       <div class="sae-body"><div class="sae-inner">
         <div class="sae-blk"><div class="sae-blt">Objectif</div><p>Tirer des échantillons aléatoires sur 500 000 individus, estimer moyennes et proportions, construire des intervalles de confiance.</p></div>
         <div class="sae-blk"><div class="sae-blt">Ma contribution</div><ul><li>IC à 90%, 95%, 99% avec lois de Student et Khi²</li><li>Rapport clair avec commentaires et interprétations</li></ul></div>
@@ -494,8 +497,8 @@ footer strong{color:var(--g);}
       </div></div>
     </div>
 
-    <div class="sae-card" onclick="toggleSae(this)">
-      <div class="sae-head"><div class="sae-left"><div class="sae-num">SAÉ 1.01</div><div class="sae-title">Catastrophes climatiques — SQL & Metabase</div><div class="sae-cr"><span class="comp-b ct">Traiter</span><span class="comp-b cv">Valoriser</span></div></div><div class="sae-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+    <div class="sae-card">
+      <div class="sae-head" onclick="toggleSae(this.closest('.sae-card'))"><div class="sae-left"><div class="sae-num">SAÉ 1.01</div><div class="sae-title">Catastrophes climatiques — SQL & Metabase</div><div class="sae-cr"><span class="comp-b ct">Traiter</span><span class="comp-b cv">Valoriser</span></div></div><div class="sae-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
       <div class="sae-body"><div class="sae-inner">
         <div class="sae-blk"><div class="sae-blt">Objectif</div><p>Installer PostgreSQL + Metabase, intégrer un fichier mondial sur les catastrophes climatiques et produire des visualisations via SQL.</p></div>
         <div class="sae-blk"><div class="sae-blt">Ma contribution</div><ul><li>Configuration PostgreSQL, import du jeu de données</li><li>Requêtes SQL : évolution annuelle, répartition, fréquences</li><li>Dashboards dynamiques Metabase</li></ul></div>
@@ -504,8 +507,8 @@ footer strong{color:var(--g);}
       </div></div>
     </div>
 
-    <div class="sae-card" onclick="toggleSae(this)">
-      <div class="sae-head"><div class="sae-left"><div class="sae-num">SAÉ 2.05</div><div class="sae-title">Performance d'une entreprise bio — Ferme de l'Envol</div><div class="sae-cr"><span class="comp-b ca">Analyser</span><span class="comp-b cv">Valoriser</span></div></div><div class="sae-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+    <div class="sae-card">
+      <div class="sae-head" onclick="toggleSae(this.closest('.sae-card'))"><div class="sae-left"><div class="sae-num">SAÉ 2.05</div><div class="sae-title">Performance d'une entreprise bio — Ferme de l'Envol</div><div class="sae-cr"><span class="comp-b ca">Analyser</span><span class="comp-b cv">Valoriser</span></div></div><div class="sae-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
       <div class="sae-body"><div class="sae-inner">
         <div class="sae-blk"><div class="sae-blt">Objectif</div><p>Étudier la performance économique d'une entreprise maraîchère bio en circuit court à partir de ses documents comptables.</p></div>
         <div class="sae-blk"><div class="sae-blt">Ma contribution</div><ul><li>Ratios financiers, tableau des SIG, valeur ajoutée</li><li>Analyse PESTEL complète</li><li>Synthèse avec axes d'amélioration</li></ul></div>
@@ -514,8 +517,8 @@ footer strong{color:var(--g);}
       </div></div>
     </div>
 
-    <div class="sae-card" onclick="toggleSae(this)">
-      <div class="sae-head"><div class="sae-left"><div class="sae-num">SAÉ 2.06</div><div class="sae-title">Analyse CO₂ — Datavisualisation & transition écologique</div><div class="sae-cr"><span class="comp-b ca">Analyser</span><span class="comp-b cv">Valoriser</span></div></div><div class="sae-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+    <div class="sae-card">
+      <div class="sae-head" onclick="toggleSae(this.closest('.sae-card'))"><div class="sae-left"><div class="sae-num">SAÉ 2.06</div><div class="sae-title">Analyse CO₂ — Datavisualisation & transition écologique</div><div class="sae-cr"><span class="comp-b ca">Analyser</span><span class="comp-b cv">Valoriser</span></div></div><div class="sae-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
       <div class="sae-body"><div class="sae-inner">
         <div class="sae-blk"><div class="sae-blt">Objectif</div><p>Étudier des données réelles sur les émissions de CO₂ par type de véhicule et produire une analyse statistique complète avec visualisations.</p></div>
         <div class="sae-blk"><div class="sae-blt">Ma contribution</div><ul><li>Nettoyage, boxplots, diagrammes, histogrammes</li><li>Gestion de projet : matrice RACI, feuille de temps</li><li>Rapport synthétique et professionnel</li></ul></div>
@@ -524,8 +527,8 @@ footer strong{color:var(--g);}
       </div></div>
     </div>
 
-    <div class="sae-card" onclick="toggleSae(this)">
-      <div class="sae-head"><div class="sae-left"><div class="sae-num">SAÉ 2.01</div><div class="sae-title">BDD Commerce international — Technologies vertes</div><div class="sae-cr"><span class="comp-b ct">Traiter</span><span class="comp-b cm">Modéliser</span></div></div><div class="sae-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+    <div class="sae-card">
+      <div class="sae-head" onclick="toggleSae(this.closest('.sae-card'))"><div class="sae-left"><div class="sae-num">SAÉ 2.01</div><div class="sae-title">BDD Commerce international — Technologies vertes</div><div class="sae-cr"><span class="comp-b ct">Traiter</span><span class="comp-b cm">Modéliser</span></div></div><div class="sae-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div></div>
       <div class="sae-body"><div class="sae-inner">
         <div class="sae-blk"><div class="sae-blt">Objectif</div><p>Modéliser et interroger une base de données relationnelle (données FMI) pour analyser le commerce international des technologies à faible empreinte carbone.</p></div>
         <div class="sae-blk"><div class="sae-blt">Ma contribution</div><ul><li>Modèle EA, schéma relationnel, nettoyage approfondi (TRIM, LOWER, gestion des nulls)</li><li>CROSS JOIN LATERAL pour automatiser l'insertion</li><li>Requêtes SQL complexes : exportations, flux entre pays, produits échangés</li><li>Dashboards interactifs Metabase + rapport d'analyse et présentation orale</li></ul></div>
@@ -694,7 +697,10 @@ drawFrame();
 
 // ACCORDION
 function toggleAc(item){item.classList.toggle('open');}
-function toggleSae(card){card.classList.toggle('open');}
+function toggleSae(card){
+  // Ne toggle que si on clique sur le header, pas sur le contenu
+  card.classList.toggle('open');
+}
 
 // LIGHTBOX
 function openLightbox(img){
