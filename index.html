@@ -168,6 +168,45 @@ body.light .ct{color:#1d4ed8;}body.light .ca{color:#a16207;}body.light .cv{color
 .parc-cnt h3{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--text);margin-bottom:3px;}
 .parc-cnt p{font-size:13px;color:var(--muted);}
 
+/* STAGE */
+.stage-intro{display:grid;grid-template-columns:1fr 340px;gap:32px;max-width:1100px;margin:0 auto 60px;align-items:start;}
+@media(max-width:900px){.stage-intro{grid-template-columns:1fr;}}
+.stage-badge{display:inline-block;padding:5px 16px;border-radius:50px;background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;font-size:12px;font-weight:700;margin-bottom:14px;letter-spacing:1px;}
+.stage-company{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--text);margin-bottom:18px;line-height:1.3;}
+.stage-desc{font-size:15px;line-height:1.8;color:var(--muted);margin-bottom:14px;}
+.stage-desc strong{color:var(--g);font-weight:500;}
+.stage-stack{background:var(--surface);border:0.5px solid var(--border-b);border-radius:var(--r);padding:24px;}
+.stage-stack-title{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--g);margin-bottom:14px;}
+.stage-comps{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:24px;}
+.stage-comp-card{border-radius:20px;border:0.5px solid var(--border);overflow:hidden;transition:border-color .3s;}
+.stage-comp-card:hover{border-color:var(--cc,var(--g));}
+.stage-comp-header{padding:22px 28px;background:var(--surface);display:flex;align-items:center;gap:16px;border-bottom:0.5px solid var(--border);}
+.stage-comp-badge{padding:5px 14px;border-radius:50px;font-size:12px;font-weight:700;border:0.5px solid;flex-shrink:0;}
+.stage-comp-title{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:var(--text);}
+.stage-comp-body{padding:28px;}
+.stage-comp-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:22px;}
+@media(max-width:768px){.stage-comp-row{grid-template-columns:1fr;}}
+.stage-comp-block{background:var(--surface);border-radius:12px;padding:18px;}
+.stage-comp-label{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--g);margin-bottom:9px;}
+.stage-comp-block p{font-size:14px;line-height:1.75;color:var(--muted);}
+.stage-comp-block code{background:rgba(0,200,150,0.1);border:0.5px solid rgba(0,200,150,0.3);border-radius:4px;padding:1px 6px;font-size:13px;color:var(--g);}
+.stage-bilan-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:22px;}
+@media(max-width:768px){.stage-bilan-row{grid-template-columns:1fr;}}
+.stage-bilan-item{border-radius:12px;padding:18px;border:0.5px solid;}
+.stage-positif{background:rgba(34,197,94,0.06);border-color:rgba(34,197,94,0.25);}
+.stage-lacune{background:rgba(239,68,68,0.06);border-color:rgba(239,68,68,0.25);}
+.stage-bilan-label{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
+.stage-positif .stage-bilan-label{color:#4ade80;}
+.stage-lacune .stage-bilan-label{color:#f87171;}
+body.light .stage-positif .stage-bilan-label{color:#15803d;}
+body.light .stage-lacune .stage-bilan-label{color:#dc2626;}
+.stage-bilan-item p{font-size:14px;line-height:1.7;color:var(--muted);}
+.stage-photos-placeholder{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:4px;}
+.stage-photo-ph{height:160px;border-radius:12px;background:var(--surface);border:1.5px dashed var(--border-b);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--muted);transition:all .3s;cursor:pointer;}
+.stage-photo-ph:hover{border-color:var(--g);color:var(--g);}
+.stage-photo-ph span{font-size:12px;font-weight:500;}
+.stage-photo-ph svg{opacity:.5;}
+
 /* IMAGE GRID SAÉ */
 .sae-img-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px;}
 .sae-img{width:100%;height:180px;object-fit:cover;border-radius:10px;border:1px solid var(--border-b);cursor:zoom-in;transition:all .3s;display:block;}
@@ -222,6 +261,7 @@ footer strong{color:var(--g);}
     <a href="#pourquoi" class="nav-link">Pourquoi SD</a>
     <a href="#competences" class="nav-link">Compétences</a>
     <a href="#sae" class="nav-link">Projets</a>
+    <a href="#stage" class="nav-link">Stage</a>
     <a href="#objectifs" class="nav-link">Objectifs</a>
   </div>
   <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">☀ Mode clair</button>
@@ -463,7 +503,12 @@ footer strong{color:var(--g);}
         <div class="sae-blk"><div class="sae-blt">Objectif</div><p>Créer un tableau de bord pour le service communication de l'IUT afin d'analyser la typologie des étudiants (formation, lycée d'origine, mentions, bourse…).</p></div>
         <div class="sae-blk"><div class="sae-blt">Ma contribution</div><ul><li>Analyse des besoins, nettoyage et structuration des données</li><li>Création de tableaux croisés dynamiques avec segments de filtrage</li><li>Graphiques dynamiques et mise en forme professionnelle</li></ul></div>
         <div class="sae-blk"><div class="sae-blt">Ce que j'ai appris</div><ul><li>Construire un fichier Excel réutilisable et compréhensible</li><li>Répondre à une commande concrète avec autonomie</li></ul></div>
-        <div class="sae-blk"><div class="sae-blt">Captures</div><div class="img-row"><div class="img-ph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>À ajouter</span></div><div class="img-ph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>À ajouter</span></div></div></div>
+        <div class="sae-blk">
+          <div class="sae-blt">Réalisation — Tableau de bord</div>
+          <div class="sae-img-grid">
+            <img src="bdd_10.png" class="sae-img" alt="Tableau de bord Excel" onclick="openLightbox(this)">
+          </div>
+        </div>
       </div></div>
     </div>
 
@@ -596,7 +641,223 @@ footer strong{color:var(--g);}
 
 <div class="divider"></div>
 
-<!-- OBJECTIFS -->
+<!-- STAGE -->
+<section id="stage">
+  <div class="slabel">Expérience professionnelle</div>
+  <div class="stitle">Bilan de stage — BUT 2</div>
+
+  <!-- INTRO STAGE -->
+  <div class="stage-intro">
+    <div class="stage-intro-left">
+      <div class="stage-badge">MEDImarket</div>
+      <h3 class="stage-company">Automatisation de la veille des marchés publics médicaux</h3>
+      <p class="stage-desc">Dans le cadre de ma 2ème année de BUT Science des Données, j'ai effectué mon stage au sein de MEDImarket, une entreprise individuelle fondée par Jean-Marie Bayle, spécialisée depuis plus de 25 ans dans la veille des marchés publics médicaux. MEDImarket aide les fournisseurs de dispositifs médicaux et les laboratoires pharmaceutiques à ne rater aucun appel d'offres.</p>
+      <p class="stage-desc">Avant mon arrivée, cette surveillance était effectuée <strong>manuellement chaque matin</strong> — une tâche longue et répétitive. Ma mission : <strong>automatiser entièrement ce processus</strong>. J'ai développé from scratch un pipeline complet de collecte, traitement et visualisation des données — depuis le scraping jusqu'à une interface web accessible depuis n'importe quel navigateur.</p>
+    </div>
+    <div class="stage-intro-right">
+      <div class="stage-stack">
+        <div class="stage-stack-title">Stack technique</div>
+        <div class="sk-tags" style="gap:8px;">
+          <span class="sk-tag">Python</span>
+          <span class="sk-tag">BeautifulSoup</span>
+          <span class="sk-tag">Flask</span>
+          <span class="sk-tag">PostgreSQL</span>
+          <span class="sk-tag">API REST</span>
+          <span class="sk-tag">Chart.js</span>
+          <span class="sk-tag">openpyxl</span>
+          <span class="sk-tag">pgAdmin</span>
+          <span class="sk-tag">Web Scraping</span>
+          <span class="sk-tag">ETL</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 COMPÉTENCES -->
+  <div class="stage-comps">
+
+    <!-- TRAITER -->
+    <div class="stage-comp-card" style="--cc:#00c896;">
+      <div class="stage-comp-header">
+        <div class="stage-comp-badge" style="background:rgba(59,130,246,.15);border-color:rgba(59,130,246,.4);color:#60a5fa;">Traiter</div>
+        <h3 class="stage-comp-title">Collecte & traitement automatique des données</h3>
+      </div>
+      <div class="stage-comp-body">
+        <div class="stage-comp-row">
+          <div class="stage-comp-block">
+            <div class="stage-comp-label">Avant le stage</div>
+            <p>Je connaissais les bases de Python et du traitement de données vues en cours, mais je n'avais jamais fait de web scraping.</p>
+          </div>
+          <div class="stage-comp-block">
+            <div class="stage-comp-label">Ce que j'ai fait</div>
+            <p>J'ai développé deux scrapers Python qui collectent automatiquement des données depuis MarchésOnline et l'API TED Europa. Je traitais des milliers d'annonces par jour : filtrage par date, par mots-clés médicaux, suppression des doublons BOAMP, et nettoyage automatique hebdomadaire des données de plus de 7 jours.</p>
+          </div>
+          <div class="stage-comp-block">
+            <div class="stage-comp-label">Ce que j'ai appris</div>
+            <p>Web scraping, gestion des requêtes HTTP, parsing HTML avec BeautifulSoup, utilisation d'une API REST. J'ai tout appris en autonomie via YouTube, Kaggle et LinkedIn.</p>
+          </div>
+        </div>
+        <div class="stage-bilan-row">
+          <div class="stage-bilan-item stage-positif">
+            <div class="stage-bilan-label">Points forts</div>
+            <p>Automatisation complète du pipeline, gestion des erreurs et reconnexion automatique.</p>
+          </div>
+          <div class="stage-bilan-item stage-lacune">
+            <div class="stage-bilan-label">Points à améliorer</div>
+            <p>Je ne maîtrisais pas du tout le web scraping avant — j'ai dû tout apprendre seule en partant de zéro.</p>
+          </div>
+        </div>
+        <div class="stage-photos-placeholder" id="photos-traiter">
+          <div class="stage-photo-ph">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Terminal — scraper en action</span>
+          </div>
+          <div class="stage-photo-ph">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Code scraper.py</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANALYSER -->
+    <div class="stage-comp-card" style="--cc:#f59e0b;">
+      <div class="stage-comp-header">
+        <div class="stage-comp-badge" style="background:rgba(234,179,8,.15);border-color:rgba(234,179,8,.4);color:#fbbf24;">Analyser</div>
+        <h3 class="stage-comp-title">Analyse des besoins & détection des annonces pertinentes</h3>
+      </div>
+      <div class="stage-comp-body">
+        <div class="stage-comp-row">
+          <div class="stage-comp-block">
+            <div class="stage-comp-label">Avant le stage</div>
+            <p>Je maîtrisais les bases du SQL et de l'analyse de données vues en cours.</p>
+          </div>
+          <div class="stage-comp-block">
+            <div class="stage-comp-label">Ce que j'ai fait</div>
+            <p>J'ai analysé des milliers d'annonces pour détecter les doublons BOAMP, identifier les annonces médicales pertinentes parmi des milliers d'annonces générales, et suivre l'évolution quotidienne des publications. J'ai aussi analysé les besoins de Jean-Marie Bayle pour traduire ses problèmes en solutions techniques.</p>
+          </div>
+          <div class="stage-comp-block">
+            <div class="stage-comp-label">Ce que j'ai appris</div>
+            <p>Analyse des besoins client, analyse de la structure HTML pour extraction de données, analyse des résultats du scraping pour améliorer les filtres.</p>
+          </div>
+        </div>
+        <div class="stage-bilan-row">
+          <div class="stage-bilan-item stage-positif">
+            <div class="stage-bilan-label">Points forts</div>
+            <p>Bonne compréhension du métier du client et traduction efficace en solutions techniques adaptées.</p>
+          </div>
+          <div class="stage-bilan-item stage-lacune">
+            <div class="stage-bilan-label">Points à améliorer</div>
+            <p>L'analyse statistique avancée n'a pas été au cœur de ce stage — c'est un axe de progression.</p>
+          </div>
+        </div>
+        <div class="stage-photos-placeholder" id="photos-analyser">
+          <div class="stage-photo-ph">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Dashboard analytique</span>
+          </div>
+          <div class="stage-photo-ph">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Tables pgAdmin</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VALORISER -->
+    <div class="stage-comp-card" style="--cc:#0096c7;">
+      <div class="stage-comp-header">
+        <div class="stage-comp-badge" style="background:rgba(34,197,94,.15);border-color:rgba(34,197,94,.4);color:#4ade80;">Valoriser</div>
+        <h3 class="stage-comp-title">Interface web & dashboard interactif</h3>
+      </div>
+      <div class="stage-comp-body">
+        <div class="stage-comp-row">
+          <div class="stage-comp-block">
+            <div class="stage-comp-label">Avant le stage</div>
+            <p>Je connaissais les bases de HTML/CSS vues en cours, mais jamais de développement web complet.</p>
+          </div>
+          <div class="stage-comp-block">
+            <div class="stage-comp-label">Ce que j'ai fait</div>
+            <p>J'ai développé une interface web complète avec Flask permettant à Jean-Marie de consulter les annonces, les filtrer par date, région ou pays, les exporter en Excel et visualiser des statistiques sur un dashboard interactif avec Chart.js. J'ai aussi mis en place un système de corbeille pour gérer les annonces masquées.</p>
+          </div>
+          <div class="stage-comp-block">
+            <div class="stage-comp-label">Ce que j'ai appris</div>
+            <p>Développement web avec Flask, création de dashboards interactifs avec Chart.js, export Excel avec openpyxl, présentation des données pour un utilisateur non technique.</p>
+          </div>
+        </div>
+        <div class="stage-bilan-row">
+          <div class="stage-bilan-item stage-positif">
+            <div class="stage-bilan-label">Points forts</div>
+            <p>Interface intuitive, dashboard visuel clair, export Excel professionnel directement utilisable par le client.</p>
+          </div>
+          <div class="stage-bilan-item stage-lacune">
+            <div class="stage-bilan-label">Points à améliorer</div>
+            <p>Je n'avais jamais fait de développement web complet — j'ai dû apprendre Flask en autonomie pendant le stage.</p>
+          </div>
+        </div>
+        <div class="stage-photos-placeholder" id="photos-valoriser">
+          <div class="stage-photo-ph">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Interface MarchésOnline</span>
+          </div>
+          <div class="stage-photo-ph">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Dashboard Chart.js</span>
+          </div>
+          <div class="stage-photo-ph">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Export Excel</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODÉLISER -->
+    <div class="stage-comp-card" style="--cc:#ec4899;">
+      <div class="stage-comp-header">
+        <div class="stage-comp-badge" style="background:rgba(239,68,68,.15);border-color:rgba(239,68,68,.4);color:#f87171;">Modéliser</div>
+        <h3 class="stage-comp-title">Base de données PostgreSQL</h3>
+      </div>
+      <div class="stage-comp-body">
+        <div class="stage-comp-row">
+          <div class="stage-comp-block">
+            <div class="stage-comp-label">Avant le stage</div>
+            <p>Je maîtrisais les bases de la modélisation de bases de données vues en cours.</p>
+          </div>
+          <div class="stage-comp-block">
+            <div class="stage-comp-label">Ce que j'ai fait</div>
+            <p>J'ai modélisé et créé une base de données PostgreSQL avec deux tables distinctes — <code>annonces</code> pour MarchésOnline et <code>annonces_ted</code> pour TED Europa. J'ai défini les types de données, les contraintes d'unicité pour éviter les doublons, et les champs booléens pour gérer les statuts des annonces.</p>
+          </div>
+          <div class="stage-comp-block">
+            <div class="stage-comp-label">Ce que j'ai appris</div>
+            <p>Modélisation d'une base relationnelle adaptée à un besoin métier réel, gestion des contraintes SQL, optimisation des requêtes en contexte professionnel.</p>
+          </div>
+        </div>
+        <div class="stage-bilan-row">
+          <div class="stage-bilan-item stage-positif">
+            <div class="stage-bilan-label">Points forts</div>
+            <p>Structure claire et bien pensée, séparation logique des deux sources de données MarchésOnline et TED Europa.</p>
+          </div>
+          <div class="stage-bilan-item stage-lacune">
+            <div class="stage-bilan-label">Points à améliorer</div>
+            <p>Je n'ai pas mis en place d'index pour optimiser les performances des requêtes — c'est une piste d'amélioration identifiée.</p>
+          </div>
+        </div>
+        <div class="stage-photos-placeholder" id="photos-modeliser">
+          <div class="stage-photo-ph">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Schéma des tables PostgreSQL</span>
+          </div>
+          <div class="stage-photo-ph">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>pgAdmin — vue des tables</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 <section id="objectifs">
   <div class="slabel">Vision</div>
   <div class="stitle">Mes objectifs</div>
