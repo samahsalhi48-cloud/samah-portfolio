@@ -120,13 +120,9 @@ body.light .bub-panel{background:#fff;}
 .cm{background:rgba(239,68,68,.12);border-color:rgba(239,68,68,.35);color:#f87171;}
 body.light .ct{color:#1d4ed8;}body.light .ca{color:#a16207;}body.light .cv{color:#15803d;}body.light .cm{color:#dc2626;}
 
-.sae-scroll{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-bottom:50px;}
-.sae-card{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--r);overflow:hidden;cursor:default;transition:border-color var(--tr),box-shadow var(--tr);}
-.sae-card:hover{border-color:var(--border-b);box-shadow:0 20px 50px var(--glow);}
-.sae-card.open{border-color:var(--border-b);grid-column:1/-1;}
-.sae-body{max-height:0;overflow:hidden;transition:max-height .6s cubic-bezier(.4,0,.2,1);}
-.sae-card.open .sae-body{max-height:9000px;border-top:0.5px solid var(--border);}
-.sae-card:hover{border-color:var(--border-b);transform:translateY(-4px);box-shadow:0 20px 50px var(--glow);}
+.sae-scroll{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:50px;}
+.sae-card{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--r);overflow:hidden;transition:border-color var(--tr),box-shadow var(--tr),transform var(--tr);}
+.sae-card:hover{border-color:var(--border-b);transform:translateY(-3px);box-shadow:0 20px 50px var(--glow);}
 .sae-card.open{border-color:var(--border-b);}
 .sae-head{padding:20px 22px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px;cursor:pointer;user-select:none;}
 .sae-left{flex:1;}
@@ -135,8 +131,8 @@ body.light .ct{color:#1d4ed8;}body.light .ca{color:#a16207;}body.light .cv{color
 .sae-cr{display:flex;flex-wrap:wrap;gap:5px;}
 .sae-chev{width:26px;height:26px;border-radius:50%;background:var(--tb);border:0.5px solid var(--tbr);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s;color:var(--g);}
 .sae-card.open .sae-chev{transform:rotate(180deg);}
-.sae-body{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1);}
-.sae-card.open .sae-body{max-height:800px;border-top:0.5px solid var(--border);}
+.sae-body{display:none;}
+.sae-card.open .sae-body{display:block;border-top:0.5px solid var(--border);}
 .sae-inner{padding:26px;}
 .sae-blk{margin-bottom:22px;}
 .sae-blk:last-child{margin-bottom:0;}
@@ -173,9 +169,26 @@ body.light .ct{color:#1d4ed8;}body.light .ca{color:#a16207;}body.light .cv{color
 .parc-cnt p{font-size:13px;color:var(--muted);}
 
 /* IMAGE GRID SAÉ */
-.sae-img-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:14px;}
-.sae-img{width:100%;height:220px;object-fit:cover;border-radius:12px;border:1px solid var(--border-b);cursor:zoom-in;transition:all .3s;display:block;}
+.sae-img-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px;}
+.sae-img{width:100%;height:180px;object-fit:cover;border-radius:10px;border:1px solid var(--border-b);cursor:zoom-in;transition:all .3s;display:block;}
 .sae-img:hover{transform:scale(1.02);border-color:var(--g);box-shadow:0 8px 30px var(--glow);}
+
+/* SAE MODAL */
+#sae-modal{position:fixed;inset:0;z-index:500;background:rgba(0,0,0,0.85);display:none;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto;backdrop-filter:blur(8px);}
+#sae-modal.active{display:flex;}
+#sae-modal-inner{background:var(--bg);border:1px solid var(--border-b);border-radius:20px;padding:36px;max-width:860px;width:100%;margin:auto;position:relative;}
+#sae-modal-header{margin-bottom:28px;padding-bottom:20px;border-bottom:0.5px solid var(--border);}
+#sae-modal-close{position:absolute;top:18px;right:18px;width:36px;height:36px;border-radius:50%;background:var(--surface);border:1px solid var(--border-b);color:var(--text);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .25s;}
+#sae-modal-close:hover{background:var(--border-b);}
+#sae-modal-body .sae-blk{margin-bottom:24px;}
+#sae-modal-body .sae-blt{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--g);margin-bottom:10px;}
+#sae-modal-body .sae-blk p{font-size:15px;line-height:1.8;color:var(--muted);}
+#sae-modal-body ul{list-style:none;padding:0;}
+#sae-modal-body ul li{font-size:15px;color:var(--muted);padding:4px 0 4px 18px;position:relative;line-height:1.65;}
+#sae-modal-body ul li::before{content:"▸";position:absolute;left:0;color:var(--g);font-size:11px;top:6px;}
+#sae-modal-body .sae-img-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(350px,1fr));gap:14px;margin-top:14px;}
+#sae-modal-body .sae-img{width:100%;height:240px;object-fit:cover;border-radius:12px;border:1px solid var(--border-b);cursor:zoom-in;transition:all .3s;}
+#sae-modal-body .sae-img:hover{transform:scale(1.02);border-color:var(--g);}
 
 /* LIGHTBOX */
 #lightbox{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.93);display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(10px);}
@@ -596,6 +609,19 @@ footer strong{color:var(--g);}
 
 <footer>Conçu et développé par <strong>Samah Salhi</strong> · BUT Science des Données · IUT Villetaneuse · 2025</footer>
 
+<!-- SAE MODAL -->
+<div id="sae-modal" onclick="if(event.target===this)closeSaeModal()">
+  <div id="sae-modal-inner">
+    <button id="sae-modal-close" onclick="closeSaeModal()">✕</button>
+    <div id="sae-modal-header">
+      <div class="sae-num" id="sae-modal-num"></div>
+      <div class="sae-title" id="sae-modal-title" style="font-size:20px;margin-bottom:12px;font-family:Syne,sans-serif;font-weight:700;color:var(--text);"></div>
+      <div class="sae-cr" id="sae-modal-badges"></div>
+    </div>
+    <div id="sae-modal-body"></div>
+  </div>
+</div>
+
 <!-- LIGHTBOX -->
 <div id="lightbox" onclick="closeLightbox()">
   <div id="lb-close" onclick="closeLightbox()">✕</div>
@@ -695,8 +721,22 @@ drawFrame();
 // ACCORDION
 function toggleAc(item){item.classList.toggle('open');}
 function toggleSae(card){
-  // Ne toggle que si on clique sur le header, pas sur le contenu
-  card.classList.toggle('open');
+  // Clone le contenu dans la modale
+  const inner = card.querySelector('.sae-inner');
+  const title = card.querySelector('.sae-title').textContent;
+  const num = card.querySelector('.sae-num').textContent;
+  const badges = card.querySelector('.sae-cr').innerHTML;
+  
+  document.getElementById('sae-modal-num').textContent = num;
+  document.getElementById('sae-modal-title').textContent = title;
+  document.getElementById('sae-modal-badges').innerHTML = badges;
+  document.getElementById('sae-modal-body').innerHTML = inner ? inner.innerHTML : '';
+  document.getElementById('sae-modal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeSaeModal(){
+  document.getElementById('sae-modal').classList.remove('active');
+  document.body.style.overflow = '';
 }
 
 // LIGHTBOX
@@ -711,7 +751,7 @@ function closeLightbox(){
   document.getElementById('lightbox').classList.remove('active');
   document.body.style.overflow='';
 }
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLightbox();closeSaeModal();}});
 function toggleTheme(){
   document.body.classList.toggle('light');
   document.getElementById('themeBtn').textContent=document.body.classList.contains('light')?'🌙 Mode sombre':'☀ Mode clair';
