@@ -833,6 +833,58 @@ footer strong{color:var(--g);}
       </div></div>
     </div>
 
+    <div class="sae-card">
+      <div class="sae-head" onclick="toggleSae(this.closest('.sae-card'))">
+        <div class="sae-left">
+          <div class="sae-num">Investigation data</div>
+          <div class="sae-title">Ce dataset de salle de sport est-il réel ou inventé ?</div>
+          <div class="sae-cr"><span class="comp-b ca">Analyser</span><span class="comp-b cm">Modéliser</span></div>
+        </div>
+        <div class="sae-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </div>
+      <div class="sae-body"><div class="sae-inner">
+
+        <div class="sae-blk">
+          <div class="sae-blt">Le point de départ</div>
+          <p>Tout a commencé avec un dataset Kaggle assez classique : 973 membres d'une salle de sport, 15 variables (âge, poids, % de masse grasse, rythme cardiaque, calories brûlées...). On a fait le travail habituel d'analyste : statistiques descriptives, matrice de corrélation, et une classification (CAH) pour dégager 3 profils d'intensité d'entraînement.</p>
+        </div>
+
+        <div class="sae-blk">
+          <div class="sae-blt">Le déclic</div>
+          <p>Très vite, on s'est rendu compte qu'on ne pouvait pas analyser l'évolution physique des membres, car le dataset n'avait aucune donnée temporelle ni nutritionnelle. Mais surtout, quelque chose clochait : zéro valeur manquante sur près de 1000 lignes, et des répartitions statistiques étrangement lisses. On s'est posé une nouvelle question, bien plus intéressante que prévu : ce dataset est-il réel, ou a-t-il été généré artificiellement ?</p>
+        </div>
+
+        <div class="sae-blk">
+          <div class="sae-blt">L'enquête</div>
+          <ul>
+            <li>Les tests statistiques ont montré que l'âge et la fréquence cardiaque maximale suivaient des lois uniformes parfaites, et qu'il n'y avait aucune corrélation entre les deux — ce qui est biologiquement impossible chez l'humain</li>
+            <li>Une ACP a révélé des groupes de données séparés par des frontières droites et géométriques, typiques d'une génération artificielle</li>
+            <li>Le coup de grâce : un modèle de régression linéaire pour prédire les calories brûlées a obtenu un R² de 93,79 %. Or, le corps humain est trop complexe pour dépasser 60-65 % de précision sur ce type de données dans la réalité</li>
+          </ul>
+        </div>
+
+        <div class="sae-blk">
+          <div class="sae-blt">Ce qu'on en a conclu</div>
+          <p>On a prouvé mathématiquement que ce dataset, pourtant très populaire sur Kaggle, était entièrement fabriqué par un générateur informatique, avec juste un peu de bruit aléatoire ajouté pour donner l'illusion du réel. Ce projet m'a appris quelque chose d'essentiel : ne jamais analyser une donnée à l'aveugle. Avant de se lancer dans les calculs, il faut toujours se demander d'où vient la donnée et si elle a du sens.</p>
+        </div>
+
+        <div class="sae-blk">
+          <div class="sae-blt">Outils utilisés</div>
+          <div class="sk-tags" style="gap:7px;">
+            <span class="sk-tag">Python</span>
+            <span class="sk-tag">Pandas</span>
+            <span class="sk-tag">Scikit-learn</span>
+            <span class="sk-tag">Matplotlib / Seaborn</span>
+            <span class="sk-tag">CAH</span>
+            <span class="sk-tag">ACP</span>
+            <span class="sk-tag">Régression linéaire multiple</span>
+            <span class="sk-tag">Tests de Kolmogorov-Smirnov et Chi²</span>
+          </div>
+        </div>
+
+      </div></div>
+    </div>
+
   </div>
 
 </section>
