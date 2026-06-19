@@ -207,6 +207,27 @@ body.light .stage-lacune .stage-bilan-label{color:#dc2626;}
 .stage-photo-ph span{font-size:12px;font-weight:500;}
 .stage-photo-ph svg{opacity:.5;}
 
+/* PASSEPORT CULTUREL */
+.culturel-intro{max-width:820px;margin:0 auto 50px;}
+.culturel-intro p{font-size:15px;line-height:1.85;color:var(--muted);margin-bottom:16px;}
+.culturel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:1100px;margin:0 auto 50px;}
+.culturel-card{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--r);padding:26px;transition:all var(--tr);}
+.culturel-card:hover{border-color:var(--cc,var(--g));transform:translateY(-3px);}
+.culturel-ico{width:42px;height:42px;border-radius:12px;background:color-mix(in srgb,var(--cc,var(--g)) 14%,transparent);border:0.5px solid color-mix(in srgb,var(--cc,var(--g)) 35%,transparent);color:var(--cc,var(--g));display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+.culturel-card h3{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--text);margin-bottom:12px;}
+.culturel-card p{font-size:14px;line-height:1.75;color:var(--muted);}
+.culturel-project{max-width:1100px;margin:0 auto;background:var(--surface);border:0.5px solid var(--border-b);border-radius:var(--r);padding:32px;}
+.culturel-project-badge{display:inline-block;padding:5px 16px;border-radius:50px;background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;font-size:11px;font-weight:700;letter-spacing:1px;margin-bottom:14px;}
+.culturel-project-header h3{font-family:'Syne',sans-serif;font-size:19px;font-weight:700;color:var(--text);margin-bottom:10px;}
+.culturel-project-header p{font-size:14px;line-height:1.7;color:var(--muted);margin-bottom:20px;}
+.culturel-img-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;}
+
+/* CONTACT */
+.contact-wrap{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;max-width:700px;margin:0 auto;}
+.contact-item{display:flex;align-items:center;gap:12px;padding:16px 26px;border-radius:50px;background:var(--surface);border:0.5px solid var(--border-b);color:var(--text);text-decoration:none;font-size:14px;font-weight:500;transition:all var(--tr);}
+.contact-item:hover{border-color:var(--g);background:var(--surface-hover);transform:translateY(-2px);box-shadow:0 10px 30px var(--glow);}
+.contact-ico{width:34px;height:34px;border-radius:50%;background:var(--tag-bg);border:0.5px solid var(--tag-border);color:var(--g);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+
 /* IMAGE GRID SAÉ */
 .sae-img-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px;}
 .sae-img{width:100%;height:180px;object-fit:cover;border-radius:10px;border:1px solid var(--border-b);cursor:zoom-in;transition:all .3s;display:block;}
@@ -262,7 +283,9 @@ footer strong{color:var(--g);}
     <a href="#competences" class="nav-link">Compétences</a>
     <a href="#sae" class="nav-link">Projets</a>
     <a href="#stage" class="nav-link">Stage</a>
+    <a href="#culturel" class="nav-link">International</a>
     <a href="#objectifs" class="nav-link">Objectifs</a>
+    <a href="#contact" class="nav-link">Contact</a>
   </div>
   <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">☀ Mode clair</button>
 </nav>
@@ -616,7 +639,150 @@ footer strong{color:var(--g);}
   </div>
 
   <div class="sae-yr" style="margin-top:10px;"><span class="yr-b">BUT 2</span> Deuxième année</div>
-  <div style="background:var(--surface);border:1px dashed var(--border-b);border-radius:var(--r);padding:36px;text-align:center;color:var(--muted);font-size:14px;max-width:440px;">En cours de réalisation — à venir</div>
+  <div class="sae-scroll">
+
+    <div class="sae-card">
+      <div class="sae-head" onclick="toggleSae(this.closest('.sae-card'))">
+        <div class="sae-left">
+          <div class="sae-num">SAÉ 3.EMS.01</div>
+          <div class="sae-title">Recueil et analyse de données par échantillonnage — Impact de l'IA sur les étudiants</div>
+          <div class="sae-cr"><span class="comp-b ct">Traiter</span><span class="comp-b ca">Analyser</span><span class="comp-b cm">Modéliser</span></div>
+        </div>
+        <div class="sae-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </div>
+      <div class="sae-body"><div class="sae-inner">
+
+        <div class="sae-blk">
+          <div class="sae-blt">Problématique</div>
+          <p>Dans quelle mesure l'utilisation de l'IA améliore-t-elle la préparation des étudiants au monde professionnel ? Nous avons travaillé sur 3 hypothèses à partir d'un jeu de données de 1050 répondants, nettoyé à 974 observations valides.</p>
+        </div>
+
+        <div class="sae-blk">
+          <div class="sae-blt">Ma contribution</div>
+          <ul>
+            <li>Comparaison de la distribution de l'échantillon avec la population cible (variable ANETUD — année d'étude)</li>
+            <li>Construction d'une distribution théorique réaliste basée sur les statistiques nationales (France Universités)</li>
+            <li>Identification des biais : surreprésentation des L1 (51,1 %), sous-représentation des Masters et doctorants</li>
+            <li>Analyse de l'hypothèse H32 : proportion d'étudiants estimant que l'IA enrichit leur réflexion (70,4 % brut → 71,14 % redressé)</li>
+            <li>Post-stratification par année d'étude pour corriger les déséquilibres de l'échantillon</li>
+            <li>Calcul des intervalles de confiance à 95 % avec formule de variance post-stratifiée</li>
+            <li>Analyse de l'hypothèse H40 : usage de l'IA pour la productivité via les variables UTILEIA, TYPIA et RESUMIA</li>
+          </ul>
+        </div>
+
+        <div class="sae-blk">
+          <div class="sae-blt">Résultats clés</div>
+          <ul>
+            <li><strong style="color:var(--g)">H32 rejetée</strong> — 71,14 % des étudiants estiment que l'IA enrichit leur réflexion. IC 95 % : [68,19 % ; 74,08 %]</li>
+            <li><strong style="color:var(--g)">H37 validée avec prudence</strong> — 76,4 % des étudiants estiment que la maîtrise de l'IA sera nécessaire dans leur futur professionnel. IC 95 % : [72 % ; 78 %]</li>
+            <li><strong style="color:var(--g)">H40 validée</strong> — 73,5 % des étudiants utilisent l'IA pour l'aide aux études ou le gain de temps. Les variables TYPIA et RESUMIA confirment des pratiques productives réelles</li>
+          </ul>
+        </div>
+
+        <div class="sae-blk">
+          <div class="sae-blt">Difficultés rencontrées & ce que j'ai appris</div>
+          <ul>
+            <li>Le jeu de données initial présentait des déséquilibres importants — j'ai appris à identifier les biais de représentativité et à les corriger par post-stratification</li>
+            <li>L'absence de données officielles sur la population du campus nous a obligés à formuler des hypothèses théoriques réalistes — j'ai appris à justifier rigoureusement ces choix</li>
+            <li>Certains étudiants ayant choisi "CUR" utilisaient en réalité l'IA de façon productive — cela m'a appris à croiser les variables pour aller au-delà des déclarations superficielles</li>
+            <li>J'ai maîtrisé les formules de variance post-stratifiée et compris pourquoi un IC issu d'une post-stratification diffère d'un IC simple</li>
+          </ul>
+        </div>
+
+        <div class="sae-blk">
+          <div class="sae-blt">Outils utilisés</div>
+          <div class="sk-tags" style="gap:7px;">
+            <span class="sk-tag">R</span>
+            <span class="sk-tag">Post-stratification</span>
+            <span class="sk-tag">Intervalles de confiance</span>
+            <span class="sk-tag">Diagramme de Venn</span>
+            <span class="sk-tag">Analyse descriptive</span>
+            <span class="sk-tag">Variables auxiliaires</span>
+          </div>
+        </div>
+
+        <div class="sae-blk">
+          <div class="sae-blt">Captures d'écran</div>
+          <div class="sae-img-grid">
+            <div class="img-ph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>À ajouter</span></div>
+            <div class="img-ph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>À ajouter</span></div>
+          </div>
+        </div>
+
+      </div></div>
+    </div>
+
+    <div class="sae-card">
+      <div class="sae-head" onclick="toggleSae(this.closest('.sae-card'))">
+        <div class="sae-left">
+          <div class="sae-num">TP Sondage</div>
+          <div class="sae-title">Optimisation d'un plan de sondage stratifié — Naissances INSEE</div>
+          <div class="sae-cr"><span class="comp-b cm">Modéliser</span><span class="comp-b ca">Analyser</span></div>
+        </div>
+        <div class="sae-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </div>
+      <div class="sae-body"><div class="sae-inner">
+
+        <div class="sae-blk">
+          <div class="sae-blt">Objectif</div>
+          <p>Comparer trois plans d'échantillonnage (simple, stratifié proportionnel, stratifié optimal) pour estimer l'âge moyen des mères à partir des données de naissances INSEE 2019, en utilisant l'âge du père comme variable auxiliaire.</p>
+        </div>
+
+        <div class="sae-blk">
+          <div class="sae-blt">Ma contribution</div>
+          <ul>
+            <li>Exploration de la variable auxiliaire AGEPERE et vérification de sa corrélation avec AGEMERE</li>
+            <li>Construction de 3 strates selon l'âge du père et calcul des effectifs (374 / 710 835 / 42 174 individus)</li>
+            <li>Allocation proportionnelle puis allocation optimale (Neyman) des tailles d'échantillon</li>
+            <li>Tirage aléatoire reproductible (graine fixée), calcul des moyennes, variances et intervalles de confiance à 95 %</li>
+            <li>Comparaison des 3 plans sur deux tailles d'échantillon différentes (n = 1000 et n = 100)</li>
+            <li>Deuxième partie : post-stratification sur un échantillon de 2000 individus avec deux variables auxiliaires différentes (âge du père vs statut matrimonial)</li>
+          </ul>
+        </div>
+
+        <div class="sae-blk">
+          <div class="sae-blt">Résultats clés</div>
+          <ul>
+            <li>Moyenne d'âge des mères estimée à <strong style="color:var(--g)">≈ 31 ans</strong> sur les 3 plans, avec des IC quasi identiques</li>
+            <li>Variance du plan simple (0,02885) très proche de celle des plans stratifiés (0,02698 et 0,02697)</li>
+            <li>Conclusion : la stratification n'a apporté <strong style="color:var(--g)">aucun gain significatif</strong> de précision dans ce contexte</li>
+          </ul>
+        </div>
+
+        <div class="sae-blk">
+          <div class="sae-blt">Difficultés rencontrées & ce que j'ai appris</div>
+          <ul>
+            <li>La population était extrêmement déséquilibrée — 94 % des individus dans une seule strate (pères 18-45 ans), rendant la strate des pères ≤17 ans quasi inexistante (374 individus sur 753 383)</li>
+            <li>Cela provoquait des divisions par zéro dans le calcul de variance — j'ai appris à corriger ce problème en imposant un minimum d'un individu par strate</li>
+            <li>J'ai appris à calculer une allocation optimale de Neyman, qui pondère à la fois par la taille et la variabilité de chaque strate</li>
+            <li>Le résultat le plus important que j'en retiens : savoir conclure honnêtement qu'une méthode plus complexe n'est pas toujours meilleure — ici, le plan simple restait le plus pertinent malgré la sophistication du plan optimal</li>
+          </ul>
+        </div>
+
+        <div class="sae-blk">
+          <div class="sae-blt">Outils utilisés</div>
+          <div class="sk-tags" style="gap:7px;">
+            <span class="sk-tag">R</span>
+            <span class="sk-tag">Allocation de Neyman</span>
+            <span class="sk-tag">Stratification</span>
+            <span class="sk-tag">Post-stratification</span>
+            <span class="sk-tag">Intervalles de confiance</span>
+            <span class="sk-tag">Données INSEE</span>
+          </div>
+        </div>
+
+        <div class="sae-blk">
+          <div class="sae-blt">Captures d'écran</div>
+          <div class="sae-img-grid">
+            <div class="img-ph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>À ajouter</span></div>
+            <div class="img-ph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>À ajouter</span></div>
+          </div>
+        </div>
+
+      </div></div>
+    </div>
+
+  </div>
 
 </section>
 
@@ -858,13 +1024,81 @@ footer strong{color:var(--g);}
 
   </div>
 </section>
+
+<div class="divider"></div>
+
+<!-- PASSEPORT CULTUREL -->
+<section id="culturel">
+  <div class="slabel">Ouverture internationale</div>
+  <div class="stitle">Passeport culturel</div>
+
+  <div class="culturel-intro">
+    <p>Dans le cadre de ma formation en BUT Science des Données, j'ai eu l'opportunité de participer à une <strong style="color:var(--g);font-weight:500;">semaine internationale</strong>, une expérience particulièrement enrichissante sur le plan académique et culturel.</p>
+    <p>Durant cette semaine, plusieurs enseignants étrangers — venus d'Espagne, d'Italie, de Lettonie, d'Albanie et du Portugal — sont intervenus pour proposer des cours entièrement dispensés en anglais, sur des thématiques en lien direct avec ma formation : data analyse, SQL, statistiques et programmation Python.</p>
+    <p>Cette immersion m'a permis de renforcer mon anglais professionnel, notamment le vocabulaire technique lié à la data, tout en consolidant des notions déjà vues mais abordées sous des méthodes différentes.</p>
+  </div>
+
+  <div class="culturel-grid">
+    <div class="culturel-card" style="--cc:#00c896;">
+      <div class="culturel-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+      <h3>Un environnement international</h3>
+      <p>Travailler dans un cadre où l'ensemble des échanges, supports et explications étaient en anglais m'a permis de suivre des raisonnements parfois complexes et de gagner en confiance à l'oral comme à l'écrit dans un contexte technique.</p>
+    </div>
+    <div class="culturel-card" style="--cc:#0096c7;">
+      <div class="culturel-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+      <h3>Des pédagogies différentes</h3>
+      <p>Chaque enseignant avait sa propre approche : certains privilégiaient la pratique avec des cas concrets, d'autres une approche théorique détaillée. Certains avançaient étape par étape, d'autres étaient très interactifs. J'ai compris qu'il n'existe pas une seule façon d'apprendre la data, mais plusieurs approches complémentaires.</p>
+    </div>
+    <div class="culturel-card" style="--cc:#7c3aed;">
+      <div class="culturel-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <h3>Travail en équipe internationale</h3>
+      <p>J'ai collaboré sur Power BI avec un camarade néerlandais et une camarade espagnole, sur un projet de suivi de performance d'un escape game (The Escape Game). Cette collaboration interculturelle m'a appris à confronter des méthodes de travail différentes et à communiquer efficacement en anglais sur un projet technique.</p>
+    </div>
+  </div>
+
+  <!-- PROJET POWER BI ESCAPE GAME -->
+  <div class="culturel-project">
+    <div class="culturel-project-header">
+      <div class="culturel-project-badge">Projet international · Power BI</div>
+      <h3>The Escape Game — Booking &amp; Forecast Analysis</h3>
+      <p>Dashboard de pilotage pour suivre la performance d'un réseau d'escape games : volume de réservations, taux de succès, prévisions de fréquentation et analyses par salle et par site.</p>
+    </div>
+    <div class="culturel-img-grid">
+      <img src="escape_1.png" class="sae-img" alt="Page d'accueil dashboard Escape Game" onclick="openLightbox(this)">
+      <img src="escape_2.png" class="sae-img" alt="Dashboard principal — réservations et performance" onclick="openLightbox(this)">
+      <img src="escape_3.png" class="sae-img" alt="Prévision des réservations sur 14 jours" onclick="openLightbox(this)">
+      <img src="escape_4.png" class="sae-img" alt="Prévisions par salle" onclick="openLightbox(this)">
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <section id="objectifs">
   <div class="slabel">Vision</div>
   <div class="stitle">Mes objectifs</div>
   <div class="obj-grid">
-    <div class="obj-card"><div class="obj-hor">Court terme</div><h3>Stage & BUT 2</h3><p>Décrocher un stage en data ou IA pour mettre en pratique mes compétences dans un environnement professionnel réel. Renforcer mes bases en machine learning et programmation avancée.</p></div>
-    <div class="obj-card"><div class="obj-hor">Moyen terme</div><h3>Post-BUT</h3><p>Intégrer une école d'ingénieur spécialisée en data science ou un master en intelligence artificielle, pour approfondir le machine learning et le NLP.</p></div>
-    <div class="obj-card"><div class="obj-hor">Long terme</div><h3>Ingénieure IA</h3><p>Devenir ingénieure ou spécialiste en intelligence artificielle — contribuer à des projets à fort impact dans un domaine en constante évolution.</p></div>
+    <div class="obj-card"><div class="obj-hor">Court terme</div><h3>Réussir mon BUT</h3><p>Renforcer mes bases en analyse de données, SQL, Python et statistiques. Développer ma capacité à comprendre et interpréter des données. Décrocher une expérience professionnelle (stage ou alternance) pour découvrir concrètement l'entreprise. Continuer à progresser en anglais technique.</p></div>
+    <div class="obj-card"><div class="obj-hor">Moyen terme</div><h3>Spécialisation en IA</h3><p>Poursuivre mes études pour me spécialiser en intelligence artificielle ou en analyse avancée de données. Acquérir des compétences plus poussées en modélisation et machine learning, et travailler sur des projets concrets à impact réel.</p></div>
+    <div class="obj-card"><div class="obj-hor">Long terme</div><h3>Experte en data</h3><p>Évoluer vers un métier dans la data où je pourrai analyser, comprendre et exploiter les données pour aider à la prise de décision. Atteindre un niveau d'expertise me permettant de travailler sur des projets complexes, dans des environnements innovants, voire à l'international.</p></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact" style="padding-bottom:60px;">
+  <div class="slabel" style="text-align:center;">Me contacter</div>
+  <div class="stitle" style="text-align:center;">Contact</div>
+  <div class="contact-wrap">
+    <a href="mailto:samahsalhi48@gmail.com" class="contact-item">
+      <div class="contact-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+      <span>samahsalhi48@gmail.com</span>
+    </a>
+    <a href="tel:0766722497" class="contact-item">
+      <div class="contact-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+      <span>07 66 72 24 97</span>
+    </a>
   </div>
 </section>
 
@@ -1022,7 +1256,7 @@ function toggleTheme(){
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{
   if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}
 }),{threshold:.07});
-document.querySelectorAll('.sk-card,.sae-card,.obj-card,.parc-item,.ac-item').forEach(el=>{
+document.querySelectorAll('.sk-card,.sae-card,.obj-card,.parc-item,.ac-item,.stage-comp-card,.culturel-card,.contact-item').forEach(el=>{
   el.style.opacity='0';el.style.transform='translateY(18px)';
   el.style.transition='opacity 0.5s ease,transform 0.5s ease,border-color .35s,background .35s';
   obs.observe(el);
